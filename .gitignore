@@ -12,6 +12,7 @@ files
 # production
 /build
 /public.zip
+/build.zip
 
 # misc
 .DS_Store

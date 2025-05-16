@@ -167,7 +167,7 @@ const BranchDirectory = () => {
         </div>
       </div>
 
-      <div className="w-full lg:w-2/3 h-[500px]">
+<div className="w-full lg:w-2/3 h-[300px] min-h-[300px] sm:min-h-[400px] md:min-h-[500px]">
         <MapContainer
           center={mapPosition}
           zoom={mapZoom}
