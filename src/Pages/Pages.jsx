@@ -37,6 +37,7 @@ const Pages = () => {
         <Route path="/stories" element={<PageWrapper><Stories /></PageWrapper>} />
         <Route path="/stories/:id" element={<PageWrapper><ArticleDetail /></PageWrapper>} />
         <Route path="/locator/" element={<PageWrapper><Locator /></PageWrapper>} />
+        <Route path="/contact-us/" element={<PageWrapper><Locator /></PageWrapper>} />
         <Route path="/privacy/" element={<PageWrapper><Privacy /></PageWrapper>} />
         <Route path="/notices/" element={<PageWrapper><Notices /></PageWrapper>} />
         <Route path="/notices/:id" element={<PageWrapper><NoticeDetails /></PageWrapper>} />
