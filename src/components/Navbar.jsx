@@ -105,7 +105,7 @@ function Navbar() {
 
   return (
     <div className="relative">
-      <div className="border-b h-[54px] border-gray-300 w-full flex items-center px-6 justify-between">
+      <div className="border-b h-[60px] border-gray-100 w-full flex items-center px-6 justify-between">
         <Link to={'/'}>
           <img src={logo} alt="Logo" className="w-36 h-12 object-contain" />
         </Link>
