@@ -1,0 +1,34 @@
+import React from "react";
+
+const Hero = ({image,text1}) => {
+  return (
+    <div className="relative h-[300px] md:h-[400px] overflow-hidden w-full border-t">
+      {/* Background Image */}
+      <img
+        src={image}
+        alt={`${text1}`}
+        className="absolute inset-0 w-full h-full object-cover rounded-t-3xl"
+      />
+
+      {/* Dark Overlay */}
+      <div className="absolute inset-0 bg-black bg-opacity-30 rounded-t-3xl" />
+
+      {/* Text Container */}
+      <div className="relative z-10 flex items-center h-full px-6 md:px-16">
+        <div className="relative">
+          {/* Faded Background Title */}
+          <h1 className="text-[72px] md:text-[100px] capitalize font-extrabold text-white/40 leading-none select-none">
+            {text1}
+          </h1>
+
+          {/* Foreground Title */}
+          <h2 className="absolute top-16 left-4 capitalize text-white text-3xl md:text-5xl font-bold">
+            {text1}
+          </h2>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Hero;
