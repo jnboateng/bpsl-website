@@ -4,6 +4,8 @@ import Hero from "./Hero";
 import AwardsGallery from "./AwardsGallery";
 import { useParams } from "react-router-dom";
 const heroBg="https://res.cloudinary.com/dinb6qtto/image/upload/v1747327037/fuelme/eunqurz5ywlilv9qris7.png"
+
+
 export const awards = [
   {
     id: 1,
