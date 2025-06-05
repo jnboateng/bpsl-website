@@ -4,36 +4,36 @@ const testimonials = [
   {
     id: 1,
     name: 'Sarah Johnson',
-    role: 'Marketing Director, TechCorp',
-    quote: 'This product completely transformed our workflow. The results were immediate and impressive.',
+    role: 'Small Business Owner, Johnson Retail',
+    quote: 'Best Point Savings and Loans gave my business the financial boost it needed. Their loan process was quick and stress-free.',
     avatar: 'https://randomuser.me/api/portraits/women/44.jpg'
   },
   {
     id: 2,
     name: 'Michael Chen',
-    role: 'Product Manager, InnovateX',
-    quote: 'Incredible value for the price. Our team productivity increased by 40% after implementation.',
+    role: 'Freelance Consultant',
+    quote: 'I’ve tried several banks, but Best Point stands out for their customer service and flexible savings plans.',
     avatar: 'https://randomuser.me/api/portraits/men/32.jpg'
   },
   {
     id: 3,
     name: 'Emma Rodriguez',
-    role: 'CTO, Digital Solutions',
-    quote: 'The support team is exceptional. They helped us customize the solution perfectly for our needs.',
+    role: 'Principal, Greenleaf School',
+    quote: 'Their education loan package helped dozens of our students stay in school. Truly a partner in community development.',
     avatar: 'https://randomuser.me/api/portraits/women/63.jpg'
   },
   {
     id: 4,
     name: 'David Wilson',
-    role: 'Founder, Startup Labs',
-    quote: 'We evaluated many options and this was clearly the best choice for our growing company.',
+    role: 'Founder, Wilson Agro Supplies',
+    quote: 'Best Point’s SME support has been crucial to our growth. Their team understands the needs of small businesses.',
     avatar: 'https://randomuser.me/api/portraits/men/71.jpg'
   },
   {
     id: 5,
     name: 'Priya Patel',
-    role: 'UX Lead, DesignHub',
-    quote: 'The intuitive interface made adoption seamless across our organization of 200+ employees.',
+    role: 'Accountant, Global Textiles Ltd.',
+    quote: 'Managing our corporate accounts has never been easier. Best Point offers great tools and a personal touch.',
     avatar: 'https://randomuser.me/api/portraits/women/50.jpg'
   }
 ];
