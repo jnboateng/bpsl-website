@@ -1,5 +1,5 @@
 // Pages.jsx
-import React from "react";
+import {useEffect} from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 
@@ -22,6 +22,10 @@ import PageWrapper from "../components/PageWrapper";
 import ProductsMain from "./ProductsMain";
 const Pages = () => {
   const location = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
 
   return (
     <AnimatePresence mode="wait">

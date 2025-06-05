@@ -11,7 +11,7 @@ export default function ArticleDetail() {
   const article = articles.find((a) => a.id === parseInt(id));
 
   if (!article) {
-    return <div className="p-6 text-red-500">Article not found.</div>;
+    return <div className="text-3xl md:text-4xl p-6 text-red-500">Article not found.</div>;
   }
 
   return (
@@ -19,7 +19,7 @@ export default function ArticleDetail() {
       <Hero image={article.image} text1={"Stories"} />
 
       <div className="flex flex-col sm:flex-row gap-x-4 lg:gap-x-12 mt-12 items-start px-4 sm:px-8 md:px-0">
-        <div className="bg-purple h-8 w-12 mb-2" />
+        <div className="bg-purple h-8 w-12 mb-2 text-3xl md:text-4xl" />
         {article.title &&
           (() => {
             const words = article.title.split(" ");

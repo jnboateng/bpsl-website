@@ -75,7 +75,6 @@ function Products() {
             className="grid lg:grid-cols-2 gap-10 items-start backdrop-blur-md rounded-3xl  p-10"
           >
             {/* Image Section */}
-            {/* Image Section */}
             <motion.div
               whileHover={{ scale: 1.03 }}
               className="rounded-3xl overflow-hidden shadow-xl w-full h-[300px] sm:h-[400px] lg:h-[500px] relative"
@@ -89,7 +88,7 @@ function Products() {
 
             {/* Text Section */}
             <div className="space-y-4">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800 bg-clip-text text-transparent bg-gradient-to-r from-purple-200 to-purple">
+              <h2 className="text-2xl md:text-4xl font-bold text-gray-800 bg-clip-text text-transparent bg-gradient-to-r from-purple-200 to-purple">
                 {card.title}
               </h2>
               <p className="uppercase  text-xs sm:text-sm tracking-widest text-purple-100">

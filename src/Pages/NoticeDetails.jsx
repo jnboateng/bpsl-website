@@ -14,7 +14,7 @@ function NoticeDetails() {
   if (!selectedNotice) {
     return (
       <div className="p-8">
-        <h1 className="text-xl text-red-500 font-semibold">Notice not found.</h1>
+        <h1 className="text-3xl md:text-4xl text-red-500 font-semibold">Notice not found.</h1>
         <Link to="/notices" className="text-purple-600 underline mt-4 inline-block">
           Go back to Notices
         </Link>

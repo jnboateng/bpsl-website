@@ -117,7 +117,7 @@ function Navbar() {
               <NavLink
                 to="/"
                 className={({ isActive }) =>
-                  `text-xs ${
+                  `text-sm ${
                     isActive ? "text-purple font-semibold" : "text-purple"
                   }`
                 }
@@ -129,7 +129,7 @@ function Navbar() {
               <NavLink
                 to="/about"
                 className={({ isActive }) =>
-                  `text-xs ${
+                  `text-sm ${
                     isActive ? "text-purple font-semibold" : "text-purple"
                   }`
                 }
@@ -147,7 +147,7 @@ function Navbar() {
                   setShowBankingMenu(!showBankingMenu);
                 }}
                 className={({ isActive }) =>
-                  `text-xs ${
+                  `text-sm ${
                     isActive ? "text-purple font-semibold" : "text-purple"
                   }`
                 }
@@ -164,7 +164,7 @@ function Navbar() {
               <NavLink
                 to="/careers"
                 className={({ isActive }) =>
-                  `text-xs ${
+                  `text-sm ${
                     isActive ? "text-purple font-semibold" : "text-purple"
                   }`
                 }
@@ -176,7 +176,7 @@ function Navbar() {
               <NavLink
                 to="/stories"
                 className={({ isActive }) =>
-                  `text-xs ${
+                  `text-sm ${
                     isActive ? "text-purple font-semibold" : "text-purple"
                   }`
                 }

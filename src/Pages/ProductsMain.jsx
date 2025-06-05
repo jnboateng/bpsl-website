@@ -3,7 +3,7 @@ import { NavLink, Link } from "react-router-dom";
 import Hero from "../components/About/Hero";
 import { cards } from "../components/Home/ProductsCarousel";
 
-const herobg="https://res.cloudinary.com/dinb6qtto/image/upload/v1747327037/fuelme/eunqurz5ywlilv9qris7.png"
+const herobg = "https://res.cloudinary.com/dinb6qtto/image/upload/v1747327037/fuelme/eunqurz5ywlilv9qris7.png";
 
 const categoryMap = {
   loans: "Loans",
@@ -15,15 +15,17 @@ const categoryMap = {
   business: "Business Banking",
 };
 
-const categories = ["All Products", ...new Set(cards.map(card => categoryMap[card.cat] || card.cat))];
+// Get unique categories from cards
+const uniqueCategories = [...new Set(cards.map(card => categoryMap[card.cat] || card.cat))];
+const defaultCategory = uniqueCategories[0]; // Use first category as default
 
 function ProductsMain() {
-  const [selectedCategory, setSelectedCategory] = useState("All Products");
+  const [selectedCategory, setSelectedCategory] = useState(defaultCategory);
   const [activeTab, setActiveTab] = useState("");
 
   // Filter cards by main category
   const filteredCards = cards.filter(card => {
-    return selectedCategory === "All Products" || categoryMap[card.cat] === selectedCategory;
+    return categoryMap[card.cat] === selectedCategory;
   });
 
   // Extract unique subcategories (used for tabs)
@@ -51,7 +53,7 @@ function ProductsMain() {
       <Hero image={herobg} text1={"Products"} />
       <div className="flex gap-x-16 items-center mt-12 mb-6">
         <div className="bg-purple h-8 w-12" />
-        <h2 className="text-3xl md:text-5xl font-bold capitalize text-purple-100">
+        <h2 className="text-3xl md:text-4xl font-bold capitalize text-purple-100">
           Our Products Catalog
         </h2>
       </div>
@@ -70,12 +72,12 @@ function ProductsMain() {
           {/* Sidebar */}
           <div className="w-full md:w-1/4">
             <ul className="space-y-3">
-              {categories.map(cat => (
+              {uniqueCategories.map(cat => (
                 <li
                   key={cat}
                   className={`cursor-pointer px-4 py-2 rounded ${
                     selectedCategory === cat
-                      ? "bg-purple-100 font-bold"
+                      ? "bg-purple-100 font-bold text-white"
                       : "hover:bg-purple-50"
                   }`}
                   onClick={() => setSelectedCategory(cat)}

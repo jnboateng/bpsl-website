@@ -2,7 +2,7 @@ import { useState } from "react";
 import { ChevronDown, ChevronUp } from "lucide-react";
 import { Link } from "react-router-dom";
 import Modal from "./Modal";
-const categories = ["All", "Articles", "Gallery", "Blog"];
+const categories = [ "Articles", "Gallery", "Blog"];
   export const articles = [
     {
       id: 1,
@@ -212,20 +212,18 @@ const categories = ["All", "Articles", "Gallery", "Blog"];
 ];
 
 export default function Articles() {
-  const [selectedCategory, setSelectedCategory] = useState("All");
-  const [activeMobileCategory, setActiveMobileCategory] = useState(null);
+  const [selectedCategory, setSelectedCategory] = useState("Articles");
+  const [activeMobileCategory, setActiveMobileCategory] = useState("Articles");
   const [selectedGallery, setSelectedGallery] = useState(null);
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
 
   const filteredArticles =
-    selectedCategory === "All"
-      ? articles
-      : articles.filter((article) => article.category === selectedCategory);
+    selectedCategory === "Articles"
+      ? articles.filter((article) => article.category == "Articles") : articles;
 
   const getArticlesByCategory = (cat) =>
-    cat === "All"
-      ? articles
-      : articles.filter((article) => article.category === cat);
+    cat === "Articles"
+    ? articles.filter((article) => article.category === cat) : articles;
 
   const openGalleryModal = (galleryItem, index = 0) => {
     setSelectedGallery(galleryItem);

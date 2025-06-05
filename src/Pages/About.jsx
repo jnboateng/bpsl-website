@@ -10,8 +10,6 @@ function About() {
     <div>
       <Hero image={heroBg} text1={"about us"}/>
       <AboutSection />
-      <AwardList />
-
     </div>
   )
 }

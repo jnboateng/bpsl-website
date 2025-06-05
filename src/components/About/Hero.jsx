@@ -1,8 +1,6 @@
-import React from "react";
-
 const Hero = ({image,text1}) => {
   return (
-    <div className="relative h-[300px] md:h-[400px] overflow-hidden w-full border-t">
+    <div className="relative h-[300px] md:h-[400px] overflow-hidden w-full ">
       {/* Background Image */}
       <img
         src={image}
@@ -11,7 +9,7 @@ const Hero = ({image,text1}) => {
       />
 
       {/* Dark Overlay */}
-      <div className="absolute inset-0 bg-black bg-opacity-30 rounded-t-3xl" />
+      <div className="absolute inset-0 bg-black bg-opacity-30 rounded-t-3xl overflow-hidden" />
 
       {/* Text Container */}
       <div className="relative z-10 flex items-center h-full px-6 md:px-16">

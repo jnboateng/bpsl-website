@@ -23,7 +23,7 @@ function CareerDetials() {
         <div className="bg-purple h-8 w-12 mb-2" />
         <>
           <UndoButton />
-          <h1 className="text-3xl md:text-3xl font-bold text-purple-200 leading-tight">
+          <h1 className="text-3xl md:text-4xl font-bold text-purple-200 leading-tight">
             {career.title}
           </h1>
         </>

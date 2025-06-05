@@ -3,7 +3,7 @@ import HeroCarousel from '../components/Home/HeroCarousel'
 import Stats from '../components/Home/Stats'
 import ProductsSection from '../components/Home/ProductsSection'
 import UssdBanner from '../components/Home/Ussdbanner'
-import ServicesSection from '../components/Home/ServicesSection'
+import MarqueeTestimonials from '../components/Home/Testimonials'
 
 function Landing() {
   return (
@@ -12,8 +12,7 @@ function Landing() {
       <Stats />
       <ProductsSection />
       <UssdBanner />
-      <ServicesSection />
-      
+      <MarqueeTestimonials />
     </div>
   )
 }

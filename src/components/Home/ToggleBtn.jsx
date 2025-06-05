@@ -15,13 +15,13 @@ const ToggleButtons = () => {
       {/* Buttons */}
       <button
         onClick={() => setActiveTab('account')}
-        className="text-xs text-white capitalize p-2 rounded-2xl z-10 w-32 text-center"
+        className="text-sm text-white capitalize p-2 rounded-2xl z-10 w-32 text-center"
       >
         <span>quick account</span>
       </button>
       <button
         onClick={() => setActiveTab('loan')}
-        className="text-xs text-white capitalize p-2 rounded-2xl z-10 w-32 text-center"
+        className="text-sm text-white capitalize p-2 rounded-2xl z-10 w-32 text-center"
       >
         <span>quick loan</span>
       </button>

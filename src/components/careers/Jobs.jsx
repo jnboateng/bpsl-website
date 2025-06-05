@@ -428,7 +428,7 @@ export default function OpenRoles() {
     <div id="jobs" className="min-h-screen">
       <div className="flex gap-x-12 items-center justify-start ">
         <div className="bg-purple h-8 w-12 mb-2" />
-        <h1 className="lg:text-6xl text-4xl font-bold text-purple-100 mb-4">Open Roles</h1>
+        <h1 className="text-3xl md:text-4xl font-bold text-purple-100 mb-4">Open Roles</h1>
       </div>
 
       {/* Mobile View */}

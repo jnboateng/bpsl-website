@@ -110,7 +110,7 @@ function Notices() {
       <Hero text1={"Notices"} />
       <div className="flex gap-x-4 lg:gap-x-12 items-center justify-start mt-12 ">
         <div className="bg-purple h-8 w-12 mb-2" />
-        <h1 className="text-3xl md:text-3xl font-bold text-purple-200 leading-tight w-1/2">
+        <h1 className="text-3xl md:text-4xl font-bold text-purple-200 leading-tight w-1/2">
           All Notices
         </h1>
         <div className="flex flex-col md:flex-row justify-between items-center bg-gray-100 gap-4 mb-6 border rounded-3xl px-1 py-1">
