@@ -52,7 +52,7 @@ const TestimonialCard = ({ testimonial, isMobile }) => {
       }}
       className={`${
         isMobile ? "w-[85vw]" : "w-full"
-      } mx-4 p-6 bg-gray-200 rounded-lg shadow-md h-full flex flex-col`}
+      } mx-4 p-6 bg-gray-100 rounded-lg shadow-md h-full flex flex-col`}
      
     >
       <div className="flex items-center mb-4">
@@ -102,7 +102,7 @@ const MarqueeTestimonials = () => {
 
   if (isMobile) {
     return (
-      <div className="max-w-7xl mx-auto px-4 py-12">
+      <div className="w-full mx-auto px-4 py-12">
         <h2 className="text-2xl font-bold text-center mb-8 text-gray-800">
           What Our Clients Say
         </h2>
