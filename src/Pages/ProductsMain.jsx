@@ -75,9 +75,9 @@ function ProductsMain() {
               {uniqueCategories.map(cat => (
                 <li
                   key={cat}
-                  className={`cursor-pointer px-4 py-2 rounded ${
+                  className={`cursor-pointer px-4 py-2 rounded-3xl ${
                     selectedCategory === cat
-                      ? "bg-purple-100 rounded-3xl font-bold text-white"
+                      ? "bg-purple-200 font-bold text-white"
                       : "hover:bg-purple-50"
                   }`}
                   onClick={() => setSelectedCategory(cat)}
