@@ -501,12 +501,12 @@ export default function OpenRoles() {
           <h2 className="text-gray-800 text-2xl font-bold mb-6">
             Browse By:
           </h2>
-          <ul className="space-y-4">
+          <ul className="space-y-2">
             {categories.map((cat) => (
               <li
                 key={cat}
                 onClick={() => setSelectedCategory(cat)}
-                className={`cursor-pointer ${
+                className={`bg-gray cursor-pointer ${
                   selectedCategory === cat
                     ? "text-gray-800 font-semibold"
                     : "text-black"

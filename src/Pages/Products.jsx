@@ -106,7 +106,7 @@ function Products() {
               </ul>
 
               <motion.p
-                className="text-sm text-justify md:text-left sm:text-base text-gray-600 leading-relaxed mt-4 border-t pt-4"
+                className="text-sm text-justify  sm:text-base text-gray-600 leading-relaxed mt-4 border-t pt-4"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.4 }}

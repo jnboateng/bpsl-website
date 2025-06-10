@@ -83,7 +83,7 @@ function Reports() {
       </div>
 
       <div className="mt-2 pl-2 md:pl-24 text-gray-600">
-        <span className="text-center md:text-left">
+        <span className="text-center ">
           A full archive of our strategic, financial, and operational reports.
         </span>
       </div>

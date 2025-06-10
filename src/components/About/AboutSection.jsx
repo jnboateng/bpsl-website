@@ -13,7 +13,7 @@ const AboutSection = () => {
             Who We Are
           </h2>
         </div>
-        <p className="mb-6 md:ml-28 ml-4 font-open-sans font-extralight text-justify md:text-left">
+        <p className="mb-6 md:ml-28 ml-4 font-open-sans font-extralight text-justify ">
           Best Point Savings and Loans Ltd (Best Point) is a wholly owned
           Ghanaian Company incorporated under the Companies Act 1963 (Act 179)
           on September 4th 2012. It was originally incorporated as Lucky Savings
@@ -21,7 +21,7 @@ const AboutSection = () => {
           was issued with a Certificate to Commence Business on October 8th
           2013.
         </p>
-        <p className="mb-6 md:ml-28 ml-4 font-open-sans font-extralight text-justify md:text-left">
+        <p className="mb-6 md:ml-28 ml-4 font-open-sans font-extralight text-justify ">
           Best Point Savings and Loans is licensed by Bank of Ghana to provide
           savings and loans services in accordance with the Non-Bank Financial
           Institutions Act, 2008 (Act 774). The license was issued on December
