@@ -44,10 +44,7 @@ export default function BuildingCarousel() {
         {/* Gradient overlay - fades top and bottom */}
         <div
           className="absolute inset-0 w-full h-full"
-          // style={{
-          //   background:
-          //     "linear-gradient(to bottom, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0.6) 20%, rgba(255,255,255,0) 80%, rgba(255,255,255,0.3) 100%)",
-          // }}
+          
         ></div>
       </div>
 
@@ -55,7 +52,7 @@ export default function BuildingCarousel() {
         {/* Left Arrow */}
         <button
           onClick={prevSlide}
-          className="absolute left-4 bg-purple-800 text-white rounded-full p-2 hover:bg-purple-700 z-10"
+          className="absolute left-4 bg-purple-200 text-white rounded-full p-2 hover:bg-purple-100 z-10"
         >
           <ChevronLeft size={20} />
         </button>
@@ -73,7 +70,7 @@ export default function BuildingCarousel() {
             <h2 className="text-2xl font-bold text-gray-800">{title}</h2>
             <p className="text-gray-700">{description}</p>
             <p className="font-bold text-gray-700">{amount}</p>
-            <button className="mt-3 bg-purple-800 hover:bg-purple-700 text-white px-4 py-2 rounded-lg">
+            <button className="mt-3 bg-purple-200 hover:bg-purple-100 text-white px-4 py-2 rounded-lg">
               {buttonText}
             </button>
           </div>
@@ -83,7 +80,7 @@ export default function BuildingCarousel() {
         {/* Right Arrow */}
         <button
           onClick={nextSlide}
-          className="absolute right-4 bg-purple-800 text-white rounded-full p-2 hover:bg-purple-700 z-10"
+          className="absolute right-4 bg-purple-200 text-white rounded-full p-2 hover:bg-purple-100 z-10"
         >
           <ChevronRight size={20} />
         </button>
