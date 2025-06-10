@@ -34,7 +34,7 @@ export default function BuildingCarousel() {
   const { title, description, amount, buttonText, image } = slides[current];
 
   return (
-    <div className="flex items-center py-12 justify-center  min-h-[250px] relative overflow-hidden">
+    <div className="flex items-center py-12 justify-center  min-h-[500px] relative overflow-hidden">
       {/* Background image with gradient overlay */}
       <div className="absolute inset-0 w-full h-full">
         <div
