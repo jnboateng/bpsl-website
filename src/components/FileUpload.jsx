@@ -4,7 +4,7 @@ export default function FileUpload({file,setFile}) {
 
   return (
     <div>
-      <label className="block text-sm font-medium text-purple-100 mb-1">
+      <label className="block text-sm font-medium text-gray-800  mb-1">
         Attach documents *
       </label>
       <div className="mt-1 flex justify-center px-6 pt-5 pb-6 border border-dashed border-purple-100 rounded-md bg-purple-50">
@@ -27,7 +27,7 @@ export default function FileUpload({file,setFile}) {
           <div className="flex flex-col items-center text-sm text-purple-600">
             <label
               htmlFor="file-upload"
-              className="relative cursor-pointer bg-white rounded-md font-medium text-purple-100 hover:text-purple-200 focus-within:outline-none px-4 py-2"
+              className="relative cursor-pointer bg-white rounded-md font-medium text-gray-800  hover:text-purple-200 focus-within:outline-none px-4 py-2"
             >
               {file ? (
                 <div className="flex items-center gap-2">

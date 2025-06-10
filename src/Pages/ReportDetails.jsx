@@ -24,7 +24,7 @@ function ReportDetails() {
       <Hero text1={"Annual Report"} />
       <div className="flex gap-x-4 lg:gap-x-12 items-center justify-start mt-12 px-8">
         <div className="bg-purple h-8 w-12 mb-2" />
-        <h1 className="text-3xl md:text-4xl font-bold text-purple-200 leading-tight">
+        <h1 className="text-3xl md:text-4xl font-bold text-gray-800  leading-tight">
           {report.title}
         </h1>
       </div>

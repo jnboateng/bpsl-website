@@ -23,7 +23,7 @@ function CareerDetials() {
         <div className="bg-purple h-8 w-12 mb-2" />
         <>
           <UndoButton />
-          <h1 className="text-3xl md:text-4xl font-bold text-purple-200 leading-tight">
+          <h1 className="text-3xl md:text-4xl font-bold text-gray-800 leading-tight">
             {career.title}
           </h1>
         </>
@@ -35,7 +35,7 @@ function CareerDetials() {
             {/* Left Side */}
             <div className="flex flex-col gap-y-4 flex-wrap">
               {/* Category Tag */}
-              <h4 className="bg-white w-fit text-purple text-xs font-semibold px-3 py-1 mb-2 rounded-lg">
+              <h4 className="bg-white w-fit text-gray-800 text-xs font-semibold px-3 py-1 mb-2 rounded-lg">
                 {career.category}
               </h4>
 
@@ -79,7 +79,7 @@ function CareerDetials() {
 
           {/* Description Section */}
           <div className="py-12">
-            <h2 className="text-purple-100 text-2xl font-bold mb-6">
+            <h2 className="text-gray-800  text-2xl font-bold mb-6">
               Description
             </h2>
             <p className="text-gray-700 font-open-sans leading-relaxed text-base">
@@ -92,7 +92,7 @@ function CareerDetials() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 p-6 pl-4 md:pl-24">
         {/* Skills */}
         <div>
-          <h2 className="text-2xl font-bold text-purple-100 mb-4">Skills</h2>
+          <h2 className="text-2xl font-bold text-gray-800  mb-4">Skills</h2>
           <ul className="space-y-2">
             {career.skills.map((skill, index) => (
               <li key={index} className="flex items-center gap-2">
@@ -109,7 +109,7 @@ function CareerDetials() {
 
         {/* Responsibilities */}
         <div>
-          <h2 className="text-2xl font-bold text-purple-100 mb-4">
+          <h2 className="text-2xl font-bold text-gray-800  mb-4">
             Responsibilities
           </h2>
           <ul className="space-y-2">
@@ -126,7 +126,7 @@ function CareerDetials() {
 
         {/* Qualification */}
         <div>
-          <h2 className="text-2xl font-bold text-purple-100 mb-4">
+          <h2 className="text-2xl font-bold text-gray-800  mb-4">
             Qualification
           </h2>
           <ul className="space-y-2">
@@ -142,7 +142,7 @@ function CareerDetials() {
 
           {/* Industry Certifications */}
           <div className="mt-6">
-            <h3 className="text-lg font-semibold mb-2">
+            <h3 className="text-lg font-semibold mb-2 text-gray-800">
               Industry certifications such as:
             </h3>
             <ul className="space-y-2">
@@ -162,7 +162,7 @@ function CareerDetials() {
 
         {/* Salary & Benefits */}
         <div>
-          <h2 className="text-2xl font-bold text-purple-100 mb-4">
+          <h2 className="text-2xl font-bold text-gray-800  mb-4">
             Salary & Benefits
           </h2>
           <ul className="space-y-2">
@@ -180,19 +180,19 @@ function CareerDetials() {
         </div>
       </div>
       <div className="w-full md:w-2/5 pl-4 md:pl-24">
-        <h1 className="text-xl font-semibold text-purple-100 mb-2 ">
+        <h1 className="text-xl font-semibold text-gray-800  mb-2 ">
           Apply Via Email
         </h1>
         <p className="text-sm my-2">
           If you need to send us a mail regarding job opportunities, please
           write to us at{" "}
-          <span className="text-purple underline">info@bestpointgh.com</span>
+          <span className="text-gray-800 underline">info@bestpointgh.com</span>
           for more information.
         </p>
       </div>
       <div ref={applyRef} id="apply" className="flex gap-x-4 lg:gap-x-12 items-center justify-start my-12">
         <div className="bg-purple h-8 w-12 mb-2" />
-        <h1 className="text-3xl md:text-4xl font-semibold text-purple-200 leading-tight">
+        <h1 className="text-3xl md:text-4xl font-semibold text-gray-800 leading-tight">
           Submit Application
         </h1>
       </div>

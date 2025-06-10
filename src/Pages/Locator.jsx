@@ -117,10 +117,10 @@ function Locator() {
       <div className="flex gap-x-4 lg:gap-x-12 items-center justify-start mt-12 ">
         <div className="bg-purple h-8 w-12 mb-2" />
         <div className="text-center w-full capitalize">
-          <h1 className="text-3xl md:text-3xl font-bold text-purple-200 leading-tight">
+          <h1 className="text-3xl md:text-3xl font-bold text-gray-800  leading-tight">
             We are here to assist and serve you
           </h1>
-          <h1 className="text-3xl md:text-3xl font-bold text-purple-200 leading-tight">
+          <h1 className="text-3xl md:text-3xl font-bold text-gray-800  leading-tight">
             Locate the closest Branch near you
           </h1>
         </div>

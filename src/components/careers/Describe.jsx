@@ -7,11 +7,11 @@ function Describe() {
         <div className="absolute top-8 flex flex-col sm:flex-row gap-6 sm:gap-x-16 justify-start w-full items-center sm:items-start">
           <div className="bg-purple mt-2 h-8 w-12" />
           <div className="w-full text-center lg:text-left lg:w-[80vw] ">
-            <h2 className="text-3xl md:text-4xl font-semibold text-purple-200">
+            <h2 className="text-3xl md:text-4xl font-semibold text-gray-800">
               Discover <span className="text-purple">Exciting </span>
               Career
             </h2>
-            <h2 className="text-3xl sm:text-5xl font-bold text-purple-200 mb-4">
+            <h2 className="text-3xl sm:text-5xl font-bold text-gray-800 mb-4">
               Opportunities at <span className="text-purple">Best point</span>
             </h2>
             <span className="text-base sm:text-2xl font-extralight">

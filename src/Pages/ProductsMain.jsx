@@ -53,7 +53,7 @@ function ProductsMain() {
       <Hero image={herobg} text1={"Products"} />
       <div className="flex gap-x-16 items-center mt-12 mb-6">
         <div className="bg-purple h-8 w-12" />
-        <h2 className="text-3xl md:text-4xl font-bold capitalize text-purple-100">
+        <h2 className="text-3xl md:text-4xl font-bold capitalize text-gray-800 ">
           Our Products Catalog
         </h2>
       </div>
@@ -65,7 +65,7 @@ function ProductsMain() {
       </div>
 
       <div className="p-6 md:p-12">
-        <h2 className="text-xl md:text-2xl font-bold text-purple-200 mb-4">
+        <h2 className="text-xl md:text-2xl font-bold text-gray-800  mb-4">
           Category:
         </h2>
         <div className="flex flex-col md:flex-row gap-6">
@@ -98,7 +98,7 @@ function ProductsMain() {
                     key={sub}
                     className={`px-6 py-2 rounded-full whitespace-nowrap ${
                       activeTab === sub
-                        ? "bg-gradient-to-b from-purple to-purple-100 text-purple-200"
+                        ? "bg-gradient-to-b from-purple to-purple-100 text-gray-800 "
                         : ""
                     }`}
                     onClick={() => setActiveTab(sub)}
@@ -125,7 +125,7 @@ function ProductsMain() {
                     />
                   </div>
                   <div className="p-4">
-                    <h3 className="font-bold text-purple-200 text-lg">
+                    <h3 className="font-bold text-gray-800  text-lg">
                       {card.title}
                     </h3>
                     <p className="text-xs text-gray-600 line-clamp-2">

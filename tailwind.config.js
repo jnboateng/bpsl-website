@@ -37,7 +37,8 @@ module.exports = {
           'sans-serif'
         ],
       },
-      
+
+
       fontWeight: {
         // Extended weight scale (100-900)
         thin: 100,

@@ -32,12 +32,9 @@ const Footer = () => {
         {/* Top Grid */}
         <div className="grid grid-cols-2 md:grid-cols-6 gap-8">
           {/* Logo & Pledge */}
-          <div className="col-span-1 md:col-span-1">
+          <div className="col-span-1 md:col-span-1 flex items-center">
             <img src={logo} alt="BestPoint Logo" className="mb-4" />
-            <p className="text-sm leading-relaxed">
-              Our pledge is that whatever you dream of, we will endeavor to work
-              with you to realize it within our available products and services.
-            </p>
+           
           </div>
 
           {/* Quick Links */}
@@ -45,32 +42,32 @@ const Footer = () => {
             <h4 className="font-bold mb-3">Quick Links</h4>
             <ul className="space-y-2">
               <li>
-                <Link to="/about" className="font-thin text-xs">
+                <Link to="/about" className="font-thin text-xs hover:font-light">
                   About Us
                 </Link>
               </li>
               <li>
-                <Link to="/contact-us" className="font-thin text-xs">
+                <Link to="/contact-us" className="font-thin text-xs hover:font-light">
                   Contact Us
                 </Link>
               </li>
               <li>
-                <Link to="/products" className="font-thin text-xs">
+                <Link to="/products" className="font-thin text-xs hover:font-light">
                   Products
                 </Link>
               </li>
               <li>
-                <Link to="/careers" className="font-thin text-xs">
+                <Link to="/careers" className="font-thin text-xs hover:font-light">
                   Careers
                 </Link>
               </li>
               <li>
-                <Link to="/stories" className="font-thin text-xs">
+                <Link to="/stories" className="font-thin text-xs hover:font-light">
                   Stories
                 </Link>
               </li>
               <li>
-                <NavLink to="/locator" className="font-thin text-xs">
+                <NavLink to="/locator" className="font-thin text-xs hover:font-light">
                   Branch Locator
                 </NavLink>
               </li>
@@ -84,30 +81,30 @@ const Footer = () => {
               <li>
                 <Link
                   to="/products/transfers/western union"
-                  className="font-thin text-xs"
+                  className="font-thin text-xs hover:font-light"
                 >
                   Western Union
                 </Link>
               </li>
               <li>
-                <Link to="/products/transfers/moneygram" className="font-thin text-xs">
+                <Link to="/products/transfers/moneygram" className="font-thin text-xs hover:font-light">
                   MoneyGram
                 </Link>
               </li>
               <li>
-                <Link to="/products/transfers/ria" className="font-thin text-xs">
+                <Link to="/products/transfers/ria" className="font-thin text-xs hover:font-light">
                   Ria
                 </Link>
               </li>
               <li>
-                <Link to="/products/transfers/unitylink" className="font-thin text-xs">
+                <Link to="/products/transfers/unitylink" className="font-thin text-xs hover:font-light">
                   UnityLink
                 </Link>
               </li>
               <li>
                 <Link
                   to="/products/transfers/mobile money services"
-                  className="font-thin text-xs"
+                  className="font-thin text-xs hover:font-light"
                 >
                   Mobile Money
                 </Link>
@@ -120,18 +117,18 @@ const Footer = () => {
             <h4 className="font-bold mb-3">Legal</h4>
             <ul className="space-y-2">
               <li>
-                <Link to="/privacy" className="font-thin text-xs">
+                <Link to="/privacy" className="font-thin text-xs hover:font-light">
                   Privacy Policy
                 </Link>
               </li>
 
               <li>
-                <Link to="/reports" className="font-thin text-xs">
+                <Link to="/reports" className="font-thin text-xs hover:font-light">
                   Annual Report
                 </Link>
               </li>
               <li>
-                <Link to="/notices" className="font-thin text-xs">
+                <Link to="/notices" className="font-thin text-xs hover:font-light">
                   BoG Notices
                 </Link>
               </li>
@@ -141,8 +138,8 @@ const Footer = () => {
           {/* Socials */}
           <div className="z-10">
             <h4 className="font-bold mb-3">Socials</h4>
-            <Link to={`/stories`}><p className="mb-2 font-thin text-xs">News Blog</p></Link>
-            <Link to={`/award/1`}><p className="mb-2 font-thin text-xs">Awards</p>
+            <Link to={`/stories`}><p className="mb-2 font-thin text-xs hover:font-light">News Blog</p></Link>
+            <Link to={`/award/1`}><p className="mb-2 font-thin text-xs hover:font-light">Awards</p>
 </Link>            <div className="grid grid-cols-3 grid-rows-2 gap-y-2 text-lg w-3/5">
               <FaFacebookF className="bg-gradient-to-b from-purple to-purple-200 p-2 rounded-full w-6 h-6 md:w-8 md:h-8" />
               <FaInstagram className="bg-gradient-to-b from-purple to-purple-200 p-2 rounded-full w-6 h-6 md:w-8 md:h-8" />

@@ -3,8 +3,10 @@ import { useParams } from "react-router-dom";
 import Hero from "../components/About/Hero";
 import { cards } from "../components/Home/ProductsCarousel";
 import { motion } from "framer-motion";
+import UndoButton from "../components/UndoButton";
 
-const heroBg="https://res.cloudinary.com/dinb6qtto/image/upload/v1747327037/fuelme/eunqurz5ywlilv9qris7.png"
+const heroBg =
+  "https://res.cloudinary.com/dinb6qtto/image/upload/v1747327037/fuelme/eunqurz5ywlilv9qris7.png";
 
 const cardDetails = {
   "Salary Loans":
@@ -65,7 +67,9 @@ function Products() {
   return (
     <div className="bg-gradient-to-br from-indigo-50 via-white to-blue-100 min-h-screen">
       <Hero image={heroBg} text1={card?.title || "Product"} />
-
+      <div className="p-6">
+        <UndoButton />
+      </div>
       {card ? (
         <div className="max-w-6xl mx-auto px-4 py-16">
           <motion.div
@@ -88,10 +92,10 @@ function Products() {
 
             {/* Text Section */}
             <div className="space-y-4">
-              <h2 className="text-2xl md:text-4xl font-bold text-gray-800 bg-clip-text text-transparent bg-gradient-to-r from-purple-200 to-purple">
+              <h2 className="text-2xl md:text-4xl font-bold text-gray-800 bg-clip-text text-transparent bg-gradient-to-r from-gray-800 to-gray-600">
                 {card.title}
               </h2>
-              <p className="uppercase  text-xs sm:text-sm tracking-widest text-purple-100">
+              <p className="uppercase  text-xs sm:text-sm tracking-widest text-gray-800 ">
                 {card.cat}
               </p>
 

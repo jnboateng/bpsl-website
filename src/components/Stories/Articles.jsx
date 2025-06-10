@@ -272,9 +272,9 @@ export default function Articles() {
     <div id="articles" className="min-h-screen mt-16">
       <div className="flex gap-x-4 lg:gap-x-12 items-center justify-start ">
         <div className="bg-purple h-8 w-12 mb-2" />
-        <h1 className="text-xl md:text-4xl font-semibold text-purple-200 leading-tight">
+        <h1 className="text-xl md:text-4xl font-semibold text-gray-800  leading-tight">
           Welcome to Our <br />
-          <span className="text-purple-200 font-bold md:text-center">
+          <span className="text-gray-800  font-bold md:text-center">
             Stories, Articles & Gallery
           </span>
         </h1>
@@ -282,7 +282,7 @@ export default function Articles() {
 
       {/* Mobile View */}
       <div className="block md:hidden px-4 pb-10">
-        <h2 className="text-purple-100 text-lg md:text-xl font-bold mb-4">Browse By:</h2>
+        <h2 className="text-gray-800  text-lg md:text-xl font-bold mb-4">Browse By:</h2>
 
         {/* Horizontal Category List */}
         <div className="flex space-x-4 overflow-x-auto pb-2 scrollbar-hide">
@@ -357,7 +357,7 @@ export default function Articles() {
                   <span className="bg-purple text-white text-xs font-medium px-3 py-1 rounded-md mb-2 inline-block">
                     {article.category}
                   </span>
-                  <h3 className="text-base text-purple-100 font-semibold mb-1">
+                  <h3 className="text-base text-gray-800  font-semibold mb-1">
                     {article.title}
                   </h3>
                   <p className="text-xs text-gray-600 mb-3 line-clamp-2">
@@ -388,7 +388,7 @@ export default function Articles() {
       {/* Desktop View */}
       <div className="hidden md:flex flex-col md:flex-row px-20 py-12 gap-10">
         <aside className="md:w-1/4">
-          <h2 className="text-purple-100 text-2xl font-bold mb-6">
+          <h2 className="text-gray-800  text-2xl font-bold mb-6">
             Browse By:
           </h2>
           <ul className="space-y-4">
@@ -398,7 +398,7 @@ export default function Articles() {
                 onClick={() => setSelectedCategory(cat)}
                 className={`cursor-pointer ${
                   selectedCategory === cat
-                    ? "text-purple-100 font-semibold"
+                    ? "text-gray-800  font-semibold"
                     : "text-black"
                 }`}
               >

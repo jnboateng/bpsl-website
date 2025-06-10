@@ -40,7 +40,7 @@ const testimonials = [
 
 const TestimonialCard = ({ testimonial, isMobile }) => {
   return (
-    <div className={`${isMobile ? 'w-[85vw]' : 'w-full'} mx-4 p-6 bg-white rounded-lg shadow-md h-full flex flex-col`}>
+    <div className={`${isMobile ? 'w-[85vw]' : 'w-full'} mx-4 p-6 bg-gray-200 rounded-lg shadow-md h-full flex flex-col`}>
       <div className="flex items-center mb-4">
         <img 
           src={testimonial.avatar} 
@@ -87,7 +87,7 @@ const MarqueeTestimonials = () => {
   if (isMobile) {
     return (
       <div className="max-w-7xl mx-auto px-4 py-12">
-        <h2 className="text-2xl font-bold text-center mb-8 text-purple-200">What Our Clients Say</h2>
+        <h2 className="text-2xl font-bold text-center mb-8 text-gray-800">What Our Clients Say</h2>
         
         <div className="relative overflow-hidden h-72">
           <div className="flex transition-transform duration-300 ease-in-out" 
@@ -137,7 +137,7 @@ const MarqueeTestimonials = () => {
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-12">
-      <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-purple-200">What Our Clients Say</h2>
+      <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-800">What Our Clients Say</h2>
       
       {/* First marquee (left) - Desktop view with 3 visible */}
       <div className="relative overflow-hidden py-4 mb-8 h-50">

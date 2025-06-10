@@ -26,7 +26,7 @@ function Privacy() {
       <Hero text1={"Privacy Policy"}/>
       <div className="flex gap-x-4 lg:gap-x-12 items-center justify-start mt-12 ">
         <div className="bg-purple h-8 w-12 mb-2" />
-        <h1 className="text-3xl md:text-4xl font-bold text-purple-200 leading-tight">
+        <h1 className="text-3xl md:text-4xl font-bold text-gray-800  leading-tight">
           Our Privacy Policy
         </h1>
       </div>
@@ -45,7 +45,7 @@ function Privacy() {
                 className="w-full flex items-center justify-between p-4 text-left"
                 onClick={() => toggleSection("collection")}
               >
-                <div className="flex items-center text-purple-200">
+                <div className="flex items-center text-gray-800 ">
                   {expandedSections.collection ? (
                     <ChevronDown size={20} />
                   ) : (
@@ -98,7 +98,7 @@ function Privacy() {
                 className="w-full flex items-center justify-between p-4 text-left"
                 onClick={() => toggleSection("consent")}
               >
-                <div className="flex items-center text-purple-200">
+                <div className="flex items-center text-gray-800 ">
                   {expandedSections.consent ? (
                     <ChevronDown size={20} />
                   ) : (
@@ -138,7 +138,7 @@ function Privacy() {
                 className="w-full flex items-center justify-between p-4 text-left"
                 onClick={() => toggleSection("thirdParties")}
               >
-                <div className="flex items-center text-purple-200">
+                <div className="flex items-center text-gray-800 ">
                   {expandedSections.thirdParties ? (
                     <ChevronDown size={20} />
                   ) : (
@@ -169,7 +169,7 @@ function Privacy() {
                 className="w-full flex items-center justify-between p-4 text-left"
                 onClick={() => toggleSection("storing")}
               >
-                <div className="flex items-center text-purple-200">
+                <div className="flex items-center text-gray-800 ">
                   {expandedSections.storing ? (
                     <ChevronDown size={20} />
                   ) : (
@@ -196,7 +196,7 @@ function Privacy() {
                 className="w-full flex items-center justify-between p-4 text-left"
                 onClick={() => toggleSection("security")}
               >
-                <div className="flex items-center text-purple-200">
+                <div className="flex items-center text-gray-800 ">
                   {expandedSections.security ? (
                     <ChevronDown size={20} />
                   ) : (
@@ -231,7 +231,7 @@ function Privacy() {
                 className="w-full flex items-center justify-between p-4 text-left"
                 onClick={() => toggleSection("marketing")}
               >
-                <div className="flex items-center text-purple-200">
+                <div className="flex items-center text-gray-800 ">
                   {expandedSections.marketing ? (
                     <ChevronDown size={20} />
                   ) : (

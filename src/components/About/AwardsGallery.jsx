@@ -40,7 +40,7 @@ export default function AwardsGallery() {
         <>
           <UndoButton />
           <div className="hidden md:block">
-            <h1 className="text-xl md:text-3xl font-bold text-purple-200 leading-tight">
+            <h1 className="text-xl md:text-3xl font-bold text-gray-800 leading-tight">
               {selectedAward.title}
             </h1>
             <div className="mt-2">

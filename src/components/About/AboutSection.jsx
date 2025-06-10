@@ -9,7 +9,7 @@ const AboutSection = () => {
       <section className="mb-16 w-[90vw]">
         <div className=" flex gap-x-16 items-center mb-6">
           <div className="bg-purple h-8 w-12" />
-          <h2 className="text-3xl md:text-4xl font-bold text-purple-100 ">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 ">
             Who We Are
           </h2>
         </div>
@@ -32,7 +32,7 @@ const AboutSection = () => {
       <section className="mb-16 w-[90vw]">
         <div className=" flex gap-x-16 items-center mb-6">
           <div className="bg-purple h-8 w-12" />
-          <h2 className="text-3xl md:text-4xl font-bold text-purple-100 ">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 ">
             Corporate Identity
           </h2>
         </div>
@@ -101,10 +101,10 @@ const AboutSection = () => {
           <div className="flex gap-x-16 mb-6">
             <div className="bg-purple h-8 w-12" />
             <div className="w-[300px] mr-6">
-              <h2 className="text-2xl font-semibold text-purple-100">
+              <h2 className="text-2xl font-semibold text-gray-800">
                 What we
               </h2>
-              <h2 className="text-3xl md:text-4xl font-bold text-purple-100">
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-800">
                 Stand For
               </h2>
             </div>

@@ -1,6 +1,6 @@
 const Hero = ({image,text1}) => {
   return (
-    <div className="relative h-[300px] md:h-[400px] overflow-hidden w-full ">
+    <div className="relative h-[300px] md:h-[250px] overflow-hidden w-full ">
       {/* Background Image */}
       <img
         src={image}

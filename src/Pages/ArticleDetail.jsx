@@ -45,12 +45,12 @@ export default function ArticleDetail() {
             return (
               <>
                 <UndoButton />
-                <h1 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-purple-200 leading-tight">
+                <h1 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-gray-800 leading-tight">
                   {topWords.join(" ")}
                   {bottomWords.length > 0 && (
                     <>
                       <br />
-                      <span className="text-purple-200 font-bold">
+                      <span className="text-gray-800 font-bold">
                         {bottomWords.join(" ")}
                       </span>
                     </>

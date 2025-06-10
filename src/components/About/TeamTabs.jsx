@@ -357,7 +357,7 @@ export default function TeamSection() {
     <section className="mb-16 w-full h-[60vh] md:h-screen">
       <div className="flex gap-x-16 items-center mb-6">
         <div className="bg-purple h-8 w-12" />
-        <h2 className="text-3xl md:text-4xl font-bold capitalize text-purple-100">
+        <h2 className="text-3xl md:text-4xl font-bold capitalize text-gray-800">
           Meet The team
         </h2>
       </div>
@@ -375,7 +375,7 @@ export default function TeamSection() {
                   }}
                   className={`w-full text-left px-4 py-3 rounded-lg capitalize font-medium transition-colors ${
                     activeTab === tab
-                      ? "bg-purple bg-opacity-10 text-purple  border-purple"
+                      ? "bg-purple bg-opacity-10 text-gray-800   border-purple"
                       : "text-gray-600 hover:bg-gray-100"
                   }`}
                 >
@@ -409,7 +409,7 @@ export default function TeamSection() {
         </div>
       </div>
       <div className="block md:hidden px-4 pb-10">
-        <h2 className="text-purple-100 text-xl font-bold mb-4">Browse By:</h2>
+        <h2 className="text-gray-800 text-xl font-bold mb-4">Browse By:</h2>
 
         {/* Horizontal Category Buttons */}
         <div className="flex space-x-4  overflow-x-auto pb-2 scrollbar-hide">
@@ -447,7 +447,7 @@ export default function TeamSection() {
                     alt={member.name}
                     className="w-full h-48 object-fill rounded-md mb-3"
                   />
-                  <h3 className="text-base text-purple-100 font-semibold mb-1">
+                  <h3 className="text-base text-gray-800 font-semibold mb-1">
                     {member.name}
                   </h3>
                   <p className="text-sm text-gray-600 mb-2">

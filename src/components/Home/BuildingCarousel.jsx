@@ -3,7 +3,8 @@ import { useState } from "react";
 import image1 from "../../images/footer vectors/ph.png";
 import image2 from "../../images/footer vectors/mg.png";
 
-const building = "https://res.cloudinary.com/dinb6qtto/image/upload/v1747330904/ptjmdd2zra9hzwjybbw1.png"
+const building =
+  "https://res.cloudinary.com/dinb6qtto/image/upload/v1747330904/ptjmdd2zra9hzwjybbw1.png";
 const slides = [
   {
     title: "Open an Account Today",
@@ -36,10 +37,22 @@ export default function BuildingCarousel() {
 
   return (
     <div className="flex items-center py-12 justify-center bg-cover bg-center min-h-[250px] relative overflow-hidden">
-      <div
-        className="absolute inset-0 w-full h-full bg-cover bg-no-repeat"
-        style={{ backgroundImage: `url(${building})` }}
-      ></div>
+      {/* Background image with gradient overlay */}
+      <div className="absolute inset-0 w-full h-full">
+        <div
+          className="w-full h-full bg-cover bg-no-repeat"
+          style={{ backgroundImage: `url(${building})` }}
+        ></div>
+        {/* Gradient overlay - fades top and bottom */}
+        <div
+          className="absolute inset-0 w-full h-full"
+          style={{
+            background:
+              "linear-gradient(to bottom, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0) 20%, rgba(255,255,255,0) 80%, rgba(255,255,255,0.8) 100%)",
+          }}
+        ></div>
+      </div>
+
       <div className="bg-white z-10 rounded-xl shadow-md flex items-center w-[90%] max-w-5xl p-4 md:p-6 space-x-4">
         {/* Left Arrow */}
         <button
@@ -59,9 +72,9 @@ export default function BuildingCarousel() {
 
           {/* Text Content */}
           <div className="flex-1 text-center md:text-right">
-            <h2 className="text-2xl font-bold text-purple-800">{title}</h2>
+            <h2 className="text-2xl font-bold text-gray-800">{title}</h2>
             <p className="text-gray-700">{description}</p>
-            <p className="font-bold text-purple-700">{amount}</p>
+            <p className="font-bold text-gray-700">{amount}</p>
             <button className="mt-3 bg-purple-800 hover:bg-purple-700 text-white px-4 py-2 rounded-lg">
               {buttonText}
             </button>

@@ -428,12 +428,12 @@ export default function OpenRoles() {
     <div id="jobs" className="min-h-screen">
       <div className="flex gap-x-12 items-center justify-start ">
         <div className="bg-purple h-8 w-12 mb-2" />
-        <h1 className="text-3xl md:text-4xl font-bold text-purple-100 mb-4">Open Roles</h1>
+        <h1 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Open Roles</h1>
       </div>
 
       {/* Mobile View */}
       <div className="block md:hidden px-6 pb-10">
-        <h2 className="text-purple-100 text-2xl font-bold mb-6">Browse By:</h2>
+        <h2 className="text-gray-800 text-2xl font-bold mb-6">Browse By:</h2>
         <ul className="space-y-4">
           {categories.map((cat) => (
             <li key={cat}>
@@ -448,16 +448,16 @@ export default function OpenRoles() {
                 <span
                   className={`${
                     activeMobileCategory === cat
-                      ? "text-purple-100 font-semibold"
+                      ? "text-gray-800 font-semibold"
                       : "text-black"
                   }`}
                 >
                   {cat}
                 </span>
                 {activeMobileCategory === cat ? (
-                  <ChevronUp className="w-4 h-4 text-purple-100" />
+                  <ChevronUp className="w-4 h-4 text-gray-800" />
                 ) : (
-                  <ChevronDown className="w-4 h-4 text-purple-100" />
+                  <ChevronDown className="w-4 h-4 text-gray-800" />
                 )}
               </div>
               {activeMobileCategory === cat && (
@@ -470,10 +470,10 @@ export default function OpenRoles() {
                       <span className="bg-purple text-white text-xs font-medium px-3 py-1 rounded-md w-fit mb-2">
                         {role.category}
                       </span>
-                      <h3 className="text-lg text-purple-100 font-semibold mb-1">
+                      <h3 className="text-lg text-gray-800 font-semibold mb-1">
                         {role.title}
                       </h3>
-                      <div className="flex flex-wrap gap-4 text-sm text-purple-100 mb-3">
+                      <div className="flex flex-wrap gap-4 text-sm text-gray-800 mb-3">
                         <span className="flex items-center gap-1">
                           <MapPin className="w-4 h-4" />
                           {role.location}
@@ -498,7 +498,7 @@ export default function OpenRoles() {
       {/* Desktop View */}
       <div className="hidden md:flex flex-col md:flex-row px-20 py-12 gap-10">
         <aside className="md:w-1/4">
-          <h2 className="text-purple-100 text-2xl font-bold mb-6">
+          <h2 className="text-gray-800 text-2xl font-bold mb-6">
             Browse By:
           </h2>
           <ul className="space-y-4">
@@ -508,7 +508,7 @@ export default function OpenRoles() {
                 onClick={() => setSelectedCategory(cat)}
                 className={`cursor-pointer ${
                   selectedCategory === cat
-                    ? "text-purple-100 font-semibold"
+                    ? "text-gray-800 font-semibold"
                     : "text-black"
                 }`}
               >
@@ -532,10 +532,10 @@ export default function OpenRoles() {
                 <span className="bg-purple text-white text-xs font-medium px-3 py-1 rounded-md inline-block mb-2">
                   {role.category}
                 </span>
-                <h3 className="text-2xl text-purple-100 font-semibold mb-1">
+                <h3 className="text-2xl text-gray-800 font-semibold mb-1">
                   {role.title}
                 </h3>
-                <div className="flex items-center text-purple-100 gap-4 text-sm">
+                <div className="flex items-center text-gray-800 gap-4 text-sm">
                   <div className="flex items-center gap-1">
                     <MapPin className="w-4 h-4" /> {role.location}
                   </div>

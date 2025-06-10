@@ -72,7 +72,7 @@ function Stats() {
   return (
     <div className="h-[60vh] flex flex-col justify-center items-center overflow-hidden px-4">
       <motion.h1 
-        className="text-3xl md:text-4xl font-open-sans font-bold mb-12 md:mb-24 text-purple-200 text-center"
+        className="text-3xl md:text-4xl font-open-sans font-bold mb-12 md:mb-24 text-gray-800 text-center"
         variants={titleAnim}
         initial="hidden"
         whileInView="show"
@@ -94,7 +94,7 @@ function Stats() {
             <img src={users} alt="Happy clients" className="w-16 md:w-20 h-16 md:h-20 object-contain" />
           </motion.div>
           <div className="flex flex-col items-center space-y-1">
-            <motion.span variants={statTopAnim} className="text-2xl md:text-3xl font-bold text-purple-200">292,887</motion.span>
+            <motion.span variants={statTopAnim} className="text-2xl md:text-3xl font-bold text-gray-800">292,887</motion.span>
             <motion.span variants={statBottomAnim} className="text-sm md:text-xl font-open-sans font-normal text-gray-700">Happy Clients</motion.span>
           </div>
         </motion.div>
@@ -105,7 +105,7 @@ function Stats() {
             <img src={map} alt="Branches" className="w-16 md:w-20 h-16 md:h-20 object-contain" />
           </motion.div>
           <div className="flex flex-col items-center space-y-1">
-            <motion.span variants={statTopAnim} className="text-2xl md:text-3xl font-bold text-purple-200">19</motion.span>
+            <motion.span variants={statTopAnim} className="text-2xl md:text-3xl font-bold text-gray-800">19</motion.span>
             <motion.span variants={statBottomAnim} className="text-sm md:text-xl font-open-sans font-normal text-gray-700">Branches</motion.span>
           </div>
         </motion.div>
@@ -116,9 +116,8 @@ function Stats() {
             <img src={world} alt="Services" className="w-16 md:w-20 h-16 md:h-20 object-contain" />
           </motion.div>
           <div className="flex flex-col items-center space-y-1">
-            <motion.span variants={statTopAnim} className="text-2xl md:text-3xl font-open-sans font-bold text-purple-200">24/7</motion.span>
-            <motion.span variants={statBottomAnim} className="text-sm md:text-xl font-open-sans font-normal text-gray-700">Up and Running</motion.span>
-            <motion.span variants={statBottomAnim} className="text-sm md:text-xl font-open-sans font-normal text-gray-700">USSD Service</motion.span>
+            <motion.span variants={statTopAnim} className="text-2xl md:text-3xl font-open-sans font-bold text-gray-800">24/7</motion.span>
+            <motion.span variants={statBottomAnim} className="text-sm md:text-xl font-open-sans font-normal text-gray-700">Ussd Ready</motion.span>
           </div>
         </motion.div>
       </motion.div>
