@@ -31,7 +31,7 @@ const BranchDirectory = () => {
   const [expandedBranch, setExpandedBranch] = useState(null);
   const [currentPage, setCurrentPage] = useState(0);
   const [selectedBranch, setSelectedBranch] = useState(null);
-  const branchesPerPage = 7;
+  const branchesPerPage = 5;
 
   const regionBranches = branches[selectedRegion] || [];
   const paginatedBranches = regionBranches.slice(

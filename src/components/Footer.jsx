@@ -13,6 +13,7 @@ import {
 import logo from "../images/logo/logo-p.png";
 import bgMap from "../images/footer vectors/map-bg.png";
 import wire from "../images/footer vectors/wire.png";
+import bog from "../images/logo/bog.png"
 import { Link, NavLink } from "react-router-dom";
 
 const phone =
@@ -183,12 +184,12 @@ const Footer = () => {
               <p className="mb-2 font-thin text-xs hover:font-light">Awards</p>
             </Link>{" "}
             <div className="grid grid-cols-3 grid-rows-2 gap-y-2 text-lg w-3/5">
-              <FaFacebookF className="bg-gradient-to-b from-purple to-purple-200 p-2 rounded-full w-6 h-6 md:w-8 md:h-8" />
-              <FaInstagram className="bg-gradient-to-b from-purple to-purple-200 p-2 rounded-full w-6 h-6 md:w-8 md:h-8" />
-              <FaTiktok className="bg-gradient-to-b from-purple to-purple-200 p-2 rounded-full w-6 h-6 md:w-8 md:h-8" />
-              <FaYoutube className="bg-gradient-to-b from-purple to-purple-200 p-2 rounded-full w-6 h-6 md:w-8 md:h-8" />
-              <FaTwitter className="bg-gradient-to-b from-purple to-purple-200 p-2 rounded-full w-6 h-6 md:w-8 md:h-8" />
-              <FaLinkedin className="bg-gradient-to-b from-purple to-purple-200 p-2 rounded-full w-6 h-6 md:w-8 md:h-8" />
+              <FaFacebookF className="bg-gradient-to-b from-purple to-purple-200 p-2 rounded-full w-6 h-6 md:w-8 md:h-8 hover:bg-gradient-to-tr" />
+              <FaInstagram className="bg-gradient-to-b from-purple to-purple-200 p-2 rounded-full w-6 h-6 md:w-8 md:h-8 hover:bg-gradient-to-tr" />
+              <FaTiktok className="bg-gradient-to-b from-purple to-purple-200 p-2 rounded-full w-6 h-6 md:w-8 md:h-8 hover:bg-gradient-to-tr" />
+              <FaYoutube className="bg-gradient-to-b from-purple to-purple-200 p-2 rounded-full w-6 h-6 md:w-8 md:h-8 hover:bg-gradient-to-tr" />
+              <FaTwitter className="bg-gradient-to-b from-purple to-purple-200 p-2 rounded-full w-6 h-6 md:w-8 md:h-8 hover:bg-gradient-to-tr" />
+              <FaLinkedin className="bg-gradient-to-b from-purple to-purple-200 p-2 rounded-full w-6 h-6 md:w-8 md:h-8 hover:bg-gradient-to-tr" />
             </div>
           </div>
 
@@ -213,7 +214,7 @@ const Footer = () => {
 
           {/* Phone */}
           <div className="flex space-x-4 items-start">
-            <div className="bg-gradient-to-b from-purple to-purple-200 p-2 rounded-full">
+            <div className="bg-gradient-to-b from-purple to-purple-200 hover:bg-gradient-to-tr p-2 rounded-full">
               <FaPhoneAlt className="text-white" />
             </div>
             <div>
@@ -225,7 +226,7 @@ const Footer = () => {
 
           {/* Visit */}
           <div className="flex space-x-4 items-start">
-            <div className="bg-gradient-to-b from-purple to-purple-200 p-2 rounded-full">
+            <div className="bg-gradient-to-b from-purple to-purple-200 hover:bg-gradient-to-tr p-2 rounded-full">
               <FaMapMarkerAlt className="text-white" />
             </div>
             <div>
@@ -237,7 +238,7 @@ const Footer = () => {
 
           {/* Email */}
           <div className="flex space-x-4 items-start md:col-span-1">
-            <div className="bg-gradient-to-b from-purple to-purple-200 p-2 rounded-full">
+            <div className="bg-gradient-to-b from-purple to-purple-200 hover:bg-gradient-to-tr p-2 rounded-full">
               <FaEnvelope className="text-white" />
             </div>
             <div>
@@ -253,7 +254,9 @@ const Footer = () => {
 
         {/* Bottom Bar */}
         <div className="flex flex-col md:flex-row justify-between items-center text-xs text-white/70 gap-3">
-          <p>Powered by IT</p>
+          <div className="">
+<img src={bog} alt="BOG LOGO" className="w-8 h-8 rounded-full"/>
+          </div>
           <p>
             Copyright © 2025 – All Rights Reserved Best Point Savings and Loans
             Limited
