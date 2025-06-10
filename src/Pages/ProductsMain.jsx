@@ -77,7 +77,7 @@ function ProductsMain() {
                   key={cat}
                   className={`cursor-pointer px-4 py-2 rounded ${
                     selectedCategory === cat
-                      ? "bg-purple-100 font-bold text-white"
+                      ? "bg-purple-100 rounded-3xl font-bold text-white"
                       : "hover:bg-purple-50"
                   }`}
                   onClick={() => setSelectedCategory(cat)}
