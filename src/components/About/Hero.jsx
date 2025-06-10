@@ -2,7 +2,7 @@ import banner from "../../images/logo/hero-banner.svg"
 
 const Hero = ({image,text1}) => {
   return (
-    <div className="relative h-[300px] md:h-[270px] overflow-hidden w-full ">
+    <div className="relative h-[300px] md:h-[250px] overflow-hidden w-full ">
       {/* Background Image */}
       <img
         src={banner}
@@ -11,7 +11,7 @@ const Hero = ({image,text1}) => {
       />
 
       {/* Dark Overlay */}
-      <div className="absolute inset-0 bg-black bg-opacity-30 rounded-t-3xl overflow-hidden" />
+      {/* <div className="absolute inset-0 bg-black bg-opacity-30 rounded-t-3xl overflow-hidden" /> */}
 
       {/* Text Container */}
       <div className="relative z-10 flex items-center h-full px-6 md:px-16">
