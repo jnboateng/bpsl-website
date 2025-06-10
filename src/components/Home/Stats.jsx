@@ -174,7 +174,7 @@ function Stats() {
               variants={statBottomAnim}
               className="text-sm md:text-xl font-open-sans font-normal text-gray-700 group-hover:text-purple transition-colors"
             >
-              Ussd Ready
+              USSD Ready
             </motion.span>
           </div>
         </motion.div>
