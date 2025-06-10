@@ -273,10 +273,8 @@ export default function Articles() {
       <div className="flex gap-x-4 lg:gap-x-12 items-center justify-start ">
         <div className="bg-purple h-8 w-12 mb-2" />
         <h1 className="text-xl md:text-4xl font-semibold text-gray-800  leading-tight">
-          Welcome to Our <br />
-          <span className="text-gray-800  font-bold md:text-center">
-            Stories, Articles & Gallery
-          </span>
+           Our Articles, Gallery & Blogs 
+          
         </h1>
       </div>
 

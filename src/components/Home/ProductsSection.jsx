@@ -17,7 +17,7 @@ function ProductsSection() {
       <div className="relative z-10 h-full flex items-center">
         <div className=" absolute top-3 flex gap-x-4 md:gap-x-16 justify-between h-16 mb-24">
           <div className="bg-purple mt-2 h-8 w-12" />
-          <h2 className="text-3xl md:text-4xl font-bold mb-24 text-center text-gray-800">Products</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-24 text-center text-gray-800">Smart Financial Solutions, Just for You</h2>
         </div>
 
         {/* Your content */}
