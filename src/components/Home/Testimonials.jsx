@@ -52,7 +52,7 @@ const TestimonialCard = ({ testimonial, isMobile }) => {
       }}
       className={`${
         isMobile ? "w-[85vw]" : "w-full"
-      } mx-4 p-6 bg-gray-100 rounded-lg shadow-md h-full flex flex-col`}
+      } mx-4 p-6 bg-gray-100 rounded-lg h-full flex flex-col`}
      
     >
       <div className="flex items-center mb-4">
@@ -125,7 +125,7 @@ const MarqueeTestimonials = () => {
           {/* Navigation Arrows */}
           <button
             onClick={prevTestimonial}
-            className="absolute left-2 top-1/2 -translate-y-1/2 bg-white/80 rounded-full p-2 shadow-md z-10"
+            className="absolute left-2 top-1/2 -translate-y-1/2 bg-white/80 rounded-full p-2 z-10"
             aria-label="Previous testimonial"
           >
             <svg
