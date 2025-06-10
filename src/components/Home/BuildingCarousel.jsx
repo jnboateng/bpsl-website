@@ -48,7 +48,7 @@ export default function BuildingCarousel() {
           className="absolute inset-0 w-full h-full"
           style={{
             background:
-              "linear-gradient(to bottom, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0) 20%, rgba(255,255,255,0) 80%, rgba(255,255,255,0.3) 100%)",
+              "linear-gradient(to bottom, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0.6) 20%, rgba(255,255,255,0) 80%, rgba(255,255,255,0.3) 100%)",
           }}
         ></div>
       </div>
