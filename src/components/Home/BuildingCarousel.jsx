@@ -2,9 +2,7 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useState } from "react";
 import image1 from "../../images/footer vectors/ph.png";
 import image2 from "../../images/footer vectors/mg.png";
-
-const building =
-  "https://res.cloudinary.com/dinb6qtto/image/upload/v1747330904/ptjmdd2zra9hzwjybbw1.png";
+import building from "../../images/logo/footer-banner.svg"
 const slides = [
   {
     title: "Open an Account Today",
@@ -36,20 +34,20 @@ export default function BuildingCarousel() {
   const { title, description, amount, buttonText, image } = slides[current];
 
   return (
-    <div className="flex items-center py-12 justify-center bg-cover bg-center min-h-[250px] relative overflow-hidden">
+    <div className="flex items-center py-12 justify-center  min-h-[250px] relative overflow-hidden">
       {/* Background image with gradient overlay */}
       <div className="absolute inset-0 w-full h-full">
         <div
-          className="w-full h-full bg-cover bg-no-repeat"
+          className="w-full h-full bg-cover bg-center bg-no-repeat"
           style={{ backgroundImage: `url(${building})` }}
         ></div>
         {/* Gradient overlay - fades top and bottom */}
         <div
           className="absolute inset-0 w-full h-full"
-          style={{
-            background:
-              "linear-gradient(to bottom, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0.6) 20%, rgba(255,255,255,0) 80%, rgba(255,255,255,0.3) 100%)",
-          }}
+          // style={{
+          //   background:
+          //     "linear-gradient(to bottom, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0.6) 20%, rgba(255,255,255,0) 80%, rgba(255,255,255,0.3) 100%)",
+          // }}
         ></div>
       </div>
 
