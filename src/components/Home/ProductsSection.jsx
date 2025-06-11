@@ -21,7 +21,7 @@ function ProductsSection() {
         </div>
 
         {/* Your content */}
-        <div className="w-full  lg:w-[50vw]">
+        <div className="w-full  lg:w-[40vw]">
             <Carousel />
         </div>
       </div>

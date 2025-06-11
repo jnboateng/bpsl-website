@@ -288,7 +288,7 @@ export default function MovingCarousel() {
 
   return (
     <div className="w-full m-2 md:ml-16 mt-16 py-12 px-4">
-      <div className="w-[92vw] md:w-[55vw] mx-auto">
+      <div className="w-[92vw] md:w-[48vw] mx-auto">
         <div className="relative h-[27rem] mt-12 flex items-center justify-center overflow-hidden">
           {/* Card container */}
           <div className="w-72 h-full relative">
