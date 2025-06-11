@@ -107,6 +107,9 @@ function UssdBannerDesktop() {
           <p class="text-[120px] text-white font-bold leading-none my-2">
             *277#
           </p>
+          {/* <p class="text-sm text-white font-light max-w-md">
+           Essential banking services in a single dail
+          </p> */}
           <p class="text-sm text-white font-light max-w-md">
             No internet? No problem! Our USSD banking solution provides access
             to essential financial services anywhere, anytime.
