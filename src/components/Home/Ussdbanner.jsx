@@ -2,9 +2,10 @@ import React from "react";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { CheckCircle } from "lucide-react";
-import phone from "../../images/footer vectors/Group 11.png"
+import phone from "../../images/footer vectors/Group 11.png";
 
-const bgPhone ="https://res.cloudinary.com/dinb6qtto/image/upload/v1747327026/fuelme/skwirty3fuvgggxncotn.png"
+const bgPhone =
+  "https://res.cloudinary.com/dinb6qtto/image/upload/v1747327026/fuelme/skwirty3fuvgggxncotn.png";
 function UssdBannerMobile() {
   const controls = useAnimation();
   const [ref, inView] = useInView({ threshold: 0.1, triggerOnce: true });
@@ -96,13 +97,20 @@ function UssdBannerDesktop() {
     <div className="hidden md:flex items-center mx-2 h-[85vh]">
       <div className="relative w-[100vw] min-w-[700px] mx-auto h-[300px] text-white p-8 rounded-3xl flex justify-between">
         <div
-          className="absolute inset-0 w-[78vw] left-24 h-full bg-cover overflow-hidden bg-no-repeat rounded-3xl"
+          className="absolute inset-0 w-[76vw] left-24 h-full bg-cover overflow-hidden bg-no-repeat rounded-3xl"
           style={{ backgroundImage: `url(${bgPhone})` }}
         ></div>
 
         {/* Text */}
-        <div className="max-w-2xl z-10">
-          
+        <div class="max-w-2xl mx-auto z-10 flex flex-col pr-80 items-center justify-center text-center">
+          <h1 class="text-4xl text-white font-bold mb-2">DIAL</h1>
+          <p class="text-[120px] text-white font-bold leading-none my-2">
+            *277#
+          </p>
+          <p class="text-sm text-white font-light max-w-md">
+            No internet? No problem! Our USSD banking solution provides access
+            to essential financial services anywhere, anytime.
+          </p>
         </div>
 
         {/* Image */}
