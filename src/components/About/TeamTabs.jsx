@@ -259,96 +259,20 @@ export default function TeamSection() {
     });
   };
 
-  const renderTeamMember = (member, index, rowIdx, rowLength) => {
-    const isHovered = index === hoveredIndex;
-    const isFirstInRow = index % rowLength === 0;
-    const isLastInRow = index % rowLength === rowLength - 1;
-
-    // Only consider hover interactions within the same row
-    const isHoverInSameRow =
-      hoveredIndex !== null && Math.floor(hoveredIndex / rowLength) === rowIdx;
-
-    const isAdjacentToHovered =
-      isHoverInSameRow &&
-      (index === hoveredIndex - 1 || index === hoveredIndex + 1);
-
-    // Determine width based on hover state
-    let width;
-    if (isFirstInRow) {
-      if (hoveredIndex === null) {
-        width = EXPANDED_WIDTH;
-      } else if (isHovered) {
-        width = EXPANDED_WIDTH;
-      } else if (isHoverInSameRow) {
-        width = CONTRACTED_WIDTH;
-      } else {
-        width = EXPANDED_WIDTH;
-      }
-    } else {
-      width = isHovered ? EXPANDED_WIDTH : DEFAULT_WIDTH;
-    }
-
-    // Calculate xOffset for push/pull effect (only within same row)
-    let xOffset = 0;
-    if (isHoverInSameRow && isAdjacentToHovered) {
-      const direction = index < hoveredIndex ? -1 : 1;
-      xOffset = (direction * (EXPANDED_WIDTH - DEFAULT_WIDTH)) / 6;
-    }
-
-    // Special case: first item should push right when second item is hovered
-    if (isFirstInRow && isHoverInSameRow && hoveredIndex === index + 1) {
-      xOffset = (EXPANDED_WIDTH - DEFAULT_WIDTH) / 6;
-    }
-
-    // Determine if caption should be visible
-    const showCaption =
-      (isFirstInRow && (hoveredIndex === null || isHovered)) ||
-      (!isFirstInRow && isHovered);
-
+  const renderTeamMember = (member, index) => {
+   
     return (
       <Link to={`/about/${member.id}`}>
-        <motion.div
+        <div
           key={index}
           className="relative overflow-hidden rounded-lg cursor-pointer h-64 flex-shrink-0"
-          onMouseEnter={() => setHoveredIndex(index)}
-          onMouseLeave={() => setHoveredIndex(null)}
-          layout
-          style={{
-            width,
-            transformOrigin: isLastInRow ? "right center" : "center",
-          }}
-          transition={{ type: "spring", stiffness: 300, damping: 30 }}
-          animate={{
-            x: xOffset,
-            zIndex: isHovered ? 10 : 1,
-          }}
-          whileHover={{
-            zIndex: 10,
-          }}
         >
           <img
             src={member.image}
             alt={member.name}
-            className="w-full h-full object-fill"
+            className="w-full h-full object-cover"
           />
-
-          <AnimatePresence>
-            {showCaption && (
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: 20 }}
-                transition={{ duration: 0.3 }}
-                className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4"
-              >
-                <div className="flex justify-between items-center text-white">
-                  <h3 className="font-medium">{member.name}</h3>
-                  <p className="text-sm opacity-80">{member.position}</p>
-                </div>
-              </motion.div>
-            )}
-          </AnimatePresence>
-        </motion.div>
+        </div>
       </Link>
     );
   };

@@ -42,7 +42,7 @@ const AboutSection = () => {
               className="absolute inset-0 w-full h-full bg-contain bg-no-repeat bg-right"
               style={{ backgroundImage: `url(${bg})` }}
             />
-            <p className="text-sm md:text-lg font-semibold">
+            <p className="text-sm md:text-lg text-justify font-light">
               <img
                 src={marks}
                 alt="quotation marks"
@@ -55,12 +55,12 @@ const AboutSection = () => {
               Our Mission
             </span>
           </div>
-          <div className="bg-purple-100 text-white p-6 rounded-xl relative min-h-[180px] col-span-3">
+          <div className="bg-purple-100 text-white p-6 rounded-xl relative min-h-[220px] col-span-3">
             <div
               className="absolute inset-0 w-full h-full bg-contain bg-no-repeat bg-right"
               style={{ backgroundImage: `url(${bg})` }}
             />
-            <p className="text-sm md:text-lg font-semibold">
+            <p className="text-sm md:text-lg text-justify font-light">
             <img
                 src={marks}
                 alt="quotation marks"
@@ -79,7 +79,7 @@ const AboutSection = () => {
               className="absolute inset-0 w-full h-full bg-contain bg-no-repeat bg-right"
               style={{ backgroundImage: `url(${bg})` }}
             />
-            <p className="text-sm md:text-lg font-semibold">
+            <p className="text-sm md:text-lg text-justify font-light">
             <img
                 src={marks}
                 alt="quotation marks"
