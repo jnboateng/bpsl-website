@@ -64,7 +64,7 @@ const HeroCarousel = () => {
     setCurrentIndex(index);
   };
   return (
-    <div className="min-h-screen w-full flex flex-col sm:flex-row items-center justify-center  sm:gap-x-2 px-6">
+    <div className="min-h-screen w-full pt-12 flex flex-col sm:flex-row items-center justify-center  sm:gap-x-2 px-6">
       {/* Left Box - Text Content */}
       <div className="w-full sm:w-1/2 h-auto sm:h-full flex items-center justify-center">
         <div className="w-full sm:w-[46vw] max-w-[700px] h-[50vh] sm:h-[85vh] bg-gray-100 rounded-3xl  overflow-hidden relative">
