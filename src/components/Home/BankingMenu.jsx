@@ -33,7 +33,7 @@ const BankingMenu = () => {
         <nav>
           <ul className="space-y-2">
             <li className="font-medium text-lg px-2">Digital Banking</li>
-            <li><Link to={"/products/digital/ussd service (*277#)"} className="block text-sm px-2 hover:bg-white/90 rounded-lg transition-transform duration-300 hover:scale-[1.03]">USSD Service (*277#)</Link></li>
+            <li><Link to={"/products/digital/ussd"} className="block text-sm px-2 hover:bg-white/90 rounded-lg transition-transform duration-300 hover:scale-[1.03]">USSD Service (*277#)</Link></li>
           </ul>
         </nav>
 

@@ -117,12 +117,23 @@ function Locator() {
       <div className="flex gap-x-4 lg:gap-x-12 items-center justify-start mt-12 ">
         <div className="bg-purple h-8 w-12 mb-2" />
         <div className="text-center w-full capitalize">
-          <h1 className="text-3xl md:text-3xl font-bold text-gray-800  leading-tight">
-            We are here to assist and serve you
-          </h1>
+     
           <h1 className="text-3xl md:text-3xl font-bold text-gray-800  leading-tight">
             Locate the closest Branch near you
           </h1>
+        </div>
+      </div>
+      
+      <div className="relative z-0 h-screen mt-6">
+        {/* Background - prevent pointer events with pointer-events-none */}
+        <div
+          className="absolute z-0 inset-0 w-full opacity-45 h-full bg-cover bg-no-repeat bg-right pointer-events-none"
+          style={{ backgroundImage: `url(${bgMap})` }}
+        />
+
+        {/* Content - ensure higher z-index and proper positioning */}
+        <div className="relative z-10 h-full">
+          <BranchDirectory />
         </div>
       </div>
       <div className="bg-gradient-to-r from-purple-200 to-purple-300 h-[420px] md:h-48 w-2/3 mx-auto mt-24 rounded-3xl relative p-6">
@@ -172,18 +183,6 @@ function Locator() {
               </div>
             </div>
           </div>
-        </div>
-      </div>
-      <div className="relative z-0 h-screen mt-6">
-        {/* Background - prevent pointer events with pointer-events-none */}
-        <div
-          className="absolute z-0 inset-0 w-full opacity-45 h-full bg-cover bg-no-repeat bg-right pointer-events-none"
-          style={{ backgroundImage: `url(${bgMap})` }}
-        />
-
-        {/* Content - ensure higher z-index and proper positioning */}
-        <div className="relative z-10 h-full">
-          <BranchDirectory />
         </div>
       </div>
     </div>

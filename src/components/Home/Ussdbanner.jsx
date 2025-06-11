@@ -3,7 +3,7 @@ import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { CheckCircle } from "lucide-react";
 import phone from "../../images/footer vectors/Group 11.png";
-
+import { NavLink } from "react-router-dom";
 const bgPhone =
   "https://res.cloudinary.com/dinb6qtto/image/upload/v1747327026/fuelme/skwirty3fuvgggxncotn.png";
 function UssdBannerMobile() {
@@ -95,25 +95,28 @@ function UssdBannerDesktop() {
 
   return (
     <div className="hidden md:flex items-center mx-2 h-[85vh]">
-      <div className="relative w-[100vw] min-w-[700px] mx-auto h-[300px] text-white p-8 rounded-3xl flex justify-between">
+      <div className="relative w-[100vw] min-w-[700px] mx-auto h-[320px] text-white p-8 rounded-3xl flex justify-between">
         <div
           className="absolute inset-0 w-[76vw] left-24 h-full bg-cover overflow-hidden bg-no-repeat rounded-3xl"
           style={{ backgroundImage: `url(${bgPhone})` }}
         ></div>
 
         {/* Text */}
-        <div class="max-w-2xl mx-auto z-10 flex flex-col pr-80 items-center justify-center text-center">
-          <h1 class="text-4xl text-white font-bold mb-2">DIAL</h1>
-          <p class="text-[120px] text-white font-bold leading-none my-2">
+        <div class="max-w-2xl mx-auto z-10 pr-80 flex flex-col items-center justify-center text-center">
+          <h1 class="text-4xl text-white font-bold">DIAL</h1>
+          <p class="text-[120px] text-white font-bold leading-none ">
             *277#
           </p>
-          {/* <p class="text-sm text-white font-light max-w-md">
-           Essential banking services in a single dail
-          </p> */}
-          <p class="text-sm text-white font-light max-w-md">
+          <p class="text-sm text-white font-light max-w-md mb-4">
             No internet? No problem! Our USSD banking solution provides access
             to essential financial services anywhere, anytime.
           </p>
+          <button class="bg-white text-purple hover:bg-purple opacity-85 hover:text-white font-medium py-2 px-6 rounded-3xl transition-colors duration-200 shadow-sm">
+            <NavLink to={"/products/digital/ussd service (*277#)"}>
+
+            Learn More
+            </NavLink>
+          </button>
         </div>
 
         {/* Image */}
@@ -121,7 +124,7 @@ function UssdBannerDesktop() {
           <motion.img
             src={phone}
             alt="USSD App on Phone"
-            className="w-[500px] absolute h-auto object-cover right-0 bottom-0"
+            className="w-[600px] absolute h-auto object-cover right-0 bottom-0"
             initial="hidden"
             animate={controls}
             variants={phoneVariants}
