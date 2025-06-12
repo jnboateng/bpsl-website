@@ -1,4 +1,3 @@
-import React from "react";
 import marks from "../../images/general icons/marks.png";
 import TeamSection from "./TeamTabs";
 

@@ -109,16 +109,16 @@ const HeroCarousel = () => {
 
       {/* Right Box - Image Content */}
       <div className="w-full sm:w-1/2 h-auto sm:h-full flex items-center justify-center">
-        <div className="w-full sm:w-[46vw] max-w-[700px] h-[50vh] sm:h-[85vh] bg-white rounded-3xl  overflow-hidden relative">
+        <div className="w-full sm:w-[46vw] max-w-[700px] h-[50vh] sm:h-[85vh] rounded-3xl overflow-hidden relative">
           <AnimatePresence mode="sync">
             <motion.img
               key={currentIndex}
               src={carouselData[currentIndex].image}
               alt={carouselData[currentIndex].title}
-              initial={{ x: 300, opacity: 0 }}
+              initial={{ x: 1000, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
-              exit={{ x: -300, opacity: 0 }}
-              transition={{ duration: 0.5, ease: "easeInOut" }}
+              exit={{ x: -1000, opacity: 0 }}
+              transition={{ duration: 0.5, ease: "linear" }}
               className="w-full h-full object-cover rounded-xl"
             />
           </AnimatePresence>
