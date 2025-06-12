@@ -71,7 +71,7 @@ function Stats() {
   };
 
   return (
-    <div className="h-[60vh] flex flex-col justify-center items-center overflow-hidden px-4">
+    <div className="h-screen md:h-[60vh] flex flex-col justify-center items-center overflow-hidden px-4">
       <motion.h1
         className="text-3xl md:text-4xl font-open-sans font-bold mb-12 md:mb-24 text-gray-800 text-center"
         variants={titleAnim}

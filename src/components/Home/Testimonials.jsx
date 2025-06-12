@@ -189,7 +189,7 @@ const MarqueeTestimonials = () => {
       </h2>
 
       {/* First marquee (left) - Desktop view with 3 visible */}
-      <div className="relative overflow-hidden py-4 mb-8 h-50">
+      <div className="relative overflow-hidden py-4 mb-2 h-50">
         <div className="flex animate-marquee-left items-stretch h-full w-[300%]">
           {duplicatedTestimonials.map((testimonial, index) => (
             <div
