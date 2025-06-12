@@ -36,13 +36,13 @@ const AboutSection = () => {
             Corporate Identity
           </h2>
         </div>
-        <div className="grid md:grid-cols-10 gap-8 mx-4 md:ml-28">
+        <div className="grid md:grid-cols-10 gap-6 mx-4 md:ml-28">
           <div className="bg-purple-100 text-white p-6 rounded-xl relative min-h-[180px]  col-span-3">
             <div
               className="absolute inset-0 w-full h-full bg-contain bg-no-repeat bg-right"
               style={{ backgroundImage: `url(${bg})` }}
             />
-            <p className="text-sm md:text-lg text-justify font-light">
+            <p className="text-sm md:text-lg text-justify font-extralight">
               <img
                 src={marks}
                 alt="quotation marks"
@@ -60,7 +60,7 @@ const AboutSection = () => {
               className="absolute inset-0 w-full h-full bg-contain bg-no-repeat bg-right"
               style={{ backgroundImage: `url(${bg})` }}
             />
-            <p className="text-sm md:text-lg text-justify font-light">
+            <p className="text-sm md:text-lg text-justify font-extralight">
             <img
                 src={marks}
                 alt="quotation marks"
@@ -79,7 +79,7 @@ const AboutSection = () => {
               className="absolute inset-0 w-full h-full bg-contain bg-no-repeat bg-right"
               style={{ backgroundImage: `url(${bg})` }}
             />
-            <p className="text-sm md:text-lg text-justify font-light">
+            <p className="text-sm md:text-lg text-justify font-extralight">
             <img
                 src={marks}
                 alt="quotation marks"

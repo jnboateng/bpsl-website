@@ -173,10 +173,6 @@ export default function TeamSection() {
     useState("management");
 
   const [activeTab, setActiveTab] = useState("management");
-  const [hoveredIndex, setHoveredIndex] = useState(null);
-  const DEFAULT_WIDTH = 120;
-  const EXPANDED_WIDTH = 250;
-  const CONTRACTED_WIDTH = "80px";
   // Animation variants
   const tabContentVariants = {
     hidden: { opacity: 0, y: 20 },
@@ -184,53 +180,33 @@ export default function TeamSection() {
     exit: { opacity: 0, y: -20, transition: { duration: 0.3 } },
   };
 
-  // Special renderer for shareholders
-  const renderShareholders = () => {
-    return (
-      <div className="grid grid-cols-2 gap-6 w-2/3">
-        {teamData["shareholders"].map((member, index) => (
-          <Link to={`/about/${member.id}`}>
-            <div
-              key={index}
-              className="relative overflow-hidden rounded-lg h-64"
-            >
-              <img
-                src={member.image}
-                alt={member.name}
-                className="w-full h-full object-fill"
-              />
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4">
-                <div className="flex justify-between items-center text-white">
-                  <h3 className="font-medium">{member.name}</h3>
-                  <p className="text-sm opacity-80">{member.position}</p>
-                </div>
-              </div>
-            </div>
-          </Link>
-        ))}
-      </div>
-    );
-  };
-
   const renderManagementTeam = () => {
-    const row1 = teamData.management.slice(0, 4);
-    const row2 = teamData.management.slice(4, 9);
+    const row1 = teamData.management.slice(0, 3);
+    const row2 = teamData.management.slice(3, 6);
+    const row3 = teamData.management.slice(6, 9);
 
     return (
       <>
-        {/* First row - 4 members */}
+        {/* First row */}
         <div className="flex gap-4 mb-4">
           {row1.map((member, colIdx) => {
             const index = colIdx; // 0 - 3
-            return renderTeamMember(member, index, 0, 4);
+            return renderTeamMember(member, index, 0, 3);
           })}
         </div>
 
-        {/* Second row - 5 members */}
-        <div className="flex gap-4">
+        {/* Second row  */}
+        <div className="flex gap-4 mb-4">
           {row2.map((member, colIdx) => {
             const index = 5 + colIdx; // 4 - 8
-            return renderTeamMember(member, index, 1, 5);
+            return renderTeamMember(member, index, 3, 6);
+          })}
+        </div>
+        {/* Third row */}
+        <div className="flex gap-4 mb-4">
+          {row3.map((member, colIdx) => {
+            const index = 6 + colIdx; // 8 - 9
+            return renderTeamMember(member, index, 6, 9);
           })}
         </div>
       </>
@@ -239,7 +215,7 @@ export default function TeamSection() {
 
   const renderOtherTeam = () => {
     const members = teamData[activeTab];
-    const rowLength = 4;
+    const rowLength = 3;
     const rowCount = Math.ceil(members.length / rowLength);
 
     return Array.from({ length: rowCount }).map((_, rowIdx) => {
@@ -262,23 +238,28 @@ export default function TeamSection() {
   const renderTeamMember = (member, index) => {
    
     return (
-      <Link to={`/about/${member.id}`}>
+      <Link to={`/about/${member.id}`} className="hover:-translate-y-2 duration-700 mt-2">
         <div
           key={index}
-          className="relative overflow-hidden rounded-lg cursor-pointer h-64 flex-shrink-0"
+          className="overflow-hidden rounded-t-full bg-gray-300 cursor-pointer w-[250px] h-72"
         >
           <img
             src={member.image}
             alt={member.name}
-            className="w-full h-full object-cover"
+            className="w-full h-full object-fill"
           />
+        </div>
+        <div className="flex flex-col justify-center text-center mt-2">
+
+          <span className="text-xs font-semibold text-purple-200">{member.name}</span>
+          <span className="text-sm font-extralight text-gray-800">{member.position}</span>
         </div>
       </Link>
     );
   };
 
   return (
-    <section className="mb-16 w-full h-[60vh] md:h-screen">
+    <section className="mb-16 w-full h-[60vh] md:h-auto">
       <div className="flex gap-x-16 items-center mb-6">
         <div className="bg-purple h-8 w-12" />
         <h2 className="text-3xl md:text-4xl font-bold capitalize text-gray-800">
@@ -286,7 +267,7 @@ export default function TeamSection() {
         </h2>
       </div>
 
-      <div className="hidden md:flex ml-28">
+      <div className="hidden md:flex ml-28 ">
         {/* Tab navigation */}
         <div className="w-[220px]">
           <ul className="space-y-4">
@@ -295,7 +276,6 @@ export default function TeamSection() {
                 <button
                   onClick={() => {
                     setActiveTab(tab);
-                    setHoveredIndex(null);
                   }}
                   className={`w-full text-left px-4 py-3 rounded-lg capitalize font-medium transition-colors ${
                     activeTab === tab
@@ -314,7 +294,7 @@ export default function TeamSection() {
         </div>
 
         {/* Team members grid */}
-        <div className="w-4/5 ml-8 overflow-x-auto">
+        <div className="w-7/8 mx-auto overflow-x-auto">
           <AnimatePresence mode="wait">
             <motion.div
               key={activeTab}
@@ -323,9 +303,7 @@ export default function TeamSection() {
               exit="exit"
               variants={tabContentVariants}
             >
-              {activeTab === "share holder"
-                ? renderShareholders()
-                : activeTab === "management"
+              {activeTab === "management"
                 ? renderManagementTeam()
                 : renderOtherTeam()}
             </motion.div>
