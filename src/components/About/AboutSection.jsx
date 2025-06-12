@@ -35,7 +35,7 @@ const AboutSection = () => {
             Corporate Identity
           </h2>
         </div>
-        <div className="grid md:grid-cols-10 gap-6 mx-4 md:ml-28">
+        <div className="grid md:grid-cols-10 gap-6 mx-4 ml-8 md:ml-28">
           <div className="bg-purple-100 text-white p-6 rounded-xl relative min-h-[180px]  col-span-3">
             <div
               className="absolute inset-0 w-full h-full bg-contain bg-no-repeat bg-right"
@@ -110,7 +110,7 @@ const AboutSection = () => {
           </div>
         </div>
         
-        <div className="md:w-3/5 flex flex-wrap gap-6">
+        <div className="md:w-3/5 ml-8 md:ml-0 flex flex-wrap gap-6">
           {/* First item */}
           <div className="w-[300px] bg-white border border-b-0 border-gray-200 p-6 rounded-2xl relative shadow-sm hover:border-b-8 hover:border-b-purple-200 transition-all">
             <div
@@ -146,7 +146,7 @@ const AboutSection = () => {
       </div>
       
       {/* Second row with remaining three items */}
-      <div className="mt-6 flex flex-wrap md:flex-nowrap gap-6 md:ml-28">
+      <div className="mt-6 flex flex-wrap md:flex-nowrap gap-6 md:ml-28 ml-8 ">
         {/* Third item */}
         <div className="w-[300px] bg-white border border-b-0 border-gray-200 p-6 rounded-2xl relative shadow-sm hover:border-b-8 hover:border-b-purple-200 transition-all">
           <div
