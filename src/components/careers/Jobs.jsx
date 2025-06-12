@@ -508,7 +508,7 @@ export default function OpenRoles() {
                 onClick={() => setSelectedCategory(cat)}
                  className={`cursor-pointer px-4 py-2 rounded-3xl ${
                     selectedCategory === cat
-                      ? "bg-purple-200 font-bold text-white"
+                      ? "bg-purple bg-opacity-10 text-gray-800 font-bold "
                       : "hover:bg-purple-50"
                   }`}
               >

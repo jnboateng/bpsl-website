@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-
-const images = ["https://res.cloudinary.com/dinb6qtto/image/upload/v1747327028/fuelme/bropx9niykt3kq3o4ndb.png", "https://res.cloudinary.com/dinb6qtto/image/upload/v1747327025/fuelme/xu2eijamud3w80onsnry.png", "https://res.cloudinary.com/dinb6qtto/image/upload/v1747327025/fuelme/xu2eijamud3w80onsnry.png"];
+import group from "../../images/logo/group.jpg"
+import bus from "../../images/logo/bus.jpg"
+const images = [bus, group];
 
 export default function TeamCarousel() {
   const [current, setCurrent] = useState(0);
@@ -34,7 +35,7 @@ export default function TeamCarousel() {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.8 }}
-          className="object-cover h-full w-full rounded-[2rem] mx-auto"
+          className="object-fill h-full w-[70vw] rounded-[2rem] mx-auto"
         />
       </AnimatePresence>
 

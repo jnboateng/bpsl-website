@@ -146,7 +146,7 @@ const AboutSection = () => {
       </div>
       
       {/* Second row with remaining three items */}
-      <div className="mt-6 flex flex-wrap md:flex-nowrap gap-6 md:ml-28 ml-8 ">
+      <div className="mt-6 flex flex-wrap md:flex-nowrap gap-6 md:ml-28 ml-8  ">
         {/* Third item */}
         <div className="w-[300px] bg-white border border-b-0 border-gray-200 p-6 rounded-2xl relative shadow-sm hover:border-b-8 hover:border-b-purple-200 transition-all">
           <div
