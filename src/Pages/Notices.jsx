@@ -144,7 +144,7 @@ function Notices() {
           </div>
 
           {/* Selected Label */}
-          <span className="ml-2 mr-4 font-semibold text-sm text-purple-800">
+          <span className="ml-2 mr-4 font-semibold text-sm text-purple-100">
             {selectedCategory === "All" ? "Public Notices" : selectedCategory}
           </span>
         </div>
@@ -165,7 +165,7 @@ function Notices() {
                 className="w-full h-80 object-cover border border-purple rounded-xl border-opacity-20"
               />
               <div className="p-4">
-                <h2 className="font-semibold text-purple-800 mb-2">
+                <h2 className="font-semibold text-purple-100 mb-2">
                   {notice.title}
                 </h2>
                 <p className="text-sm text-gray-600 whitespace-pre-wrap">
@@ -189,7 +189,7 @@ function Notices() {
             className={`px-4 py-3 rounded-xl text-sm font-semibold transition-all duration-200 border ${
               currentPage === 1
                 ? "bg-gray-200 text-gray-400 border-gray-200 cursor-not-allowed"
-                : "bg-white text-purple-600 border-purple-300 hover:bg-purple-100"
+                : "bg-white text-purple-100 border-purple-300 hover:bg-purple-100"
             }`}
           >
             Prev
@@ -202,8 +202,8 @@ function Notices() {
                 onClick={() => handlePageClick(page)}
                 className={`px-4 py-3 rounded-xl text-sm font-semibold transition-all duration-200 border ${
                   currentPage === page
-                    ? "bg-purple-600 text-white border-purple-600"
-                    : "bg-white text-purple-600 border-purple-300 hover:bg-purple-100"
+                    ? "bg-purple-100 text-white border-purple-100"
+                    : "bg-white text-purple-100 border-purple-300 hover:bg-purple-100"
                 }`}
               >
                 {page}
@@ -219,7 +219,7 @@ function Notices() {
             className={`px-4 py-3 rounded-xl text-sm font-semibold transition-all duration-200 border ${
               currentPage === totalPages
                 ? "bg-gray-200 text-gray-400 border-gray-200 cursor-not-allowed"
-                : "bg-white text-purple-600 border-purple-300 hover:bg-purple-100"
+                : "bg-white text-purple-100 border-purple-300 hover:bg-purple-100"
             }`}
           >
             Next

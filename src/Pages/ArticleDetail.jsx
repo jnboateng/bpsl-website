@@ -130,7 +130,7 @@ export default function ArticleDetail() {
                       >
                         <Link
                           to={`/stories/${related.id}`}
-                          className="text-sm text-gray-700 hover:text-purple-600 font-semibold hover:underline"
+                          className="text-sm text-gray-700 hover:text-purple-100 font-semibold hover:underline"
                         >
                           {related.title}
                         </Link>

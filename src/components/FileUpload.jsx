@@ -10,7 +10,7 @@ export default function FileUpload({file,setFile}) {
       <div className="mt-1 flex justify-center px-6 pt-5 pb-6 border border-dashed border-purple-100 rounded-md bg-purple-50">
         <div className="space-y-1 text-center">
           <svg
-            className="mx-auto h-10 w-10 text-purple-400"
+            className="mx-auto h-10 w-10 text-purple-500"
             stroke="currentColor"
             fill="none"
             viewBox="0 0 48 48"
@@ -24,7 +24,7 @@ export default function FileUpload({file,setFile}) {
             />
           </svg>
 
-          <div className="flex flex-col items-center text-sm text-purple-600">
+          <div className="flex flex-col items-center text-sm text-purple-100">
             <label
               htmlFor="file-upload"
               className="relative cursor-pointer bg-white rounded-md font-medium text-gray-800  hover:text-purple-200 focus-within:outline-none px-4 py-2"
@@ -49,7 +49,7 @@ export default function FileUpload({file,setFile}) {
             </label>
           </div>
 
-          <p className="text-xs text-purple-600">
+          <p className="text-xs text-purple-100">
             Combine your cover letter and CV in one PDF, Max size: 5MB
           </p>
         </div>

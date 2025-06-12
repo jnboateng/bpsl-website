@@ -202,7 +202,7 @@ const MarqueeTestimonials = () => {
         </div>
       </div>
 
-      {/* Second marquee (right) - Desktop view with 3 visible */}
+      {/* Second marquee (right) - Desktop view with 3 visible
       <div className="relative overflow-hidden py-4 h-50">
         <div className="flex animate-marquee-right items-stretch h-full w-[300%]">
           {duplicatedTestimonials.map((testimonial, index) => (
@@ -214,7 +214,7 @@ const MarqueeTestimonials = () => {
             </div>
           ))}
         </div>
-      </div>
+      </div> */}
 
       {/* Animation styles */}
       <style jsx>{`

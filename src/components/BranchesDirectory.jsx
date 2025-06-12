@@ -135,11 +135,11 @@ const BranchDirectory = () => {
             {expandedBranch === branch.location && (
               <div className="mt-2 ml-4 text-sm text-gray-700 space-y-1">
                 <div className="flex items-center gap-2">
-                  <Phone size={16} className="text-purple-600" />
+                  <Phone size={16} className="text-purple-100" />
                   <span>0506335358</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <MapPin size={16} className="text-purple-600" />
+                  <MapPin size={16} className="text-purple-100" />
                   <span>{branch.area}</span>
                 </div>
               </div>
@@ -151,7 +151,7 @@ const BranchDirectory = () => {
           <button
             disabled={currentPage === 0}
             onClick={() => handlePageChange(currentPage - 1)}
-            className="text-purple-600 disabled:opacity-50"
+            className="text-purple-100 disabled:opacity-50"
           >
             <ChevronLeft />
           </button>
@@ -160,7 +160,7 @@ const BranchDirectory = () => {
               (currentPage + 1) * branchesPerPage >= regionBranches.length
             }
             onClick={() => handlePageChange(currentPage + 1)}
-            className="text-purple-600 disabled:opacity-50"
+            className="text-purple-100 disabled:opacity-50"
           >
             <ChevronRight />
           </button>

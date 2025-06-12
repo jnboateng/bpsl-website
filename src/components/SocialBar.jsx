@@ -21,7 +21,7 @@ const SocialBar = () => {
         <div className="bg-blue-900 p-2 rounded-full hover:scale-110 transition-transform duration-200">
           <FaLinkedinIn className="text-white" />
         </div>
-        <div className="bg-purple-800 p-2 rounded-full hover:scale-110 transition-transform duration-200">
+        <div className="bg-purple-100 p-2 rounded-full hover:scale-110 transition-transform duration-200">
           <FaInfo className="text-white" />
         </div>
       </div>

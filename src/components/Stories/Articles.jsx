@@ -339,7 +339,7 @@ export default function Articles() {
                       </div>
                       <button
                         onClick={() => openGalleryModal(article)}
-                        className="text-xs text-purple-600 font-semibold mb-2"
+                        className="text-xs text-purple-100 font-semibold mb-2"
                       >
                         View all images
                       </button>
@@ -364,14 +364,14 @@ export default function Articles() {
                   {article.category === "Gallery" ? (
                     <button
                       onClick={() => openGalleryModal(article)}
-                      className="bg-gradient-to-r from-purple-800 to-purple-600 text-white text-xs font-semibold px-3 py-2 rounded-md w-full"
+                      className="bg-gradient-to-r from-purple-200 to-purple-100 text-white text-xs font-semibold px-3 py-2 rounded-md w-full"
                     >
                       View Gallery
                     </button>
                   ) : (
                     <Link
                       to={`/stories/${article.id}`}
-                      className="bg-gradient-to-r from-purple-800 to-purple-600 text-white text-xs font-semibold px-3 py-2 rounded-md inline-block"
+                      className="bg-gradient-to-r from-purple-200 to-purple-100 text-white text-xs font-semibold px-3 py-2 rounded-md inline-block"
                     >
                       Read More
                     </Link>
@@ -394,11 +394,11 @@ export default function Articles() {
               <li
                 key={cat}
                 onClick={() => setSelectedCategory(cat)}
-                className={`cursor-pointer ${
-                  selectedCategory === cat
-                    ? "text-gray-800  font-semibold"
-                    : "text-black"
-                }`}
+           className={`cursor-pointer px-4 py-2 rounded-3xl ${
+                    selectedCategory === cat
+                      ? "bg-purple-200 font-bold text-white"
+                      : "hover:bg-purple-50"
+                  }`}
               >
                 {cat}
               </li>
@@ -416,7 +416,7 @@ export default function Articles() {
                     className="rounded-xl overflow-hidden hover:shadow-lg transition-shadow duration-300 bg-white"
                   >
                     <div className="p-4">
-                      <h3 className="text-lg font-semibold text-purple-800 mb-4">
+                      <h3 className="text-lg font-semibold text-purple-100 mb-4">
                         {article.title}
                       </h3>
                       <div className="grid grid-cols-2 gap-2 mb-4">
@@ -446,7 +446,7 @@ export default function Articles() {
                       </p>
                       <button
                         onClick={() => openGalleryModal(article)}
-                        className="text-sm text-purple-600 font-semibold hover:underline"
+                        className="text-sm text-purple-100 font-semibold hover:underline"
                       >
                         View all images →
                       </button>
@@ -467,12 +467,12 @@ export default function Articles() {
                       alt={article.title}
                       className="w-full h-64 object-cover shadow-md rounded-t-3xl transition-transform duration-300 transform group-hover:scale-105"
                     />
-                    <span className="absolute top-2 left-2 bg-purple-600 text-white text-xs font-semibold px-2 py-1 rounded">
+                    <span className="absolute top-2 left-2 bg-purple-100 text-white text-xs font-semibold px-2 py-1 rounded">
                       {article.category}
                     </span>
                   </div>
                   <div className="p-4">
-                    <h3 className="text-lg font-semibold text-purple-800 mb-1">
+                    <h3 className="text-lg font-semibold text-purple-100 mb-1">
                       {article.title}
                     </h3>
                     <p className="text-sm font-extralight mb-2">
@@ -480,7 +480,7 @@ export default function Articles() {
                     </p>
                     <Link
                       to={`/stories/${article.id}`}
-                      className="text-sm text-purple-600 font-semibold hover:underline"
+                      className="text-sm text-purple-100 font-semibold hover:underline"
                     >
                       Read more →
                     </Link>
@@ -569,7 +569,7 @@ export default function Articles() {
             </div>
 
             <div className="p-4 bg-gray-50">
-              <h3 className="text-xl font-semibold text-purple-800 mb-2">
+              <h3 className="text-xl font-semibold text-purple-100 mb-2">
                 {selectedGallery.title}
               </h3>
               <p className="text-gray-600 mb-4">{selectedGallery.excerpt}</p>
@@ -581,7 +581,7 @@ export default function Articles() {
                     src={img}
                     alt={`Thumbnail ${idx + 1}`}
                     className={`w-20 h-20 object-cover rounded-md cursor-pointer ${
-                      selectedImageIndex === idx ? "ring-2 ring-purple-600" : ""
+                      selectedImageIndex === idx ? "ring-2 ring-purple-100" : ""
                     }`}
                     onClick={() => setSelectedImageIndex(idx)}
                   />

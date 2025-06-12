@@ -483,7 +483,7 @@ export default function OpenRoles() {
                           {role.type}
                         </span>
                       </div>
-                      <Link to={`/careers/${role.id}`} className="bg-gradient-to-r from-purple-800 to-purple-600 text-white font-semibold px-4 py-2 rounded-md self-start">
+                      <Link to={`/careers/${role.id}`} className="bg-gradient-to-r from-purple-200 to-purple-100 text-white font-semibold px-4 py-2 rounded-md self-start">
                         Apply Now
                       </Link>
                     </div>
@@ -506,11 +506,11 @@ export default function OpenRoles() {
               <li
                 key={cat}
                 onClick={() => setSelectedCategory(cat)}
-                className={`bg-gray cursor-pointer ${
-                  selectedCategory === cat
-                    ? "text-gray-800 font-semibold"
-                    : "text-black"
-                }`}
+                 className={`cursor-pointer px-4 py-2 rounded-3xl ${
+                    selectedCategory === cat
+                      ? "bg-purple-200 font-bold text-white"
+                      : "hover:bg-purple-50"
+                  }`}
               >
                 {cat}
               </li>
@@ -544,7 +544,7 @@ export default function OpenRoles() {
                   </div>
                 </div>
               </div>
-              <Link to={`/careers/${role.id}`} className="bg-gradient-to-r from-purple-800 to-purple-600 text-white font-semibold px-6 py-2 rounded-md">
+              <Link to={`/careers/${role.id}`} className="bg-gradient-to-r from-purple-200 to-purple-100 text-white font-semibold px-6 py-2 rounded-md">
                 Apply Now
               </Link>
             </div>

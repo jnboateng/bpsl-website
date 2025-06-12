@@ -81,7 +81,7 @@ export default function ApplicationForm({ career }) {
         <div>
           <button
             type="submit"
-            className="w-full bg-purple-100 hover:bg-purple-800 text-white font-semibold py-3 px-4 rounded-md"
+            className="w-full bg-purple-100 hover:bg-purple-100 text-white font-semibold py-3 px-4 rounded-md"
           >
             Submit Application
           </button>

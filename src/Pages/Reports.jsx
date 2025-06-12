@@ -94,7 +94,7 @@ function Reports() {
           <input
             type="text"
             placeholder="Search annual reports..."
-            className="flex-grow outline-none text-sm px-2 text-purple-800"
+            className="flex-grow outline-none text-sm px-2 text-purple-100"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
           />

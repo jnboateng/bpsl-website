@@ -118,7 +118,7 @@ const AboutSection = () => {
               className="absolute inset-0 w-full h-full bg-contain bg-no-repeat bg-right"
               style={{ backgroundImage: `url(${bg})` }}
             />
-            <h3 className="text-purple-800 font-bold mb-2">Integrity</h3>
+            <h3 className="text-purple-100 font-bold mb-2">Integrity</h3>
             <p className="text-sm text-gray-700 font-open-sans font-extralight">
               Our word is our bond; we are guided by the highest ethical
               principles in our dealings with our stakeholders.
@@ -134,7 +134,7 @@ const AboutSection = () => {
               className="absolute inset-0 w-full h-full bg-contain bg-no-repeat bg-right"
               style={{ backgroundImage: `url(${bg})` }}
             />
-            <h3 className="text-purple-800 font-bold mb-2">Customer Focus</h3>
+            <h3 className="text-purple-100 font-bold mb-2">Customer Focus</h3>
             <p className="text-sm text-gray-700 font-open-sans font-extralight">
               We show respect to our customers. We prioritize their needs, and
               provide convenient solutions that exceed their expectations.
@@ -154,7 +154,7 @@ const AboutSection = () => {
             className="absolute inset-0 w-full h-full bg-contain bg-no-repeat bg-right"
             style={{ backgroundImage: `url(${bg})` }}
           />
-          <h3 className="text-purple-800 font-bold mb-2">Creativity</h3>
+          <h3 className="text-purple-100 font-bold mb-2">Creativity</h3>
           <p className="text-sm text-gray-700 font-open-sans font-extralight">
             We strive to provide tailored solutions to our customers.
           </p>
@@ -169,7 +169,7 @@ const AboutSection = () => {
             className="absolute inset-0 w-full h-full bg-contain bg-no-repeat bg-right"
             style={{ backgroundImage: `url(${bg})` }}
           />
-          <h3 className="text-purple-800 font-bold mb-2">Teamwork</h3>
+          <h3 className="text-purple-100 font-bold mb-2">Teamwork</h3>
           <p className="text-sm text-gray-700 font-open-sans font-extralight">
             We work together and support one another to provide seamless
             solutions to our customers.
@@ -185,7 +185,7 @@ const AboutSection = () => {
             className="absolute inset-0 w-full h-full bg-contain bg-no-repeat bg-right"
             style={{ backgroundImage: `url(${bg})` }}
           />
-          <h3 className="text-purple-800 font-bold mb-2">Excellence</h3>
+          <h3 className="text-purple-100 font-bold mb-2">Excellence</h3>
           <p className="text-sm text-gray-700 font-open-sans font-extralight">
             At the core of all our service is a passion to be the best in the
             provision of retail financial services.
