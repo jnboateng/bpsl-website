@@ -246,6 +246,7 @@ function Navbar() {
 
             <MobileNavLink to="/careers">Careers</MobileNavLink>
             <MobileNavLink to="/stories">Stories</MobileNavLink>
+            <MobileNavLink to="/contact">Contact</MobileNavLink>
 
             {/* Mobile Toggle Buttons */}
             <div className="py-4 px-4 border-t border-gray-200 mt-2">
