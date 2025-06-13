@@ -75,7 +75,7 @@ const ContactPage = () => {
           </button>
         </div>
 
-    <div className="flex flex-col w-[90vw] md:w-[70vw] rounded-3xl bg-gray-100 mx-auto items-center md:flex-row justify-center px-4  py-16 gap-10">
+    <div className="flex flex-col w-[90vw] md:w-[70vw] rounded-3xl bg-purple-50 mx-auto items-center md:flex-row justify-center px-4 py-16 gap-10">
       {/* Left Contact Info */}
       <div className="text-gray-800 text-sm space-y-8 w-full md:w-1/3">
         <div className="flex items-start gap-3">
@@ -113,7 +113,7 @@ const ContactPage = () => {
               name="name"
               value={formData.name}
               onChange={handleChange}
-              className="w-full border-b bg-gray-100 border-gray-400 focus:outline-none focus:border-black text-black py-1"
+              className="w-full border-b bg-purple-50 border-gray-400 focus:outline-none focus:border-black text-black py-1"
               required
             />
           </div>
@@ -127,7 +127,7 @@ const ContactPage = () => {
                 name="phone"
                 value={formData.phone}
                 onChange={handleChange}
-                className="w-full border-b bg-gray-100 border-gray-400 focus:outline-none focus:border-black text-black py-1"
+                className="w-full border-b bg-purple-50 border-gray-400 focus:outline-none focus:border-black text-black py-1"
                 required
               />
             </div>
@@ -138,7 +138,7 @@ const ContactPage = () => {
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
-                className="w-full bg-gray-100 border-b border-gray-400 focus:outline-none focus:border-black text-black py-1"
+                className="w-full bg-purple-50 border-b border-gray-400 focus:outline-none focus:border-black text-black py-1"
                 required
               />
             </div>
@@ -153,7 +153,7 @@ const ContactPage = () => {
                 name="dob"
                 value={formData.dob}
                 onChange={handleChange}
-                className="w-full bg-gray-100 border-b border-gray-400 focus:outline-none focus:border-black text-black py-1"
+                className="w-full bg-purple-50 border-b border-gray-400 focus:outline-none focus:border-black text-black py-1"
                 required
               />
             </div>
@@ -164,7 +164,7 @@ const ContactPage = () => {
                 name="address"
                 value={formData.address}
                 onChange={handleChange}
-                className="w-full bg-gray-100 border-b border-gray-400 focus:outline-none focus:border-black text-black py-1"
+                className="w-full bg-purple-50 border-b border-gray-400 focus:outline-none focus:border-black text-black py-1"
                 required
               />
             </div>
@@ -178,7 +178,7 @@ const ContactPage = () => {
               name="location"
               value={formData.location}
               onChange={handleChange}
-              className="w-full bg-gray-100 border-b border-gray-400 focus:outline-none focus:border-black text-black py-1"
+              className="w-full bg-purple-50 border-b border-gray-400 focus:outline-none focus:border-black text-black py-1"
               required
             />
           </div>
@@ -194,7 +194,7 @@ const ContactPage = () => {
                 value={formData.description}
                 onChange={handleChange}
                 rows={4}
-                className="w-full border bg-gray-100 border-gray-300 focus:outline-none focus:border-gray-400 text-black p-2 resize-none"
+                className="w-full border bg-purple-50 border-gray-300 focus:outline-none focus:border-gray-400 text-black p-2 resize-none"
               />
             </div>
           )}
@@ -206,7 +206,7 @@ const ContactPage = () => {
                 name="accountType"
                 value={formData.accountType}
                 onChange={handleChange}
-                className="w-full bg-gray-100 border-b border-gray-400 focus:outline-none focus:border-black text-black py-1"
+                className="w-full bg-purple-50 border-b border-gray-400 focus:outline-none focus:border-black text-black py-1"
               >
                 <option value="">Select account type</option>
                 <option value="susu">Susu</option>
@@ -224,7 +224,7 @@ const ContactPage = () => {
                 name="loanPurpose"
                 value={formData.loanPurpose}
                 onChange={handleChange}
-                className="w-full bg-gray-100 border-b border-gray-400 focus:outline-none focus:border-black text-black py-1"
+                className="w-full bg-purple-50 border-b border-gray-400 focus:outline-none focus:border-black text-black py-1"
               >
                 <option value="">Select loan purpose</option>
                 <option value="increase stock">Increase my stock</option>
