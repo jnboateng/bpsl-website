@@ -75,24 +75,24 @@ const ContactPage = () => {
           </button>
         </div>
 
-    <div className="flex flex-col w-[90vw] md:w-[70vw] rounded-3xl bg-purple-50 mx-auto items-center md:flex-row justify-center px-4 py-16 gap-10">
+    <div className="flex flex-col-reverse w-[90vw] md:w-[70vw] rounded-3xl bg-purple-50 mx-auto items-center md:flex-row justify-center px-4 py-16 gap-10">
       {/* Left Contact Info */}
-      <div className="text-gray-800 text-sm space-y-8 w-full md:w-1/3">
-        <div className="flex items-start gap-3">
+      <div className="text-gray-800 justify-center text-sm space-y-8 w-full md:w-1/3">
+        <div className="flex items-center gap-3">
           <MapPin />
           <div>
             <p>Mile 7 – Achimota</p>
             <p>Old Peace Fm Building</p>
           </div>
         </div>
-        <div className="flex items-start gap-3">
+        <div className="flex items-center gap-3">
           <Phone />
           <div>
             <p className="font-medium">030 393 2990-4</p>
             <p>Toll Free: 0800 505 050</p>
           </div>
         </div>
-        <div className="flex items-start gap-3">
+        <div className="flex items-center gap-3">
           <Mail />
           <div>
             <p>info@bestpointgh.com</p>
