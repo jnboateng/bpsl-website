@@ -42,7 +42,7 @@ const ContactPage = () => {
         <div className="flex flex-wrap justify-center gap-4 mb-10">
           <button
             onClick={() => setActiveTab("enquiry")}
-            className={`px-6 py-2 rounded-full font-medium transition-colors flex items-center gap-2 border ${
+            className={`px-6 py-2 rounded-full text-xs md:text-sm font-medium transition-colors flex items-center gap-2 border ${
               activeTab === "enquiry"
                 ? "bg-purple text-white"
                 : "bg-transparent text-gray-700 border-gray-300"
@@ -53,7 +53,7 @@ const ContactPage = () => {
           </button>
           <button
             onClick={() => setActiveTab("loan")}
-            className={`px-6 py-2 rounded-full font-medium transition-colors flex items-center gap-2 border ${
+            className={`px-6 py-2 rounded-full text-xs md:text-sm font-medium transition-colors flex items-center gap-2 border ${
               activeTab === "loan"
                 ? "bg-purple text-white"
                 : "bg-transparent text-gray-700 border-gray-300"
@@ -64,7 +64,7 @@ const ContactPage = () => {
           </button>
           <button
             onClick={() => setActiveTab("account")}
-            className={`px-6 py-2 rounded-full font-medium transition-colors flex items-center gap-2 border ${
+            className={`px-6 py-2 rounded-full text-xs md:text-sm font-medium transition-colors flex items-center gap-2 border ${
               activeTab === "account"
                 ? "bg-purple text-white"
                 : "bg-transparent text-gray-700 border-gray-300"
