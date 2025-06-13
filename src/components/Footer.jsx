@@ -52,7 +52,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link
-                  to="/contact-us"
+                  to="/contact"
                   className="font-thin text-xs hover:font-light"
                 >
                   Contact Us

@@ -184,6 +184,18 @@ function Navbar() {
                 Stories
               </NavLink>
             </li>
+            <li>
+              <NavLink
+                to="/contact"
+                className={({ isActive }) =>
+                  `text-sm ${
+                    isActive ? "text-purple font-semibold" : "text-purple"
+                  }`
+                }
+              >
+                Contact Us
+              </NavLink>
+            </li>
           </ul>
         </nav>
 

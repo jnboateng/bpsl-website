@@ -20,6 +20,7 @@ import Report from "./Reports";
 import ReportDetails from "./ReportDetails";
 import PageWrapper from "../components/PageWrapper"; 
 import ProductsMain from "./ProductsMain";
+import ContactPage from "./ContactPage";
 const Pages = () => {
   const location = useLocation();
 
@@ -46,6 +47,7 @@ const Pages = () => {
         <Route path="/notices/" element={<PageWrapper><Notices /></PageWrapper>} />
         <Route path="/notices/:id" element={<PageWrapper><NoticeDetails /></PageWrapper>} />
         <Route path="/reports/" element={<PageWrapper><Report /></PageWrapper>} />
+        <Route path="/contact/" element={<PageWrapper><ContactPage /></PageWrapper>} />
         <Route path="/reports/:id" element={<PageWrapper><ReportDetails /></PageWrapper>} />
       </Routes>
     </AnimatePresence>
