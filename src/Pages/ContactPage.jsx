@@ -10,6 +10,7 @@ import {
   Banknote,
   ClipboardList,
 } from "lucide-react";
+import Hero from "../components/About/Hero";
 
 const ContactPage = () => {
   const [activeTab, setActiveTab] = useState("enquiry");
@@ -37,9 +38,10 @@ const ContactPage = () => {
   };
 
   return (
-    <div className="pt-24">
+    <div className="">
+        <Hero text1={'Contact Us'}/>
 {/* Tabs */}
-        <div className="flex flex-wrap justify-center gap-4 mb-10">
+        <div className="flex flex-wrap justify-center gap-4 mt-6 mb-10">
           <button
             onClick={() => setActiveTab("enquiry")}
             className={`px-6 py-2 rounded-full text-xs md:text-sm font-medium transition-colors flex items-center gap-2 border ${
