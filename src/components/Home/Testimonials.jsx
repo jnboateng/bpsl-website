@@ -46,10 +46,7 @@ const testimonials = [
 const TestimonialCard = ({ testimonial, isMobile }) => {
   return (
     <div
-     style={{
-        border: "1px solid rgba(168, 85, 247, 0.3)", // border-t-purple-500/20
-       
-      }}
+    
       className={`${
         isMobile ? "w-[85vw]" : "w-full"
       } mx-4 p-6 bg-gray-100 rounded-lg h-full flex flex-col`}

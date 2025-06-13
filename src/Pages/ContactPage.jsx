@@ -11,6 +11,7 @@ import {
   ClipboardList,
 } from "lucide-react";
 import Hero from "../components/About/Hero";
+import ChatIcon from "../components/ChatIcon";
 
 const ContactPage = () => {
   const [activeTab, setActiveTab] = useState("enquiry");
@@ -250,6 +251,7 @@ const ContactPage = () => {
         </form>
       </div>
     </div>
+    <ChatIcon />
     </div>
   );
 };
