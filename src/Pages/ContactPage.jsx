@@ -75,7 +75,7 @@ const ContactPage = () => {
           </button>
         </div>
 
-    <div className="flex flex-col md:w-[70vw] rounded-3xl bg-gray-100 mx-auto items-center md:flex-row justify-center px-4 py-16 gap-10">
+    <div className="flex flex-col w-[90vw] md:w-[70vw] rounded-3xl bg-gray-100 mx-auto items-center md:flex-row justify-center px-4  py-16 gap-10">
       {/* Left Contact Info */}
       <div className="text-gray-800 text-sm space-y-8 w-full md:w-1/3">
         <div className="flex items-start gap-3">
