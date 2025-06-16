@@ -2,7 +2,7 @@ import { useState } from "react";
 import { ChevronDown, ChevronUp } from "lucide-react";
 import { Link } from "react-router-dom";
 import Modal from "./Modal";
-const categories = [ "Articles", "Gallery", "Blog"];
+const categories = [ "Articles", "Gallery"];
   export const articles = [
     {
       id: 1,
@@ -69,7 +69,7 @@ const categories = [ "Articles", "Gallery", "Blog"];
     },
     {
       id: 5,
-      category: "Blog",
+      category: "Articles",
       title: "Why financial literacy starts early",
       subTitle: "Why financial literacy starts early",
       img: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=200&q=80",
@@ -188,7 +188,7 @@ const categories = [ "Articles", "Gallery", "Blog"];
     },
     {
       id: 11,
-      category: "Blog",
+      category: "Articles",
       title: "Why Emergency Funds Are Non-Negotiable",
       subTitle: "Why Emergency Funds Are Non-Negotiable",
       img: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=200&q=80",
@@ -218,12 +218,13 @@ export default function Articles() {
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
 
   const filteredArticles =
-    selectedCategory === "Articles"
-      ? articles.filter((article) => article.category == "Articles") : articles;
+    selectedCategory === "Gallery"
+      ? articles.filter((article) => article.category === "Gallery") : articles;
 
   const getArticlesByCategory = (cat) =>
-    cat === "Articles"
-    ? articles.filter((article) => article.category === cat) : articles;
+    cat === "Gallery"
+    ? articles.filter((article) => article.category === cat) : cat === "Articles"
+    ? articles.filter((article) => article.category === cat):articles;
 
   const openGalleryModal = (galleryItem, index = 0) => {
     setSelectedGallery(galleryItem);
@@ -273,17 +274,17 @@ export default function Articles() {
       <div className="flex gap-x-4 lg:gap-x-12 items-center justify-start ">
         <div className="bg-purple h-8 w-12 mb-2" />
         <h1 className="text-xl md:text-4xl font-semibold text-gray-800  leading-tight">
-           Our Articles, Gallery & Blogs 
+           Our Articles & Gallery
           
         </h1>
       </div>
 
       {/* Mobile View */}
       <div className="block md:hidden px-4 pb-10">
-        <h2 className="text-gray-800  text-lg md:text-xl font-bold mb-4">Browse By:</h2>
+        <h2 className="text-gray-800 hidden  text-lg md:text-xl font-bold mb-4">Browse By:</h2>
 
         {/* Horizontal Category List */}
-        <div className="flex space-x-4 overflow-x-auto pb-2 scrollbar-hide">
+        <div className="flex space-x-4 overflow-x-auto pb-2 justify-center mt-4 scrollbar-hide">
           {categories.map((cat) => (
             <button
               key={cat}
