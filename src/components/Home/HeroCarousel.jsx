@@ -49,7 +49,7 @@ const HeroCarousel = () => {
     },
     {
       title:"Grow Your Savings Faster",
-      title: "Enjoy competitive interest rates, zero monthly fees, and easy access to your money. It's time to earn more and worry less.",
+      text: "Enjoy competitive interest rates, zero monthly fees, and easy access to your money. It's time to earn more and worry less.",
       image:slide5,
       link: "/loans4",
       textBtn: "Start Saving Today",
