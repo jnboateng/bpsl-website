@@ -15,14 +15,14 @@ const ToggleButtons = () => {
 
       {/* Buttons */}
       <NavLink
-        to={"/contact"}
+        to={"/contact?tab=account"}
         onClick={() => setActiveTab("account")}
         className="text-sm text-white capitalize p-2 rounded-2xl z-10 w-32 text-center"
       >
         <span>quick account</span>
       </NavLink>
       <NavLink
-        to={"/contact"}
+        to={"/contact?tab=loan"}
         onClick={() => setActiveTab("loan")}
         className="text-sm text-white capitalize p-2 rounded-2xl z-10 w-32 text-center"
       >
