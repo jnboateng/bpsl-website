@@ -11,7 +11,7 @@ export default function TeamCarousel() {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrent((prev) => (prev + 1) % images.length);
-    }, 3000); // Change slide every 4 seconds
+    }, 5000); // Change slide every 4 seconds
 
     return () => clearInterval(interval); // Clear interval on unmount
   }, []);
@@ -25,7 +25,7 @@ export default function TeamCarousel() {
   };
 
   return (
-    <div className="relative lg:px-20 p-2 lg:py-16 h-[60vh] lg:h-screen w-full overflow-hidden bg-white flex items-center justify-center">
+    <div className="relative lg:px-20 p-2 lg:py-16 h-[40vh] lg:h-screen w-full overflow-hidden bg-white flex items-center justify-center">
       <AnimatePresence mode="wait">
         <motion.img
           key={images[current]}
@@ -35,7 +35,7 @@ export default function TeamCarousel() {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.8 }}
-          className="object-fill h-full w-[70vw] rounded-[2rem] mx-auto"
+          className="object-fill h-full w-[80vw] rounded-[2rem] mx-auto"
         />
       </AnimatePresence>
 
