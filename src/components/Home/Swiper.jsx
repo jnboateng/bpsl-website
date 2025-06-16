@@ -37,7 +37,7 @@ const SwipeButton = ({ link, textBtn }) => {
     <div className="w-full flex justify-start mt-10 sm:mt-16">
       <div
         ref={trackRef}
-        className="relative w-full max-w-[280px] h-16 bg-purple-200 rounded-full overflow-hidden select-none"
+        className="relative w-full max-w-[380px] h-16 bg-purple-200 rounded-full overflow-hidden select-none"
       >
         {/* Label Text */}
         <motion.div className="absolute inset-0 text-base sm:text-lg capitalize flex items-center justify-center text-white font-normal">

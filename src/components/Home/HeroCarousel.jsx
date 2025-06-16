@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import slide1 from "../../images/logo/1.jpg"
 import slide2 from "../../images/logo/2.jpg"
 import slide3 from "../../images/logo/3.jpg"
+import slide4 from "../../images/logo/Frame.jpg"
 import SwipeButton from "./Swiper";
 const HeroCarousel = () => {
   // Add this inside the component
@@ -39,12 +40,11 @@ const HeroCarousel = () => {
       textBtn: "Read More",
     },
     {
-      title: "Seamless Transactions, Anytime Anywhere, 24/7 Access.",
-      text: "Our USSD App Simplifies Your Every Banking Needs, Bill Payments, Airtimes & Bundles, Mini-Statements, Bank Transfers....",
-      image:
-        "https://res.cloudinary.com/dinb6qtto/image/upload/v1747331388/f6sxinwnzcms6zdw6far.png",
+      title: "Stay Safe. Don’t Fall for Online Loan Scams!",
+      text: "Best Point Savings and Loans does not operate any loan services through Facebook, WhatsApp, or any other online platform. Ignore requests asking for payment to access a loan",
+      image:slide4,
       link: "/loans4",
-      textBtn: "Apply Now",
+      textBtn: "Call 0800505050 (Toll-Free) ",
     },
   ];
 

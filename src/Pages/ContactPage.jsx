@@ -9,9 +9,11 @@ import {
   MessageSquareText,
   Banknote,
   ClipboardList,
+  LocateFixed,
 } from "lucide-react";
 import Hero from "../components/About/Hero";
 import ChatIcon from "../components/ChatIcon";
+import { NavLink } from "react-router-dom";
 
 const ContactPage = () => {
   const [activeTab, setActiveTab] = useState("enquiry");
@@ -81,6 +83,12 @@ const ContactPage = () => {
     <div className="flex flex-col-reverse w-[90vw] md:w-[70vw] rounded-3xl bg-purple-50 mx-auto items-center md:flex-row justify-center px-4 py-16 gap-10">
       {/* Left Contact Info */}
       <div className="text-gray-800 justify-center text-sm space-y-8 w-full md:w-1/3">
+        <div className="flex items-center gap-3">
+          <LocateFixed />
+          <div>
+            <NavLink to={'/locator'} className="hover:text-purple">Locate Our Branches</NavLink>
+          </div>
+        </div>
         <div className="flex items-center gap-3">
           <MapPin />
           <div>
