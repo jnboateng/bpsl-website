@@ -432,8 +432,7 @@ export default function OpenRoles() {
       </div>
 
       {/* Mobile View */}
-      <div className="block md:hidden px-6 pb-10">
-        <h2 className="text-gray-800 text-2xl font-bold mb-6">Browse By:</h2>
+      <div className="block md:hidden mt-2 px-6 pb-10">
         <ul className="space-y-4">
           {categories.map((cat) => (
             <li key={cat}>
