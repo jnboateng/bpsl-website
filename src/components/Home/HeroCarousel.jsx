@@ -9,7 +9,7 @@ const HeroCarousel = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       nextSlide();
-    }, 5000); // Change slide every 5 seconds
+    }, 10000); // Change slide every 5 seconds
     return () => clearInterval(interval);
   }, []);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -99,6 +99,7 @@ const HeroCarousel = () => {
                 <SwipeButton
                   link={carouselData[currentIndex].link}
                   textBtn={carouselData[currentIndex].textBtn}
+
                 />
               </motion.div>
             </div>
