@@ -22,7 +22,7 @@ function Describe() {
           </div>
         </div>
 
-        <div className="w-full flex justify-center md:mt-[24rem] mt-[16rem]">
+        <div className="w-full flex justify-center md:mt-[24rem] mt-[18rem]">
           <button
             onClick={() => {
               document
