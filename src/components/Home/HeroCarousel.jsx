@@ -29,7 +29,7 @@ const HeroCarousel = () => {
       text: "Easy-access loans for government workers — disbursed within 24 hours and repaid seamlessly through Controller deductions.",
       image:slide2,
       link: "/loans2",
-      textBtn: "start saving today",
+      textBtn: "Apply Today – Smile Tomorrow",
     },
     {
       title:
