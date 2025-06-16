@@ -101,6 +101,8 @@ const ContactPage = () => {
             <p>info@bestpointgh.com</p>
           </div>
         </div>
+            <ChatIcon />
+
       </div>
 
       {/* Right: Form & Tabs */}
@@ -251,7 +253,6 @@ const ContactPage = () => {
         </form>
       </div>
     </div>
-    <ChatIcon />
     </div>
   );
 };
