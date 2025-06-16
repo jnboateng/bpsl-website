@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import slide1 from "../../images/logo/1.jpg"
-import slide2 from "../../images/logo/2.jpg"
+import slide1 from "../../images/logo/1.png"
+import slide2 from "../../images/logo/2.png"
 import slide3 from "../../images/logo/3.jpg"
 import slide4 from "../../images/logo/Frame.jpg"
 import SwipeButton from "./Swiper";
@@ -25,8 +25,8 @@ const HeroCarousel = () => {
       textBtn: "Apply Now",
     },
     {
-      title: "Grow Your Savings Faster",
-      text: "Enjoy competitive interest rates, zero monthly fees, and easy access to your money. It's time to earn more and worry less.",
+      title: "Join the smile",
+      text: "Easy-access loans for government workers — disbursed within 24 hours and repaid seamlessly through Controller deductions.",
       image:slide2,
       link: "/loans2",
       textBtn: "start saving today",
