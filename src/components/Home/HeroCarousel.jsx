@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import slide1 from "../../images/logo/1.png"
+import slide1 from "../../images/logo/1.jpg"
 import slide2 from "../../images/logo/2.png"
 import slide3 from "../../images/logo/3.jpg"
 import slide4 from "../../images/logo/Frame.jpg"
+import slide5 from "../../images/logo/2.jpg"
 import SwipeButton from "./Swiper";
 const HeroCarousel = () => {
   // Add this inside the component
@@ -43,6 +44,12 @@ const HeroCarousel = () => {
       title: "Stay Safe. Don’t Fall for Online Loan Scams!",
       text: "Best Point Savings and Loans does not operate any loan services through Facebook, WhatsApp, or any other online platform. Ignore requests asking for payment to access a loan",
       image:slide4,
+      link: "/loans4",
+      textBtn: "Call 0800505050 (Toll-Free) ",
+    },
+    {
+      title: "Experience the power of digital banking with our USSD service. Easy, fast, and always available. Just Dial *277#.",
+      image:slide5,
       link: "/loans4",
       textBtn: "Call 0800505050 (Toll-Free) ",
     },
