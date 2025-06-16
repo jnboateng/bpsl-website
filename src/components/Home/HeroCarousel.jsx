@@ -48,10 +48,11 @@ const HeroCarousel = () => {
       textBtn: "Call 0800505050 (Toll-Free) ",
     },
     {
-      title: "Experience the power of digital banking with our USSD service. Easy, fast, and always available. Just Dial *277#.",
+      title:"Grow Your Savings Faster",
+      title: "Enjoy competitive interest rates, zero monthly fees, and easy access to your money. It's time to earn more and worry less.",
       image:slide5,
       link: "/loans4",
-      textBtn: "Call 0800505050 (Toll-Free) ",
+      textBtn: "Start Saving Today",
     },
   ];
 
