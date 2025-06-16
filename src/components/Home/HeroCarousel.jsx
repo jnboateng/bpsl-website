@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-
+import slide1 from "../../images/logo/1.jpg"
+import slide2 from "../../images/logo/2.jpg"
+import slide3 from "../../images/logo/3.jpg"
 import SwipeButton from "./Swiper";
 const HeroCarousel = () => {
   // Add this inside the component
@@ -15,29 +17,26 @@ const HeroCarousel = () => {
   const carouselData = [
     {
       title:
-        "Attractive savings and investment accounts that offer high interest rates and help customers grow their wealth.",
-      text: "Earn More on Your Savings, Competitive Interest, No Monthly Fees, Easy Access....",
-      image:
-        "https://res.cloudinary.com/dinb6qtto/image/upload/v1747330904/ptjmdd2zra9hzwjybbw1.png",
+        "Fast & Flexible Loans for Every Need",
+      text: "Get approved in 24 hours with low-interest, stress-free financing. Whether it's a startup, emergency, or asset, we've got you covered.",
+      image:slide1,
       link: "/loans1",
-      textBtn: "Register Now",
-    },
-    {
-      title: "See How Our Loans Are Changing Lives!",
-      text: "Thanks to Best Point Savings and Loans, our dream is now a reality! With the SME loan, we finally had the support to set up our shop",
-      image:
-        "https://res.cloudinary.com/dinb6qtto/image/upload/v1747331388/f6sxinwnzcms6zdw6far.png",
-      link: "/loans2",
       textBtn: "Apply Now",
     },
     {
+      title: "Grow Your Savings Faster",
+      text: "Enjoy competitive interest rates, zero monthly fees, and easy access to your money. It's time to earn more and worry less.",
+      image:slide2,
+      link: "/loans2",
+      textBtn: "start saving today",
+    },
+    {
       title:
-        "Fast & flexible loan solutions with low interest rates, quick approval, and minimal paperwork.",
-      text: "Get Funds in 24 Hours !, Business Loans, Personal Loans, Salary Advances, Asset Financing.......",
-      image:
-        "https://res.cloudinary.com/dinb6qtto/image/upload/v1747330904/ptjmdd2zra9hzwjybbw1.png",
+        "Bank Anywhere, Anytime",
+      text: "Experience the power of digital banking with our USSD service. Easy, fast, and always available. Just Dial *277#.",
+      image:slide3,
       link: "/loans3",
-      textBtn: "Get In Touch",
+      textBtn: "Read More",
     },
     {
       title: "Seamless Transactions, Anytime Anywhere, 24/7 Access.",
