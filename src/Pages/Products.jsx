@@ -67,16 +67,16 @@ function Products() {
   return (
     <div className="bg-gradient-to-br from-indigo-50 via-white to-blue-100 min-h-screen">
       <Hero image={heroBg} text1={card?.title || "Product"} />
-      <div className="p-6">
+      <div className="px-6 pt-2">
         <UndoButton />
       </div>
       {card ? (
-        <div className="max-w-6xl mx-auto px-4 py-16">
+        <div className="max-w-6xl mx-auto px-4 py-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="grid lg:grid-cols-2 gap-10 items-start backdrop-blur-md rounded-3xl  p-10"
+            className="grid lg:grid-cols-2 gap-10 items-start backdrop-blur-md rounded-3xl  p-4"
           >
             {/* Image Section */}
             <motion.div
@@ -95,7 +95,7 @@ function Products() {
               <h2 className="text-2xl md:text-4xl font-bold text-gray-800 bg-clip-text text-transparent bg-gradient-to-r from-gray-800 to-gray-600">
                 {card.title}
               </h2>
-              <p className="uppercase  text-xs sm:text-sm tracking-widest text-gray-800 ">
+              <p className="uppercase text-xs sm:text-sm tracking-widest text-gray-800 ">
                 {card.cat}
               </p>
 
