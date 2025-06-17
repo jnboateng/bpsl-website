@@ -13,7 +13,8 @@ import {
 import logo from "../images/logo/logo-p.png";
 import bgMap from "../images/footer vectors/map-bg.png";
 import wire from "../images/footer vectors/wire.png";
-import bog from "../images/logo/bog.png"
+import bog from "../images/logo/bog.png";
+import dpc from "../images/logo/dpc.jpg";
 import { Link, NavLink } from "react-router-dom";
 
 const phone =
@@ -254,8 +255,10 @@ const Footer = () => {
 
         {/* Bottom Bar */}
         <div className="flex flex-col md:flex-row justify-between items-center text-xs text-white/70 gap-3">
-          <div className="">
-<img src={bog} alt="BOG LOGO" className="w-8 h-8 rounded-full"/>
+          <div className="flex flex-row gap-2">
+            <img src={bog} alt="BOG LOGO" className="w-8 h-8 rounded-full" />
+
+            <img src={dpc} alt="DPC LOGO" className="w-8 h-8 rounded-full" />
           </div>
           <p>
             Copyright © 2025 – All Rights Reserved Best Point Savings and Loans
