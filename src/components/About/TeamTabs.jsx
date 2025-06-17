@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import md from "../../images/team/management/md.png";
 import gm from "../../images/team/management/gm.png";
@@ -212,7 +212,9 @@ export default function TeamSection() {
       </>
     );
   };
-
+useEffect(()=>{
+setActiveMobileCategory("Management")
+},[])
   const renderOtherTeam = () => {
     const members = teamData[activeTab];
     const rowLength = 3;

@@ -234,7 +234,6 @@ function Navbar() {
                 className="flex justify-between items-center w-full py-3 px-4 text-left text-gray-800"
               >
                 <span>Products</span>
-                <span className="text-sm">{showBankingMenu ? "−" : "+"}</span>
               </MobileNavLink>
 
               {showBankingMenu && (
