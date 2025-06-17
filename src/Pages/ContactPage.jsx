@@ -40,9 +40,10 @@ const ContactPage = () => {
     alert("Form submitted successfully!");
   };
   const [searchParams] = useSearchParams();
-  useEffect(() => {
-    setActiveTab(searchParams.get("tab")); // "accounts" or "loans"
-  },[]);
+ useEffect(() => {
+  const tabParam = searchParams.get("tab");
+  setActiveTab(tabParam || "enquiry"); 
+}, [searchParams]);
 
   return (
     <div className="">
