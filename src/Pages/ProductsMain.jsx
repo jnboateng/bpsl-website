@@ -7,12 +7,10 @@ const herobg = "https://res.cloudinary.com/dinb6qtto/image/upload/v1747327037/fu
 
 const categoryMap = {
   loans: "Loans",
-  accounts: "Accounts",
-  digital: "Digital Banking",
-  transfers: "Transfers",
-  kiddie: "Kiddie Account",
-  personal: "Personal Banking",
-  business: "Business Banking",
+  savings: "Savings",
+  digital: "Digital Channels",
+  Remmittance: "Remmittance",
+
 };
 
 // Get unique categories from cards
@@ -75,7 +73,7 @@ function ProductsMain() {
               {uniqueCategories.map(cat => (
                 <li
                   key={cat}
-                  className={`cursor-pointer px-4 py-2 rounded-3xl ${
+                  className={`cursor-pointer capitalize px-4 py-2 rounded-3xl ${
                     selectedCategory === cat
                       ? "bg-purple font-bold bg-opacity-10 text-gray-800"
                       : "hover:bg-purple-50"
