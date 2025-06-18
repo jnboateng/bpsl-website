@@ -4,6 +4,8 @@ import Hero from "../components/About/Hero";
 import { cards } from "../components/Home/ProductsCarousel";
 import { motion } from "framer-motion";
 import UndoButton from "../components/UndoButton";
+import { Helmet } from "react-helmet-async";
+
 
 const heroBg =
   "https://res.cloudinary.com/dinb6qtto/image/upload/v1747327037/fuelme/eunqurz5ywlilv9qris7.png";
