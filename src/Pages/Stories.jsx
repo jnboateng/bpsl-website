@@ -12,7 +12,7 @@ function Stories() {
 </title>
 <meta name='description' content='Stay updated with the latest news and announcements from Best Point. Explore stories on financial services, community initiatives, and business growth.' />
       </Helmet>
-      <Hero image={heroBg} text1={"Stories"}/>
+      <Hero image={heroBg} text1={"News"}/>
       <StoriesArticlesGallery />
     </div>
   )

@@ -80,7 +80,7 @@ const Footer = () => {
                   to="/stories"
                   className="font-thin text-xs hover:font-light"
                 >
-                  Stories
+                  News
                 </Link>
               </li>
               <li>

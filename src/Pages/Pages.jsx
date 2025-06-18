@@ -39,8 +39,8 @@ const Pages = () => {
         <Route path="/careers/:id" element={<PageWrapper><CareerDetials /></PageWrapper>} />
         <Route path="/products" element={<PageWrapper><ProductsMain /></PageWrapper>} />
         <Route path="/products/:category/:title" element={<PageWrapper><Products /></PageWrapper>} />
-        <Route path="/stories" element={<PageWrapper><Stories /></PageWrapper>} />
-        <Route path="/stories/:id" element={<PageWrapper><ArticleDetail /></PageWrapper>} />
+        <Route path="/news" element={<PageWrapper><Stories /></PageWrapper>} />
+        <Route path="/news/:id" element={<PageWrapper><ArticleDetail /></PageWrapper>} />
         <Route path="/locator/" element={<PageWrapper><Locator /></PageWrapper>} />
         <Route path="/contact-us/" element={<PageWrapper><Locator /></PageWrapper>} />
         <Route path="/privacy/" element={<PageWrapper><Privacy /></PageWrapper>} />

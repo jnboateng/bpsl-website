@@ -371,7 +371,7 @@ export default function Articles() {
                     </button>
                   ) : (
                     <Link
-                      to={`/stories/${article.id}`}
+                      to={`/news/${article.id}`}
                       className="bg-gradient-to-r from-purple-200 to-purple-100 text-white text-xs font-semibold px-3 py-2 rounded-md inline-block"
                     >
                       Read More
@@ -480,7 +480,7 @@ export default function Articles() {
                       {article.excerpt}
                     </p>
                     <Link
-                      to={`/stories/${article.id}`}
+                      to={`/news/${article.id}`}
                       className="text-sm text-purple-100 font-semibold hover:underline"
                     >
                       Read more →

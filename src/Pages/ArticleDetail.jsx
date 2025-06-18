@@ -16,7 +16,7 @@ export default function ArticleDetail() {
 
   return (
     <div className="">
-      <Hero image={article.image} text1={"Stories"} />
+      <Hero image={article.image} text1={"News"} />
 
       <div className="flex flex-col sm:flex-row gap-x-4 lg:gap-x-12 mt-6 md:mt-12 items-start px-4 sm:px-8 md:px-0">
         <div className="hidden md:block bg-purple h-8 w-12 mb-2 text-3xl md:text-4xl" />

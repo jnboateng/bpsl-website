@@ -174,14 +174,14 @@ function Navbar() {
             </li>
             <li>
               <NavLink
-                to="/stories"
+                to="/news"
                 className={({ isActive }) =>
                   `text-sm ${
                     isActive ? "text-purple font-semibold" : "text-purple"
                   }`
                 }
               >
-                Stories
+                News
               </NavLink>
             </li>
             <li>
@@ -244,7 +244,7 @@ function Navbar() {
             </div>
 
             <MobileNavLink to="/careers">Careers</MobileNavLink>
-            <MobileNavLink to="/stories">Stories</MobileNavLink>
+            <MobileNavLink to="/news">News</MobileNavLink>
             <MobileNavLink to="/contact">Contact</MobileNavLink>
 
             {/* Mobile Toggle Buttons */}
