@@ -3,6 +3,9 @@
 }
 body {
   font-family: 'Inter', sans-serif;
+  max-width: 1560px;
+  margin: auto;
+  justify-content: center;
 }
 .App-logo {
   height: 40vmin;
