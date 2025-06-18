@@ -101,7 +101,7 @@ const MarqueeTestimonials = () => {
     return (
       <div className="w-full mx-auto px-4 py-12">
         <h2 className="text-2xl font-bold text-center mb-8 text-gray-800">
-          What Our Clients Say
+          What Our Customers Say
         </h2>
 
         <div className="relative overflow-hidden h-72">
@@ -182,7 +182,7 @@ const MarqueeTestimonials = () => {
   return (
     <div className="max-w-7xl mx-auto px-4 py-12">
       <h2 className="text-3xl md:text-4xl font-bold text-center mb-6 text-gray-800">
-        What Our Clients Say
+        What Our Customers Say
       </h2>
 
       {/* First marquee (left) - Desktop view with 3 visible */}
