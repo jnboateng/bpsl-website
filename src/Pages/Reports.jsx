@@ -111,15 +111,28 @@ function Reports() {
             <ul>
               {filteredReports.length ? (
                 filteredReports.map((report) => (
-                  <li key={report.id}>
-                    <Link
-                      to={`/reports/${report.id}`}
-                      className="flex items-center justify-start  gap-2 my-2 font-medium text-purple transition-all duration-300 transform hover:translate-x-2"
-                    >
-                      <ArrowRight color="purple" />
-                      <span>{report.title}</span>
-                    </Link>
-                  </li>
+                 <li key={report.id} className="w-full bg-white shadow-md rounded-xl p-5 my-3 transition hover:shadow-lg flex items-center justify-between">
+  {/* Left: Title & Link */}
+  <Link
+    to={`/reports/${report.id}`}
+    className="flex items-center gap-3 text-purple-700 hover:text-purple-900 font-semibold text-base transition-transform duration-300 hover:translate-x-1"
+  >
+    <ArrowRight className="w-5 h-5" />
+    <span>{report.title}</span>
+  </Link>
+
+  {/* Right: Download Button */}
+  <a
+    href={report.downloadUrl}
+    download
+    target="_blank"
+    rel="noopener noreferrer"
+    className="ml-4 px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white text-sm font-medium rounded-md transition duration-300"
+  >
+    Download
+  </a>
+</li>
+
                 ))
               ) : (
                 <li className="text-gray-500 mt-4">No reports found.</li>

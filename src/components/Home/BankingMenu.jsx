@@ -50,7 +50,7 @@ const BankingMenu = () => {
             <li className="font-medium text-lg px-2">Accounts</li>
             <li>
               <Link
-                to={"/products/accounts/savings account"}
+                to={"/products/accounts/susu account"}
                 className="block text-sm px-2 hover:bg-white/90 rounded-lg transition-transform duration-300 hover:scale-[1.03]"
               >
                 Susu Account
@@ -58,7 +58,7 @@ const BankingMenu = () => {
             </li>
             <li>
               <Link
-                to={"/products/accounts/fixed deposit account"}
+                to={"/products/accounts/Sika Dua"}
                 className="block text-sm px-2 hover:bg-white/90 rounded-lg transition-transform duration-300 hover:scale-[1.03]"
               >
                 Sika Dua
@@ -66,7 +66,7 @@ const BankingMenu = () => {
             </li>
             <li>
               <Link
-                to={"/products/accounts/current account"}
+                to={"/products/accounts/Fixed Deposit"}
                 className="block text-sm px-2 hover:bg-white/90 rounded-lg transition-transform duration-300 hover:scale-[1.03]"
               >
                 Fixed Deposit
@@ -74,7 +74,7 @@ const BankingMenu = () => {
             </li>
             <li>
               <Link
-                to={"/products/accounts/susu account"}
+                to={"/products/accounts/Savings Account"}
                 className="block text-sm px-2 hover:bg-white/90 rounded-lg transition-transform duration-300 hover:scale-[1.03]"
               >
                 Savings Account
@@ -82,7 +82,7 @@ const BankingMenu = () => {
             </li>
             <li>
               <Link
-                to={"/products/accounts/susu account"}
+                to={"/products/accounts/Mmofra Daakye Account"}
                 className="block text-sm px-2 hover:bg-white/90 rounded-lg transition-transform duration-300 hover:scale-[1.03]"
               >
                 Mmofra Daakye Account
@@ -105,7 +105,7 @@ const BankingMenu = () => {
             </li>
             <li>
               <Link
-                to={"/products/digital/ussd"}
+                to={"/products/digital/momo"}
                 className="block text-sm px-2 hover:bg-white/90 rounded-lg transition-transform duration-300 hover:scale-[1.03]"
               >
                 Mobile Money Services
@@ -120,7 +120,7 @@ const BankingMenu = () => {
             <li className="font-medium text-lg px-2">Remmittance</li>
             <li>
               <Link
-                to={"/products/transfers/western union"}
+                to={"/products/remmittance/western union"}
                 className="block text-sm px-2 hover:bg-white/90 rounded-lg transition-transform duration-300 hover:scale-[1.03]"
               >
                 Western Union
@@ -128,7 +128,7 @@ const BankingMenu = () => {
             </li>
             <li>
               <Link
-                to={"/products/transfers/moneygram"}
+                to={"/products/remmittance/moneygram"}
                 className="block text-sm px-2 hover:bg-white/90 rounded-lg transition-transform duration-300 hover:scale-[1.03]"
               >
                 MoneyGram
@@ -136,7 +136,7 @@ const BankingMenu = () => {
             </li>
             <li>
               <Link
-                to={"/products/transfers/ria"}
+                to={"/products/remmittance/ria"}
                 className="block text-sm px-2 hover:bg-white/90 rounded-lg transition-transform duration-300 hover:scale-[1.03]"
               >
                 Ria Money Transfer
@@ -144,7 +144,7 @@ const BankingMenu = () => {
             </li>
             <li>
               <Link
-                to={"/products/transfers/unitylink"}
+                to={"/products/remmittance/unitylink"}
                 className="block text-sm px-2 hover:bg-white/90 rounded-lg transition-transform duration-300 hover:scale-[1.03]"
               >
                 UnityLink

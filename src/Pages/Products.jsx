@@ -9,52 +9,50 @@ const heroBg =
   "https://res.cloudinary.com/dinb6qtto/image/upload/v1747327037/fuelme/eunqurz5ywlilv9qris7.png";
 
 const cardDetails = {
-  "Salary Loans":
-    "Salary Loans are specially designed for salaried workers who need quick access to funds for personal or emergency needs. These loans offer fast approval processes, competitive interest rates, and flexible repayment options that are automatically deducted from your salary, making repayment stress-free and seamless.",
+  "Susu Account":
+    "The Susu Account encourages a disciplined savings culture by allowing individuals—such as market women and artisans—to save small amounts consistently. It offers flexible withdrawals, no maintenance fees, and easy tracking of savings growth.",
 
-  "SME Loans":
-    "SME Loans are tailored to support small and medium-sized enterprises with funding solutions to grow their businesses. Whether it's for expanding operations, purchasing new equipment, or managing day-to-day expenses, these loans offer business-friendly repayment terms and may not require collateral for smaller amounts.",
+  "Sika Dua":
+    "Sika Dua is a unique micro-savings plan designed for daily or weekly contributions. It helps individuals build a strong savings habit with structured deposits and access to savings during emergencies or planned expenses.",
 
-  "Auto Loans":
-    "Auto Loans provide financing solutions to help you purchase new or used vehicles with ease. They come with low down payment requirements, attractive interest rates, and flexible repayment periods, allowing you to own your dream car without financial strain.",
+  "Mmofra Daakye":
+    "Mmofra Daakye is a children’s savings account that empowers parents to plan for their child’s education and future needs. It features parental controls, interest earnings, and educational rewards to instill financial responsibility early on.",
 
-  "Church Loans":
-    "Church Loans are created specifically for religious organizations that need financial assistance for building projects, acquiring equipment, or organizing events. These loans come with flexible tenors and competitive interest rates, supporting the growth of faith-based institutions.",
+  "Fixed Deposit":
+    "Fixed Deposit Accounts are ideal for individuals looking to invest a lump sum for a fixed period. They offer higher interest rates, secure terms, and guaranteed returns, making them a great tool for long-term financial planning.",
 
   "Savings Account":
-    "The Savings Account offers a secure and convenient way to save money while earning interest on deposits. It is ideal for individuals looking to build a financial cushion, with features like free monthly statements, easy fund access, and no hidden charges.",
+    "Our Savings Account provides a safe and accessible way to store money while earning interest. Perfect for building emergency funds or planning future expenses, it features easy withdrawals, no hidden charges, and monthly statements.",
 
-  "Fixed Deposit Account":
-    "Fixed Deposit Accounts are a great option for individuals who want to earn higher interest on their savings over a fixed period. With guaranteed returns, flexible maturity options, and secure investment terms, they provide peace of mind and financial growth.",
-
-  "Current Account":
-    "Current Accounts are best suited for individuals and businesses that carry out frequent financial transactions. With benefits like unlimited withdrawals, access to a cheque book, and real-time payments, this account ensures smooth and efficient banking.",
-
-  "Susu Account":
-    "The Susu Account is designed for people who prefer saving small amounts consistently over time, such as market women and artisans. It encourages a disciplined savings culture with no maintenance fees and the flexibility to withdraw at any time.",
-
-  "Savings Plus Account":
-    "The Savings Plus Account combines the benefits of a traditional savings account with higher interest rates and added perks. It’s ideal for customers who maintain a minimum balance and are committed to long-term savings, offering bonuses and priority services.",
-
-  "Mmofra Daakye Account":
-    "Mmofra Daakye Account is crafted to help parents save for their children's future. With parental monitoring, interest earnings, and educational incentives, it nurtures a strong savings habit from an early age and sets kids on the path to financial literacy.",
-
-  "USSD Service (*277#)":
-    "Our USSD Service (*277#) allows customers to perform essential banking activities without needing internet access. Available on all mobile phones, the service is accessible 24/7 for balance inquiries, transfers, bill payments, and more.",
-
-  "Western Union":
-    "Western Union enables secure, fast, and reliable money transfers across the globe. Whether sending or receiving, customers can choose from cash pickup or direct deposit options, making it a trusted solution for global remittances.",
-
-  MoneyGram:
-    "MoneyGram offers convenient international money transfers with multiple payout options including bank deposit and mobile wallet. It’s a dependable service used in over 200 countries, perfect for personal and business transactions alike.",
-
-  Ria: "Ria specializes in affordable and speedy money transfers worldwide, with a strong presence in Africa. It supports mobile wallet deposits, cash pickup, and more, making it a practical solution for sending money to family or friends.",
-
-  UnityLink:
-    "UnityLink is a licensed remittance provider that focuses on money transfers from the UK and Europe to Ghana. Customers enjoy competitive exchange rates and can receive funds via mobile money or direct bank deposit.",
+  "Best Mobile Banking":
+    "Our award-winning Mobile Banking solution gives you full control of your finances from your phone. Check balances, make transfers, and pay bills instantly—all with bank-level security and 24/7 availability.",
 
   "Mobile Money Services":
-    "Our Mobile Money Services offer instant and secure transactions, allowing you to send money, pay bills, buy airtime, and link your wallet to a bank account. It’s a fast and convenient way to manage your finances on the go.",
+    "Mobile Money Services allow you to send and receive money, pay bills, buy airtime, and link your wallet to your bank account. It offers fast, secure, and reliable access to financial services wherever you are.",
+
+  "Western Union":
+    "Western Union enables fast and secure money transfers globally. Whether you’re sending funds to family or receiving remittances, enjoy flexible options including cash pickup and direct deposit at competitive rates.",
+
+  UnityLink:
+    "UnityLink specializes in remittances from the UK and Europe to Ghana. It offers trusted, licensed services with direct deposit or mobile money delivery, supporting families and businesses with secure cross-border transfers.",
+
+  "Ria Money Transfer":
+    "Ria Money Transfer offers fast, low-cost international remittance services with coverage in over 160 countries. Funds can be received via mobile wallet, bank account, or cash pickup—making it ideal for personal support or business payments.",
+
+  MoneyGram:
+    "MoneyGram delivers reliable international money transfers with multiple payout options including bank accounts and mobile wallets. It’s widely used across the globe, especially for sending funds quickly and safely to loved ones.",
+
+  "Government Salary Loan":
+    "The Government Salary Loan is tailored for public sector workers seeking financial assistance. It offers quick disbursement, competitive interest rates, and repayment deducted directly from monthly salaries—ideal for emergencies or personal needs.",
+
+  "Nkosuo Loan":
+    "The Nkosuo Loan is designed to empower individuals and micro-entrepreneurs with access to small-to-medium scale credit. It supports business growth and personal advancement, with simplified requirements and flexible repayment plans.",
+
+  "SME Loan":
+    "The SME Loan supports small and medium-sized enterprises with financial resources to expand operations, purchase inventory, or improve infrastructure. It often requires minimal collateral and offers flexible repayment options suited to business cycles.",
+
+  "Salary Loan":
+    "Salary Loans are fast-access credit options for employed individuals needing quick financial support. With low interest rates, minimal paperwork, and repayment deducted from salary, they ensure a convenient and stress-free borrowing experience.",
 };
 
 function Products() {
