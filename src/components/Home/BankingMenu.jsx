@@ -55,7 +55,7 @@ const BankingMenu = () => {
         {/* Accounts Column */}
         <nav>
           <ul className="space-y-2">
-            <li className="font-medium text-lg px-2">Accounts</li>
+            <li className="font-medium text-lg px-2">Savings</li>
             <li>
               <Link
                 to={"/products/accounts/susu account"}
