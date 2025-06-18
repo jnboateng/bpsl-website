@@ -79,7 +79,7 @@ function Stats() {
         whileInView="show"
         viewport={{ once: true, margin: "-100px" }}
       >
-        Get Along with Bestpoint
+        Best Point Savings and Loans – Your Financial Partner in Ghana
       </motion.h1>
 
       <motion.div

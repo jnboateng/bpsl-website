@@ -115,7 +115,7 @@ const sortedReports = [...annualReports].sort(
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
           />
-          <button className="bg-gradient-to-b from-purple to-purple-200 hover:bg-purple-700 text-white text-sm font-medium px-4 py-1.5 rounded-full transition">
+          <button className="bg-gradient-to-b from-purple to-purple-200 hover:bg-gradient-to-t text-white text-sm font-medium px-4 py-1.5 rounded-full transition">
             Search
           </button>
         </div>
@@ -147,7 +147,7 @@ const sortedReports = [...annualReports].sort(
                       download
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="ml-4 px-4 py-2 cursor-pointer hover:bg-gradient-to-t bg-gradient-to-b from-purple to-purple-200 hover:bg-purple-700 text-white text-sm font-medium rounded-md transition duration-300"
+                      className="ml-4 px-4 py-2 cursor-pointer hover:bg-gradient-to-t bg-gradient-to-b from-purple to-purple-200  text-white text-sm font-medium rounded-md transition duration-300"
                     >
                       Download
                     </a>
