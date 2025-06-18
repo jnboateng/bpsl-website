@@ -55,7 +55,11 @@ const cardDetails = {
 
   "Salary Loan":
     "Salary Loans are fast-access credit options for employed individuals needing quick financial support. With low interest rates, minimal paperwork, and repayment deducted from salary, they ensure a convenient and stress-free borrowing experience.",
-};
+    
+"Trade Finance":
+    "Salary Loans are fast-access credit options for employed individuals needing quick financial support. With low interest rates, minimal paperwork, and repayment deducted from salary, they ensure a convenient and stress-free borrowing experience.",
+
+  };
 
 function Products() {
   const { category, title } = useParams();

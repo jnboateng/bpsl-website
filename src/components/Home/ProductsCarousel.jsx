@@ -13,6 +13,7 @@ export const cards = [
       "Nkosuo Loan",
       "SME Loan",
       "Salary Loan",
+      "Trade Finance",
     ],
     image: "https://res.cloudinary.com/dinb6qtto/image/upload/v1747331399/om9zpjrtrgfvw0wtbueo.png",
   },
