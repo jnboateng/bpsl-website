@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { NavLink, Link } from "react-router-dom";
 import Hero from "../components/About/Hero";
 import { cards } from "../components/Home/ProductsCarousel";
-
+import { Helmet } from "react-helmet-async";
 const herobg = "https://res.cloudinary.com/dinb6qtto/image/upload/v1747327037/fuelme/eunqurz5ywlilv9qris7.png";
 
 const categoryMap = {
@@ -48,11 +48,19 @@ function ProductsMain() {
 
   return (
     <div>
+      <Helmet>
+        <title> Our Products – Loans, Mobile Banking, Savings | Best Point Ghana
+</title>
+<meta 
+name="description"
+content=" Explore Best Point’s financial services: flexible loans, mobile banking via *277#, savings and remittances tailored for Ghanaians."
+/>
+      </Helmet>
       <Hero image={herobg} text1={"Products"} />
       <div className="flex gap-x-16 items-center mt-12 mb-6">
         <div className="bg-purple h-8 w-12" />
         <h2 className="text-3xl md:text-4xl font-bold capitalize text-gray-800 ">
-          Our Products Catalog
+          Trusted Financial Services Built Around Your Needs in Ghana
         </h2>
       </div>
       <div className="mt-2 pl-2 md:pl-28">
