@@ -15,6 +15,8 @@ import Hero from "../components/About/Hero";
 import ChatIcon from "../components/ChatIcon";
 import { NavLink } from "react-router-dom";
 import { useSearchParams } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
+
 const ContactPage = () => {
   const [activeTab, setActiveTab] = useState("enquiry");
   const [formData, setFormData] = useState({
@@ -47,7 +49,20 @@ const ContactPage = () => {
 
   return (
     <div className="">
+      <Helmet>
+        <title> Contact Best Point – Branch Locations & Support Numbers
+</title>
+<meta name="description"
+content="Reach Best Point Savings & Loans via phone, email, or visit any of our branches in Accra, Kumasi, and other regions."
+/>
+      </Helmet>
       <Hero text1={"Contact Us"} />
+      <div className="flex gap-x-16 items-center mt-12 mb-6">
+        <div className="hidden md:block purple h-8 w-12" />
+        <h2 className="text-3xl md:text-4xl font-bold text-center md:text-left capitalize text-gray-800 ">
+          Contact Best Point Savings and Loans
+        </h2>
+      </div>
       {/* Tabs */}
       <div className="flex flex-wrap justify-center gap-4 mt-6 mb-10">
         <button
