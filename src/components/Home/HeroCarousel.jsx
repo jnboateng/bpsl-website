@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import slide1 from "../../images/logo/1.jpg"
-import slide2 from "../../images/logo/2.png"
+import slide2 from "../../images/logo/smile.jpg"
 import slide3 from "../../images/logo/3.jpg"
 import slide4 from "../../images/logo/Frame.jpg"
 import slide5 from "../../images/logo/2.jpg"
