@@ -62,14 +62,31 @@ export const annualReports = [
 ];
 
 function Reports() {
+ 
+const sortedReports = [...annualReports].sort(
+    (a, b) => parseInt(b.id) - parseInt(a.id)
+  );
+
   const [searchTerm, setSearchTerm] = useState("");
 
-  const filteredReports = annualReports.filter(
+  const filteredReports = sortedReports.filter(
     (report) =>
       report.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
       report.excerpt.toLowerCase().includes(searchTerm.toLowerCase())
   );
+ const [currentPage, setCurrentPage] = useState(1);
+  const reportsPerPage = 4;
 
+  const indexOfLastReport = currentPage * reportsPerPage;
+  const indexOfFirstReport = indexOfLastReport - reportsPerPage;
+  const currentReports = filteredReports.slice(
+    indexOfFirstReport,
+    indexOfLastReport
+  );
+
+  const totalPages = Math.ceil(filteredReports.length / reportsPerPage);
+
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
   return (
     <div>
       <Hero text1={"Annual Reports"} />
@@ -110,7 +127,7 @@ function Reports() {
           <div className="col-span-1">
             <ul>
               {filteredReports.length ? (
-                filteredReports.map((report) => (
+                currentReports.map((report) => (
                   <li
                     key={report.id}
                     className="w-full bg-white shadow-md rounded-xl p-5 my-3 transition hover:shadow-lg flex items-center justify-between"
@@ -140,6 +157,23 @@ function Reports() {
                 <li className="text-gray-500 mt-4">No reports found.</li>
               )}
             </ul>
+            {filteredReports.length > reportsPerPage && (
+              <div className="mt-8 flex justify-center gap-2">
+                {Array.from({ length: totalPages }, (_, index) => (
+                  <button
+                    key={index + 1}
+                    onClick={() => paginate(index + 1)}
+                    className={`px-3 py-1 rounded-md border border-purple-200 text-sm font-medium ${
+                      currentPage === index + 1
+                        ? "bg-purple-100 text-white"
+                        : "bg-white text-purple hover:bg-purple-200"
+                    }`}
+                  >
+                    {index + 1}
+                  </button>
+                ))}
+              </div>
+            )}
           </div>
           <div className="col-span-1">
             <div className=" relative w-[300px] md:w-[350px] h-[550px] md:h-[500px] p-4 rounded-xl md:mx-auto bg-gradient-to-tr from-purple-200 to-purple-300">
