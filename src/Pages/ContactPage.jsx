@@ -57,12 +57,9 @@ content="Reach Best Point Savings & Loans via phone, email, or visit any of our 
 />
       </Helmet>
       <Hero text1={"Contact Us"} />
-      <div className="flex gap-x-16 items-center mt-12 mb-6">
-        <div className="hidden md:flex bg-purple h-8 w-12" />
-        <h2 className="text-3xl md:text-4xl font-bold text-center md:text-left capitalize text-gray-800 ">
+      <div className="w-full text-center mt-6 mb-2"><h2 className="text-3xl md:text-4xl font-bold text-center capitalize text-gray-800 ">
           Contact Best Point Savings and Loans
-        </h2>
-      </div>
+        </h2></div>
       {/* Tabs */}
       <div className="flex flex-wrap justify-center gap-4 mt-6 mb-10">
         <button
