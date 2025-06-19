@@ -77,7 +77,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link
-                  to="/stories"
+                  to="/news"
                   className="font-thin text-xs hover:font-light"
                 >
                   News
@@ -176,7 +176,7 @@ const Footer = () => {
           {/* Socials */}
           <div className="z-10">
             <h4 className="font-bold mb-3">Socials</h4>
-            <Link to={`/stories`}>
+            <Link to={`/news`}>
               <p className="mb-2 font-thin text-xs hover:font-light">
                 News Blog
               </p>

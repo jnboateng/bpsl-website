@@ -7,15 +7,15 @@ import { Helmet } from "react-helmet-async";
 function FAQ() {
   const [expandedQuestions, setExpandedQuestions] = useState({
     q1: true,
-    q2: true,
-    q3: true,
-    q4: true,
-    q5: true,
-    q6: true,
-    q7: true,
-    q8: true,
-    q9: true,
-    q10: true,
+    q2: false,
+    q3: false,
+    q4: false,
+    q5: false,
+    q6: false,
+    q7: false,
+    q8: false,
+    q9: false,
+    q10: false,
   });
 
   const toggleQuestion = (question) => {
@@ -41,7 +41,7 @@ function FAQ() {
       <div className="flex gap-x-4 lg:gap-x-12 items-center justify-start mt-12 ">
         <div className="bg-purple h-8 w-12 mb-2" />
         <h1 className="text-3xl md:text-4xl font-bold text-gray-800 leading-tight">
-          Frequently Asked Questions (FAQs)
+          Get Help with Loans, 277# Mobile Banking & More
         </h1>
       </div>
       <div className="w-full md:w-[80vw] mx-auto p-6">

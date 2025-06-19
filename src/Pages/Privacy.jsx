@@ -8,11 +8,11 @@ import { ChevronDown, ChevronRight } from "lucide-react";
 function Privacy() {
     const [expandedSections, setExpandedSections] = useState({
         collection: true,
-        consent: true,
-        thirdParties: true,
-        storing: true,
-        security: true,
-        marketing: true,
+        consent: false,
+        thirdParties: false,
+        storing: false,
+        security: false,
+        marketing: false,
       });
     
       const toggleSection = (section) => {
