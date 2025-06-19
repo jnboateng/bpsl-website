@@ -103,7 +103,7 @@ content="Reach Best Point Savings & Loans via phone, email, or visit any of our 
           <div className="flex items-center gap-3">
             <LocateFixed />
             <div>
-              <NavLink to={"/locator"} className="hover:text-purple">
+              <NavLink to={"/locator"} className="hover:text-purple font-semibold">
                 Locate Our Branches
               </NavLink>
             </div>
@@ -119,7 +119,7 @@ content="Reach Best Point Savings & Loans via phone, email, or visit any of our 
             <Phone />
             <div>
               <p className="font-medium">030 393 2990-4</p>
-              <p>Toll Free: 0800 505 050</p>
+              <p className="font-semibold">Toll Free: 0800 505 050</p>
             </div>
           </div>
           <div className="flex items-center gap-3">
