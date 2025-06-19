@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { MapPin, Clock, ChevronDown, ChevronUp } from "lucide-react";
 import { Link } from "react-router-dom";
 
@@ -423,7 +423,9 @@ export default function OpenRoles() {
 
   const getRolesByCategory = (cat) =>
     cat === "All Roles" ? roles : roles.filter((role) => role.category === cat);
-
+useEffect(()=>{
+setActiveMobileCategory("All Roles")
+},[])
   return (
     <div id="jobs" className="min-h-screen">
       <div className="flex gap-x-12 items-center justify-start ">
