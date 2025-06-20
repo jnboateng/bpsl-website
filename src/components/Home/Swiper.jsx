@@ -6,7 +6,7 @@ const SwipeButton = ({ link, textBtn }) => {
   const navigate = useNavigate();
   const x = useMotionValue(0);
   const trackRef = useRef(null);
-  const [maxX, setMaxX] = useState(230); // Default fallback
+  const [maxX, setMaxX] = useState(230);
 
   useEffect(() => {
     if (trackRef.current) {
@@ -19,19 +19,19 @@ const SwipeButton = ({ link, textBtn }) => {
 
   const bgOpacity = useTransform(x, [0, maxX], [0.6, 1]);
 
-  const handleDragEnd = (_, info) => {
-    if (info.point.x - info.offset.x >= maxX - 10) {
-      navigate(link); // Redirect on successful swipe
+const handleDragEnd = () => {
+  if (x.get() >= maxX - 10) {
+    navigate(link);
 
-      // Optional: Reset after a delay
-      setTimeout(() => {
-        animate(x, 0, { type: "spring", stiffness: 300, damping: 30 });
-      }, 600);
-    } else {
-      // Not far enough: reset
+    // Optional: Reset after delay
+    setTimeout(() => {
       animate(x, 0, { type: "spring", stiffness: 300, damping: 30 });
-    }
-  };
+    }, 600);
+  } else {
+    animate(x, 0, { type: "spring", stiffness: 300, damping: 30 });
+  }
+};
+
 
   return (
     <div className="w-full flex justify-start mt-10 sm:mt-16">
