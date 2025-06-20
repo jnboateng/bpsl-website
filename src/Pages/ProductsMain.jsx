@@ -3,18 +3,20 @@ import { NavLink, Link } from "react-router-dom";
 import Hero from "../components/About/Hero";
 import { cards } from "../components/Home/ProductsCarousel";
 import { Helmet } from "react-helmet-async";
-const herobg = "https://res.cloudinary.com/dinb6qtto/image/upload/v1747327037/fuelme/eunqurz5ywlilv9qris7.png";
+const herobg =
+  "https://res.cloudinary.com/dinb6qtto/image/upload/v1747327037/fuelme/eunqurz5ywlilv9qris7.png";
 
 const categoryMap = {
   loans: "Loans",
   savings: "Savings",
   digital: "Digital Channels",
   Remmittance: "Remmittance",
-
 };
 
 // Get unique categories from cards
-const uniqueCategories = [...new Set(cards.map(card => categoryMap[card.cat] || card.cat))];
+const uniqueCategories = [
+  ...new Set(cards.map((card) => categoryMap[card.cat] || card.cat)),
+];
 const defaultCategory = uniqueCategories[0]; // Use first category as default
 
 function ProductsMain() {
@@ -22,13 +24,13 @@ function ProductsMain() {
   const [activeTab, setActiveTab] = useState("");
 
   // Filter cards by main category
-  const filteredCards = cards.filter(card => {
+  const filteredCards = cards.filter((card) => {
     return categoryMap[card.cat] === selectedCategory;
   });
 
   // Extract unique subcategories (used for tabs)
   const uniqueSubcategories = [
-    ...new Set(filteredCards.map(card => card.subcat).filter(Boolean))
+    ...new Set(filteredCards.map((card) => card.subcat).filter(Boolean)),
   ];
 
   // Set default tab when category changes
@@ -41,20 +43,22 @@ function ProductsMain() {
   }, [selectedCategory]);
 
   // Filter displayed cards based on active tab (subcategory)
-  const displayedCards = filteredCards.filter(card => {
+  const displayedCards = filteredCards.filter((card) => {
     if (!activeTab) return true;
-    return card.subcat === activeTab;
+    return card.subcat.toLowerCase === activeTab.toLowerCase;
   });
 
   return (
     <div>
       <Helmet>
-        <title> Our Products – Loans, Mobile Banking, Savings | Best Point Ghana
-</title>
-<meta 
-name="description"
-content=" Explore Best Point’s financial services: flexible loans, mobile banking via *277#, savings and remittances tailored for Ghanaians."
-/>
+        <title>
+          {" "}
+          Our Products – Loans, Mobile Banking, Savings | Best Point Ghana
+        </title>
+        <meta
+          name="description"
+          content=" Explore Best Point’s financial services: flexible loans, mobile banking via *277#, savings and remittances tailored for Ghanaians."
+        />
       </Helmet>
       <Hero image={herobg} text1={"Products"} />
       <div className="flex gap-x-16 items-center mt-12 mb-6">
@@ -78,7 +82,7 @@ content=" Explore Best Point’s financial services: flexible loans, mobile bank
           {/* Sidebar */}
           <div className="w-full md:w-1/4">
             <ul className="space-y-3">
-              {uniqueCategories.map(cat => (
+              {uniqueCategories.map((cat) => (
                 <li
                   key={cat}
                   className={`cursor-pointer capitalize px-4 py-2 rounded-3xl ${
@@ -99,7 +103,7 @@ content=" Explore Best Point’s financial services: flexible loans, mobile bank
             {/* Tabs */}
             {uniqueSubcategories.length > 0 && (
               <div className="flex bg-purple-200 p-2 text-white rounded-full w-full overflow-x-auto mb-6">
-                {uniqueSubcategories.map(sub => (
+                {uniqueSubcategories.map((sub) => (
                   <button
                     key={sub}
                     className={`px-6 py-2 rounded-full whitespace-nowrap ${

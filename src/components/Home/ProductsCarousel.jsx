@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 export const cards = [
-  // Loans
+  // Original Loans card
   {
     cat: "loans",
     subcat: "personal",
@@ -17,7 +17,44 @@ export const cards = [
     ],
     image: "https://res.cloudinary.com/dinb6qtto/image/upload/v1747331399/om9zpjrtrgfvw0wtbueo.png",
   },
-  // Accounts
+  // Loan subcategories
+  {
+    cat: "loans",
+    subcat: "personal",
+    title: "Government Salary Loan",
+    features: ["Competitive rates", "Flexible repayment", "Quick approval"],
+    image: "https://res.cloudinary.com/dinb6qtto/image/upload/v1747331399/om9zpjrtrgfvw0wtbueo.png",
+  },
+  {
+    cat: "loans",
+    subcat: "Business",
+    title: "Nkosuo Loan",
+    features: ["Business growth", "Collateral-free options", "Tailored amounts"],
+    image: "https://res.cloudinary.com/dinb6qtto/image/upload/v1747331399/om9zpjrtrgfvw0wtbueo.png",
+  },
+  {
+    cat: "loans",
+    subcat: "Business",
+    title: "SME Loan",
+    features: ["Business expansion", "Working capital", "Equipment financing"],
+    image: "https://res.cloudinary.com/dinb6qtto/image/upload/v1747331399/om9zpjrtrgfvw0wtbueo.png",
+  },
+  {
+    cat: "loans",
+    subcat: "personal",
+    title: "Salary Loan",
+    features: ["Instant approval", "Salary deduction", "Low interest"],
+    image: "https://res.cloudinary.com/dinb6qtto/image/upload/v1747331399/om9zpjrtrgfvw0wtbueo.png",
+  },
+  {
+    cat: "loans",
+    subcat: "Business",
+    title: "Trade Finance",
+    features: ["Import/export support", "Letters of credit", "Guarantees"],
+    image: "https://res.cloudinary.com/dinb6qtto/image/upload/v1747331399/om9zpjrtrgfvw0wtbueo.png",
+  },
+
+  // Original Savings card
   {
     cat: "savings",
     subcat: "savings",
@@ -31,7 +68,44 @@ export const cards = [
     ],
     image: "https://res.cloudinary.com/dinb6qtto/image/upload/v1747331415/tfnklbhelss4stefo5hh.png",
   },
-  // Digital Banking
+  // Savings subcategories
+  {
+    cat: "savings",
+    subcat: "Susu Account",
+    title: "Susu Account",
+    features: ["Daily collections", "Mobile deposits", "Withdrawal flexibility"],
+    image: "https://res.cloudinary.com/dinb6qtto/image/upload/v1747331415/tfnklbhelss4stefo5hh.png",
+  },
+  {
+    cat: "savings",
+    subcat: "Sika Dua",
+    title: "Sika Dua",
+    features: ["High interest", "Growth account", "Regular savings"],
+    image: "https://res.cloudinary.com/dinb6qtto/image/upload/v1747331415/tfnklbhelss4stefo5hh.png",
+  },
+  {
+    cat: "savings",
+    subcat: "Mmofra Daakye",
+    title: "Mmofra Daakye",
+    features: ["Children's account", "Education focus", "Parental controls"],
+    image: "https://res.cloudinary.com/dinb6qtto/image/upload/v1747331415/tfnklbhelss4stefo5hh.png",
+  },
+  {
+    cat: "savings",
+    subcat: "Fixed Deposit",
+    title: "Fixed Deposit",
+    features: ["Higher returns", "Term options", "Secure investment"],
+    image: "https://res.cloudinary.com/dinb6qtto/image/upload/v1747331415/tfnklbhelss4stefo5hh.png",
+  },
+  {
+    cat: "savings",
+    subcat: "Savings Account",
+    title: "Savings Account",
+    features: ["Easy access", "Interest earning", "Transaction flexibility"],
+    image: "https://res.cloudinary.com/dinb6qtto/image/upload/v1747331415/tfnklbhelss4stefo5hh.png",
+  },
+
+  // Original Digital Channels card
   {
     cat: "digital channels",
     subcat: "digital channels",
@@ -42,11 +116,27 @@ export const cards = [
     ],
     image: "https://res.cloudinary.com/dinb6qtto/image/upload/v1747331415/tfnklbhelss4stefo5hh.png",
   },
-
+  // Digital subcategories
   {
-    cat: "remmittance",
-    subcat: "Remmittance",
-    title: "Remmittance",
+    cat: "digital channels",
+    subcat: "Best Mobile Banking",
+    title: "Best Mobile Banking",
+    features: ["USSD (*277#)", "Mobile app", "24/7 banking"],
+    image: "https://res.cloudinary.com/dinb6qtto/image/upload/v1747331415/tfnklbhelss4stefo5hh.png",
+  },
+  {
+    cat: "digital channels",
+    subcat: "Mobile Money Services",
+    title: "Mobile Money Services",
+    features: ["Airtime purchase", "Bill payments", "Money transfers"],
+    image: "https://res.cloudinary.com/dinb6qtto/image/upload/v1747331415/tfnklbhelss4stefo5hh.png",
+  },
+
+  // Original Remittance card
+  {
+    cat: "remittance",
+    subcat: "Remittance",
+    title: "Remittance",
     features: [
       "Western Union",
       "UnityLink",
@@ -55,6 +145,35 @@ export const cards = [
     ],
     image: "https://res.cloudinary.com/dinb6qtto/image/upload/v1747331402/zgmtugjpczcovkk8gad6.png",
   },
+  // Remittance subcategories
+  {
+    cat: "remittance",
+    subcat: "Western Union",
+    title: "Western Union",
+    features: ["Global reach", "Instant transfers", "Multiple payout options"],
+    image: "https://res.cloudinary.com/dinb6qtto/image/upload/v1747331402/zgmtugjpczcovkk8gad6.png",
+  },
+  {
+    cat: "remittance",
+    subcat: "UnityLink",
+    title: "UnityLink",
+    features: ["Competitive rates", "Reliable service", "Nationwide branches"],
+    image: "https://res.cloudinary.com/dinb6qtto/image/upload/v1747331402/zgmtugjpczcovkk8gad6.png",
+  },
+  {
+    cat: "remittance",
+    subcat: "Ria Money Transfer",
+    title: "Ria Money Transfer",
+    features: ["Low fees", "Fast service", "Mobile integration"],
+    image: "https://res.cloudinary.com/dinb6qtto/image/upload/v1747331402/zgmtugjpczcovkk8gad6.png",
+  },
+  {
+    cat: "remittance",
+    subcat: "MoneyGram",
+    title: "MoneyGram",
+    features: ["Worldwide network", "Secure transactions", "Multiple currencies"],
+    image: "https://res.cloudinary.com/dinb6qtto/image/upload/v1747331402/zgmtugjpczcovkk8gad6.png",
+  }
 ];
 
 export default function MovingCarousel() {
