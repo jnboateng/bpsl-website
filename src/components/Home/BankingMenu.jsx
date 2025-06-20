@@ -11,7 +11,7 @@ const BankingMenu = () => {
             <li className="font-medium text-lg px-2">Loans</li>
             <li>
               <Link
-                to={"/products/loans/salary loans"}
+                to={"/products/personal/salary loans"}
                 className="block text-sm px-2 hover:bg-white/90 rounded-lg transition-transform duration-300 hover:scale-[1.03]"
               >
                 Salary Loans
@@ -19,7 +19,7 @@ const BankingMenu = () => {
             </li>
             <li>
               <Link
-                to={"/products/loans/sme loans"}
+                to={"/products/business/sme loans"}
                 className="block text-sm px-2 hover:bg-white/90 rounded-lg transition-transform duration-300 hover:scale-[1.03]"
               >
                 SME Loans
@@ -27,7 +27,7 @@ const BankingMenu = () => {
             </li>
             <li>
               <Link
-                to={"/products/loans/auto loans"}
+                to={"/products/personal/Government Salary Loans"}
                 className="block text-sm px-2 hover:bg-white/90 rounded-lg transition-transform duration-300 hover:scale-[1.03]"
               >
                 Government Salary Loans
@@ -35,7 +35,7 @@ const BankingMenu = () => {
             </li>
             <li>
               <Link
-                to={"/products/loans/church loans"}
+                to={"/products/business/nkosuo loans"}
                 className="block text-sm px-2 hover:bg-white/90 rounded-lg transition-transform duration-300 hover:scale-[1.03]"
               >
                 Nkosuo Loans
@@ -43,7 +43,7 @@ const BankingMenu = () => {
             </li>
             <li>
               <Link
-                to={"/products/loans/Trade Finance"}
+                to={"/products/business/Trade Finance"}
                 className="block text-sm px-2 hover:bg-white/90 rounded-lg transition-transform duration-300 hover:scale-[1.03]"
               >
               Trade Finance
@@ -105,7 +105,7 @@ const BankingMenu = () => {
             <li className="font-medium text-lg px-2">Digital Banking</li>
             <li>
               <Link
-                to={"/products/digital/ussd"}
+                to={"/products/digital/best mobile banking"}
                 className="block text-sm px-2 hover:bg-white/90 rounded-lg transition-transform duration-300 hover:scale-[1.03]"
               >
                 Best Mobile Banking
@@ -113,7 +113,7 @@ const BankingMenu = () => {
             </li>
             <li>
               <Link
-                to={"/products/digital/momo"}
+                to={"/products/digital/mobile money services"}
                 className="block text-sm px-2 hover:bg-white/90 rounded-lg transition-transform duration-300 hover:scale-[1.03]"
               >
                 Mobile Money Services
@@ -144,7 +144,7 @@ const BankingMenu = () => {
             </li>
             <li>
               <Link
-                to={"/products/remmittance/ria"}
+                to={"/products/remmittance/ria money transfer"}
                 className="block text-sm px-2 hover:bg-white/90 rounded-lg transition-transform duration-300 hover:scale-[1.03]"
               >
                 Ria Money Transfer

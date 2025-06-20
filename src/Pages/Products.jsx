@@ -5,7 +5,7 @@ import { cards } from "../components/Home/ProductsCarousel";
 import { motion } from "framer-motion";
 import UndoButton from "../components/UndoButton";
 import { Helmet } from "react-helmet-async";
-
+import {Link} from 'react-router-dom'
 const heroBg =
   "https://res.cloudinary.com/dinb6qtto/image/upload/v1747327037/fuelme/eunqurz5ywlilv9qris7.png";
 
@@ -17,7 +17,7 @@ const cardDetails = {
   "Sika Dua":
     "Sika Dua is a unique micro-savings plan designed for daily or weekly contributions. It helps individuals build a strong savings habit with structured deposits and access to savings during emergencies or planned expenses.",
 
-  "Mmofra Daakye":
+  "Mmofra Daakye Account":
     "Mmofra Daakye is a children's savings account that empowers parents to plan for their child's education and future needs. It features parental controls, interest earnings, and educational rewards to instill financial responsibility early on.",
 
   "Fixed Deposit":
@@ -47,16 +47,16 @@ const cardDetails = {
     "MoneyGram delivers reliable international money transfers with multiple payout options including bank accounts and mobile wallets. It's widely used across the globe, especially for sending funds quickly and safely to loved ones.",
 
   // Loan Products
-  "Government Salary Loan":
+  "Government Salary Loans":
     "The Government Salary Loan is tailored for public sector workers seeking financial assistance. It offers quick disbursement, competitive interest rates, and repayment deducted directly from monthly salaries—ideal for emergencies or personal needs.",
 
-  "Nkosuo Loan":
+  "Nkosuo Loans":
     "The Nkosuo Loan is designed to empower individuals and micro-entrepreneurs with access to small-to-medium scale credit. It supports business growth and personal advancement, with simplified requirements and flexible repayment plans.",
 
-  "SME Loan":
+  "SME Loans":
     "The SME Loan supports small and medium-sized enterprises with financial resources to expand operations, purchase inventory, or improve infrastructure. It often requires minimal collateral and offers flexible repayment options suited to business cycles.",
 
-  "Salary Loan":
+  "Salary Loans":
     "Salary Loans are fast-access credit options for employed individuals needing quick financial support. With low interest rates, minimal paperwork, and repayment deducted from salary, they ensure a convenient and stress-free borrowing experience.",
 
   "Trade Finance":
@@ -143,6 +143,11 @@ function Products() {
                 >
                   {cardDetails[card.title]}
                 </motion.p>
+                <div className="flex items-center justify-center w-full">
+                  <Link to={'/contact'} className="bg-gradient-to-br from-purple  mt-6 to-purple-200 p-2 rounded-3xl  hover:bg-gradient-to-tr text-center text-white w-[80%] md:w-[200px]">
+                    Apply
+                  </Link>
+                </div>
               </div>
             </motion.div>
           </div>
