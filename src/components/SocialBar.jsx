@@ -21,7 +21,7 @@ const SocialBar = () => {
           <FaPhone className="text-white" />
         </Link>
         <Link
-          to={""}
+          to={'https://wa.me/233509823348'}
           target="_blank"
           className="bg-green-500 p-2 rounded-full hover:scale-110 transition-transform duration-200"
         >

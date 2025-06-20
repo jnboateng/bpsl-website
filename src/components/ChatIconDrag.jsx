@@ -7,7 +7,7 @@ const ChatIcon = () => {
   const [dragStart, setDragStart] = useState({ x: 0, y: 0 });
   const [position, setPosition] = useState({ x: 20, y: 500 });
 
-  const phoneNumber = "233509803458";
+  const phoneNumber = "233509823348";
   const defaultMessage = "Hello! I'm interested in learning more about your services.";
 
   const handleMouseDown = (e) => {

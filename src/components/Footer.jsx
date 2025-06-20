@@ -76,10 +76,7 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link
-                  to="/news"
-                  className="font-thin text-xs hover:font-light"
-                >
+                <Link to="/news" className="font-thin text-xs hover:font-light">
                   News
                 </Link>
               </li>
@@ -185,12 +182,38 @@ const Footer = () => {
               <p className="mb-2 font-thin text-xs hover:font-light">Awards</p>
             </Link>{" "}
             <div className="grid grid-cols-3 grid-rows-2 gap-y-2 text-lg w-3/5">
-              <FaFacebookF className="bg-gradient-to-b from-purple to-purple-200 p-2 rounded-full w-6 h-6 md:w-8 md:h-8 hover:bg-gradient-to-tr" />
-              <FaInstagram className="bg-gradient-to-b from-purple to-purple-200 p-2 rounded-full w-6 h-6 md:w-8 md:h-8 hover:bg-gradient-to-tr" />
-              <FaTiktok className="bg-gradient-to-b from-purple to-purple-200 p-2 rounded-full w-6 h-6 md:w-8 md:h-8 hover:bg-gradient-to-tr" />
-              <FaYoutube className="bg-gradient-to-b from-purple to-purple-200 p-2 rounded-full w-6 h-6 md:w-8 md:h-8 hover:bg-gradient-to-tr" />
-              <FaTwitter className="bg-gradient-to-b from-purple to-purple-200 p-2 rounded-full w-6 h-6 md:w-8 md:h-8 hover:bg-gradient-to-tr" />
-              <FaLinkedin className="bg-gradient-to-b from-purple to-purple-200 p-2 rounded-full w-6 h-6 md:w-8 md:h-8 hover:bg-gradient-to-tr" />
+              {/* Facebook */}
+              <Link to="https://www.facebook.com/bestpointsl/" target="_blank">
+                <FaFacebookF className="bg-gradient-to-b from-purple to-purple-200 p-2 rounded-full w-6 h-6 md:w-8 md:h-8 hover:bg-gradient-to-tr" />
+              </Link>
+
+              {/* Instagram */}
+              <Link to="https://www.instagram.com/bestpointsl/" target="_blank">
+                <FaInstagram className="bg-gradient-to-b from-purple to-purple-200 p-2 rounded-full w-6 h-6 md:w-8 md:h-8 hover:bg-gradient-to-tr" />
+              </Link>
+
+              {/* TikTok
+              <Link to="https://www.tiktok.com/@bestpointsl" target="_blank">
+                <FaTiktok className="bg-gradient-to-b from-purple to-purple-200 p-2 rounded-full w-6 h-6 md:w-8 md:h-8 hover:bg-gradient-to-tr" />
+              </Link> */}
+
+              {/* YouTube */}
+              <Link to="https://www.youtube.com/@bestpointsl" target="_blank">
+                <FaYoutube className="bg-gradient-to-b from-purple to-purple-200 p-2 rounded-full w-6 h-6 md:w-8 md:h-8 hover:bg-gradient-to-tr" />
+              </Link>
+
+              {/* Twitter */}
+              <Link to="https://x.com/bestpointsl" target="_blank">
+                <FaTwitter className="bg-gradient-to-b from-purple to-purple-200 p-2 rounded-full w-6 h-6 md:w-8 md:h-8 hover:bg-gradient-to-tr" />
+              </Link>
+
+              {/* LinkedIn */}
+              <Link
+                to="https://www.linkedin.com/company/bestpointsl"
+                target="_blank"
+              >
+                <FaLinkedin className="bg-gradient-to-b from-purple to-purple-200 p-2 rounded-full w-6 h-6 md:w-8 md:h-8 hover:bg-gradient-to-tr" />
+              </Link>
             </div>
           </div>
 
