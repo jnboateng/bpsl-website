@@ -94,7 +94,7 @@ const HeroCarousel = () => {
                 animate={{ y: 0, opacity: 1 }}
                 exit={{ y: -50, opacity: 0 }}
                 transition={{ duration: 0.5, delay: 0.3, ease: "easeInOut" }}
-                className="text-gray-700 capitalize font-open-sans text-sm lg:text-xl mb-8 md:mb-16"
+                className="text-gray-700 capitalize font-open-sans text-sm lg:text-2xl mb-8 md:mb-16"
               >
                 {carouselData[currentIndex].text}
               </motion.p>
