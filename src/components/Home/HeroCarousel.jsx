@@ -1,60 +1,49 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import slide1 from "../../images/logo/1.jpg"
-import slide2 from "../../images/logo/smile.jpg"
-import slide3 from "../../images/logo/3.jpg"
-import slide4 from "../../images/logo/Frame.jpg"
-import slide5 from "../../images/logo/2.jpg"
+import slide1 from "../../images/logo/1.jpg";
+import slide2 from "../../images/logo/smile.jpg";
+import slide3 from "../../images/logo/3.jpg";
+import slide4 from "../../images/logo/Frame.jpg";
+import slide5 from "../../images/logo/2.jpg";
 import SwipeButton from "./Swiper";
+import { getCarouselItems } from "../../Api";
+
 const HeroCarousel = () => {
   // Add this inside the component
-  useEffect(() => {
-    const interval = setInterval(() => {
-      nextSlide();
-    }, 10000); // Change slide every 5 seconds
-    return () => clearInterval(interval);
-  }, []);
-  const [currentIndex, setCurrentIndex] = useState(0);
+ 
 
-  const carouselData = [
-    {
-      title:
-        "Fast & Flexible Loans for Every Need",
-      text: "Get approved in 24 hours with low-interest, stress-free financing. Whether it's a startup, emergency, or asset, we've got you covered.",
-      image:slide1,
-      link: "/products/loans/Loans",
-      textBtn: "Apply Now",
-    },
-    {
-      title: "Join the smile",
-      text: "Easy-access loans for government workers — disbursed within 24 hours and repaid seamlessly through Controller deductions.",
-      image:slide2,
-      link: "products/personal/Government Salary Loans",
-      textBtn: "Apply Today – Smile Tomorrow",
-    },
-    {
-      title:
-        "Bank Anywhere, Anytime",
-      text: "Experience the power of digital banking with our USSD service. Easy, fast, and always available. Just Dial *277#.",
-      image:slide3,
-      link: "/products/digital/best mobile banking",
-      textBtn: "Read More",
-    },
-    {
-      title: "Stay Safe. Don’t Fall for Online Loan Scams!",
-      text: "Best Point Savings and Loans does not operate any loan services through Facebook, WhatsApp, or any other online platform. Ignore requests asking for payment to access a loan",
-      image:slide4,
-      link: "/contact",
-      textBtn: "Call 0800505050 (Toll-Free) ",
-    },
-    {
-      title:"Grow Your Savings Faster",
-      text: "Enjoy competitive interest rates, zero monthly fees, and easy access to your money. It's time to earn more and worry less.",
-      image:slide5,
-      link: "/products/savings/Savings",
-      textBtn: "Start Saving Today",
-    },
-  ];
+
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [carouselData, setCarouselData] = useState([]);
+  const [loading, setLoading] = useState(false);
+useEffect(() => {
+  if (carouselData.length === 0) return;
+
+  const interval = setInterval(() => {
+    nextSlide();
+  }, 10000); 
+
+  return () => clearInterval(interval);
+}, [carouselData]); 
+
+
+
+  useEffect(() => {
+    loadItems();
+  }, []);
+
+  async function loadItems() {
+    setLoading(true);
+    try {
+      const data = await getCarouselItems();
+      setCarouselData(Array.isArray(data.data) ? data.data : []);
+    } catch (error) {
+      console.error("Failed to fetch carousel items:", error);
+      setCarouselData([]);
+    } finally {
+      setLoading(false);
+    }
+  }
 
   const nextSlide = () => {
     setCurrentIndex((prev) =>
@@ -62,14 +51,11 @@ const HeroCarousel = () => {
     );
   };
 
-  const prevSlide = () => {
-    setCurrentIndex((prev) =>
-      prev === 0 ? carouselData.length - 1 : prev - 1
-    );
-  };
+  
   const goToSlide = (index) => {
     setCurrentIndex(index);
   };
+
   return (
     <div className="min-h-screen w-full pt-16 md:pt-12 flex flex-col sm:flex-row items-center justify-center gap-4 px-6">
       {/* Left Box - Text Content */}
@@ -87,7 +73,7 @@ const HeroCarousel = () => {
                 transition={{ duration: 0.5, ease: "easeInOut" }}
                 className="text-xl lg:text-4xl font-sans font-bold mb-4 text-purple-100"
               >
-                {carouselData[currentIndex].title}
+                {carouselData[currentIndex]?.title}
               </motion.h2>
               <motion.p
                 initial={{ y: 50, opacity: 0 }}
@@ -96,7 +82,7 @@ const HeroCarousel = () => {
                 transition={{ duration: 0.5, delay: 0.3, ease: "easeInOut" }}
                 className="text-gray-700 capitalize font-open-sans text-sm lg:text-2xl mb-8 md:mb-16"
               >
-                {carouselData[currentIndex].text}
+                {carouselData[currentIndex]?.text}
               </motion.p>
               <motion.div
                 initial={{ y: 50, opacity: 0 }}
@@ -105,9 +91,8 @@ const HeroCarousel = () => {
                 transition={{ duration: 0.5, delay: 0.5, ease: "easeInOut" }}
               >
                 <SwipeButton
-                  link={carouselData[currentIndex].link}
-                  textBtn={carouselData[currentIndex].textBtn}
-
+                  link={carouselData[currentIndex]?.link}
+                  text_btn={carouselData[currentIndex]?.text_btn}
                 />
               </motion.div>
             </div>
@@ -121,8 +106,8 @@ const HeroCarousel = () => {
           <AnimatePresence mode="sync">
             <motion.img
               key={currentIndex}
-              src={carouselData[currentIndex].image}
-              alt={carouselData[currentIndex].title}
+              src={carouselData[currentIndex]?.image_url}
+              alt={carouselData[currentIndex]?.title}
               initial={{ x: 1000, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               exit={{ x: -1000, opacity: 0 }}

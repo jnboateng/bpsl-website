@@ -2,7 +2,7 @@ import { motion, useMotionValue, useTransform, animate } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const SwipeButton = ({ link, textBtn }) => {
+const SwipeButton = ({ link, text_btn }) => {
   const navigate = useNavigate();
   const x = useMotionValue(0);
   const trackRef = useRef(null);
@@ -41,7 +41,7 @@ const handleDragEnd = () => {
       >
         {/* Label Text */}
         <motion.div className="absolute inset-0 text-base sm:text-lg capitalize flex items-center justify-center text-white font-normal">
-          {textBtn}
+          {text_btn}
         </motion.div>
 
         {/* Draggable handle */}

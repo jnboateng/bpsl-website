@@ -2,7 +2,7 @@ import axios from "axios";
 
 
 const api = axios.create({
-  baseURL: "https://0ba8-41-191-99-98.ngrok-free.app/api",
+  baseURL: "https://f68d-41-191-99-98.ngrok-free.app/api",
   headers: {
     "Content-Type": "application/json",
           'ngrok-skip-browser-warning': 'true'
@@ -13,6 +13,7 @@ const api = axios.create({
 
 // ===================== Products =====================
 export const getProducts = () => api.get("/products");
+export const getFeaturedProducts = () => api.get("/products/featured");
 export const createProduct = (data) => api.post("/products", data);
 export const updateProduct = (id, data) => api.put(`/products/${id}`, data);
 export const updateProductFeaturedStatus = (id, data) =>
@@ -108,6 +109,7 @@ export const deleteGalleryImage = (id) => api.delete(`/gallery_images/${id}`);
 export default {
   // Products
   getProducts,
+  getFeaturedProducts,
   createProduct,
   updateProduct,
   updateProductFeaturedStatus,

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { getFeaturedProducts } from "../../Api";
 
 export const cards = [
   // Original Loans card
@@ -15,7 +16,8 @@ export const cards = [
       "Salary Loan",
       "Trade Finance",
     ],
-    image: "https://res.cloudinary.com/dinb6qtto/image/upload/v1747331399/om9zpjrtrgfvw0wtbueo.png",
+    image:
+      "https://res.cloudinary.com/dinb6qtto/image/upload/v1747331399/om9zpjrtrgfvw0wtbueo.png",
   },
   // Loan subcategories
   {
@@ -23,35 +25,44 @@ export const cards = [
     subcat: "personal",
     title: "Government Salary Loans",
     features: ["Competitive rates", "Flexible repayment", "Quick approval"],
-    image: "https://res.cloudinary.com/dinb6qtto/image/upload/v1747331399/om9zpjrtrgfvw0wtbueo.png",
+    image:
+      "https://res.cloudinary.com/dinb6qtto/image/upload/v1747331399/om9zpjrtrgfvw0wtbueo.png",
   },
   {
     cat: "loans",
     subcat: "business",
     title: "Nkosuo Loans",
-    features: ["Business growth", "Collateral-free options", "Tailored amounts"],
-    image: "https://res.cloudinary.com/dinb6qtto/image/upload/v1747331399/om9zpjrtrgfvw0wtbueo.png",
+    features: [
+      "Business growth",
+      "Collateral-free options",
+      "Tailored amounts",
+    ],
+    image:
+      "https://res.cloudinary.com/dinb6qtto/image/upload/v1747331399/om9zpjrtrgfvw0wtbueo.png",
   },
   {
     cat: "loans",
     subcat: "business",
     title: "SME Loans",
     features: ["Business expansion", "Working capital", "Equipment financing"],
-    image: "https://res.cloudinary.com/dinb6qtto/image/upload/v1747331399/om9zpjrtrgfvw0wtbueo.png",
+    image:
+      "https://res.cloudinary.com/dinb6qtto/image/upload/v1747331399/om9zpjrtrgfvw0wtbueo.png",
   },
   {
     cat: "loans",
     subcat: "personal",
     title: "Salary Loans",
     features: ["Instant approval", "Salary deduction", "Low interest"],
-    image: "https://res.cloudinary.com/dinb6qtto/image/upload/v1747331399/om9zpjrtrgfvw0wtbueo.png",
+    image:
+      "https://res.cloudinary.com/dinb6qtto/image/upload/v1747331399/om9zpjrtrgfvw0wtbueo.png",
   },
   {
     cat: "loans",
     subcat: "business",
     title: "Trade Finance",
     features: ["Import/export support", "Letters of credit", "Guarantees"],
-    image: "https://res.cloudinary.com/dinb6qtto/image/upload/v1747331399/om9zpjrtrgfvw0wtbueo.png",
+    image:
+      "https://res.cloudinary.com/dinb6qtto/image/upload/v1747331399/om9zpjrtrgfvw0wtbueo.png",
   },
 
   // Original Savings card
@@ -66,43 +77,53 @@ export const cards = [
       "Fixed Deposit",
       "Savings Account",
     ],
-    image: "https://res.cloudinary.com/dinb6qtto/image/upload/v1747331415/tfnklbhelss4stefo5hh.png",
+    image:
+      "https://res.cloudinary.com/dinb6qtto/image/upload/v1747331415/tfnklbhelss4stefo5hh.png",
   },
   // Savings subcategories
   {
     cat: "savings",
     subcat: "Susu Account",
     title: "Susu Account",
-    features: ["Daily collections", "Mobile deposits", "Withdrawal flexibility"],
-    image: "https://res.cloudinary.com/dinb6qtto/image/upload/v1747331415/tfnklbhelss4stefo5hh.png",
+    features: [
+      "Daily collections",
+      "Mobile deposits",
+      "Withdrawal flexibility",
+    ],
+    image:
+      "https://res.cloudinary.com/dinb6qtto/image/upload/v1747331415/tfnklbhelss4stefo5hh.png",
   },
   {
     cat: "savings",
     subcat: "Sika Dua",
     title: "Sika Dua",
     features: ["High interest", "Growth account", "Regular savings"],
-    image: "https://res.cloudinary.com/dinb6qtto/image/upload/v1747331415/tfnklbhelss4stefo5hh.png",
+    image:
+      "https://res.cloudinary.com/dinb6qtto/image/upload/v1747331415/tfnklbhelss4stefo5hh.png",
   },
   {
     cat: "savings",
     subcat: "Mmofra Daakye Account",
     title: "Mmofra Daakye Account",
     features: ["Children's account", "Education focus", "Parental controls"],
-    image: "https://res.cloudinary.com/dinb6qtto/image/upload/v1747331415/tfnklbhelss4stefo5hh.png",
+    image:
+      "https://res.cloudinary.com/dinb6qtto/image/upload/v1747331415/tfnklbhelss4stefo5hh.png",
   },
   {
     cat: "savings",
     subcat: "Fixed Deposit",
     title: "Fixed Deposit",
     features: ["Higher returns", "Term options", "Secure investment"],
-    image: "https://res.cloudinary.com/dinb6qtto/image/upload/v1747331415/tfnklbhelss4stefo5hh.png",
+    image:
+      "https://res.cloudinary.com/dinb6qtto/image/upload/v1747331415/tfnklbhelss4stefo5hh.png",
   },
   {
     cat: "savings",
     subcat: "Savings Account",
     title: "Savings Account",
     features: ["Easy access", "Interest earning", "Transaction flexibility"],
-    image: "https://res.cloudinary.com/dinb6qtto/image/upload/v1747331415/tfnklbhelss4stefo5hh.png",
+    image:
+      "https://res.cloudinary.com/dinb6qtto/image/upload/v1747331415/tfnklbhelss4stefo5hh.png",
   },
 
   // Original Digital Channels card
@@ -110,11 +131,9 @@ export const cards = [
     cat: "digital channels",
     subcat: "digital channels",
     title: "Digital Channels",
-    features: [
-      "Best Mobile Banking",
-      "Mobile Money Services",
-    ],
-    image: "https://res.cloudinary.com/dinb6qtto/image/upload/v1747331415/tfnklbhelss4stefo5hh.png",
+    features: ["Best Mobile Banking", "Mobile Money Services"],
+    image:
+      "https://res.cloudinary.com/dinb6qtto/image/upload/v1747331415/tfnklbhelss4stefo5hh.png",
   },
   // Digital subcategories
   {
@@ -122,14 +141,16 @@ export const cards = [
     subcat: "Best Mobile Banking",
     title: "Best Mobile Banking",
     features: ["USSD (*277#)", "Mobile app", "24/7 banking"],
-    image: "https://res.cloudinary.com/dinb6qtto/image/upload/v1747331415/tfnklbhelss4stefo5hh.png",
+    image:
+      "https://res.cloudinary.com/dinb6qtto/image/upload/v1747331415/tfnklbhelss4stefo5hh.png",
   },
   {
     cat: "digital channels",
     subcat: "Mobile Money Services",
     title: "Mobile Money Services",
     features: ["Airtime purchase", "Bill payments", "Money transfers"],
-    image: "https://res.cloudinary.com/dinb6qtto/image/upload/v1747331415/tfnklbhelss4stefo5hh.png",
+    image:
+      "https://res.cloudinary.com/dinb6qtto/image/upload/v1747331415/tfnklbhelss4stefo5hh.png",
   },
 
   // Original Remittance card
@@ -137,13 +158,9 @@ export const cards = [
     cat: "remittance",
     subcat: "Remittance",
     title: "Remittance",
-    features: [
-      "Western Union",
-      "UnityLink",
-      "Ria Money Transfer",
-      "MoneyGram",
-    ],
-    image: "https://res.cloudinary.com/dinb6qtto/image/upload/v1747331402/zgmtugjpczcovkk8gad6.png",
+    features: ["Western Union", "UnityLink", "Ria Money Transfer", "MoneyGram"],
+    image:
+      "https://res.cloudinary.com/dinb6qtto/image/upload/v1747331402/zgmtugjpczcovkk8gad6.png",
   },
   // Remittance subcategories
   {
@@ -151,53 +168,75 @@ export const cards = [
     subcat: "Western Union",
     title: "Western Union",
     features: ["Global reach", "Instant transfers", "Multiple payout options"],
-    image: "https://res.cloudinary.com/dinb6qtto/image/upload/v1747331402/zgmtugjpczcovkk8gad6.png",
+    image:
+      "https://res.cloudinary.com/dinb6qtto/image/upload/v1747331402/zgmtugjpczcovkk8gad6.png",
   },
   {
     cat: "remittance",
     subcat: "UnityLink",
     title: "UnityLink",
     features: ["Competitive rates", "Reliable service", "Nationwide branches"],
-    image: "https://res.cloudinary.com/dinb6qtto/image/upload/v1747331402/zgmtugjpczcovkk8gad6.png",
+    image:
+      "https://res.cloudinary.com/dinb6qtto/image/upload/v1747331402/zgmtugjpczcovkk8gad6.png",
   },
   {
     cat: "remittance",
     subcat: "Ria Money Transfer",
     title: "Ria Money Transfer",
     features: ["Low fees", "Fast service", "Mobile integration"],
-    image: "https://res.cloudinary.com/dinb6qtto/image/upload/v1747331402/zgmtugjpczcovkk8gad6.png",
+    image:
+      "https://res.cloudinary.com/dinb6qtto/image/upload/v1747331402/zgmtugjpczcovkk8gad6.png",
   },
   {
     cat: "remittance",
     subcat: "MoneyGram",
     title: "MoneyGram",
-    features: ["Worldwide network", "Secure transactions", "Multiple currencies"],
-    image: "https://res.cloudinary.com/dinb6qtto/image/upload/v1747331402/zgmtugjpczcovkk8gad6.png",
-  }
+    features: [
+      "Worldwide network",
+      "Secure transactions",
+      "Multiple currencies",
+    ],
+    image:
+      "https://res.cloudinary.com/dinb6qtto/image/upload/v1747331402/zgmtugjpczcovkk8gad6.png",
+  },
 ];
 
 export default function MovingCarousel() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
-  const [visibleCards, setVisibleCards] = useState([]);
+  const [products, setProducts] = useState([]);
 
+  // Fetch featured products
+  const fetchProducts = async () => {
+    try {
+      const res = await getFeaturedProducts();
+      setProducts(res.data);
+      console.log(res.data)
+    } catch (error) {
+      console.error("Error fetching products", error);
+    }
+  };
+
+  useEffect(() => {
+    fetchProducts();
+  }, []);
   // Setup initial visible cards
   useEffect(() => {
-    updateVisibleCards(currentIndex);
-  }, [currentIndex]);
+    updateProducts(currentIndex);
+  }, [fetchProducts]);
 
-  const updateVisibleCards = (centerIndex) => {
-    const totalCards = cards.length;
+  const updateProducts = (centerIndex) => {
+    const totalproducts = products.length;
     // Create an array of 5 card indices centered around the current index
     const visibleIndices = [-2, -1, 0, 1, 2].map((offset) => {
-      let index = (centerIndex + offset) % totalCards;
-      if (index < 0) index += totalCards;
+      let index = (centerIndex + offset) % totalproducts;
+      if (index < 0) index += totalproducts;
       return index;
     });
 
-    setVisibleCards(
+    setProducts(
       visibleIndices.map((index) => ({
-        ...cards[index],
+        ...products[index],
         index,
         position: visibleIndices.indexOf(index) - 2, // -2, -1, 0, 1, 2
       }))
@@ -207,18 +246,18 @@ export default function MovingCarousel() {
   const handleNext = () => {
     if (isAnimating) return;
     setIsAnimating(true);
-    setCurrentIndex((prev) => (prev + 1) % cards.length);
+    setCurrentIndex((prev) => (prev + 1) % products.length);
     setTimeout(() => setIsAnimating(false), 500);
   };
 
   const handlePrev = () => {
     if (isAnimating) return;
     setIsAnimating(true);
-    setCurrentIndex((prev) => (prev - 1 + cards.length) % cards.length);
+    setCurrentIndex((prev) => (prev - 1 + products.length) % products.length);
     setTimeout(() => setIsAnimating(false), 500);
   };
 
-  // Define positions for the cards
+  // Define positions for the products
   const getCardStyles = (position) => {
     const positions = {
       "-2": {
@@ -256,7 +295,7 @@ export default function MovingCarousel() {
     return positions[position] || { x: 0, scale: 0, opacity: 0, zIndex: 0 };
   };
 
-  const progress = ((currentIndex + 1) / cards.length) * 100;
+  const progress = ((currentIndex + 1) / products.length) * 100;
 
   return (
     <div className="w-full m-2 md:ml-16 mt-16 py-12 px-4">
@@ -264,12 +303,12 @@ export default function MovingCarousel() {
         <div className="relative h-[27rem] mt-12 flex items-center justify-center overflow-hidden">
           {/* Card container */}
           <div className="w-72 h-full relative">
-            {visibleCards.map((card) => (
+            {products?.map((card) => (
               <motion.div
                 key={card.index}
                 className="absolute top-0 left-0 w-72  bg-white rounded-lg shadow-lg overflow-hidden"
-                initial={getCardStyles(card.position.toString())}
-                animate={getCardStyles(card.position.toString())}
+                initial={getCardStyles(card?.position?.toString())}
+                animate={getCardStyles(card?.position?.toString())}
                 transition={{
                   type: "spring",
                   stiffness: 300,
@@ -283,7 +322,7 @@ export default function MovingCarousel() {
               >
                 <div className="w-full h-40 bg-blue-50">
                   <img
-                    src={card.image}
+                    src={card.image_url}
                     alt={card.title}
                     className="w-full h-full object-cover"
                   />
@@ -293,7 +332,7 @@ export default function MovingCarousel() {
                     {card.title}
                   </h3>
                   <ul className="text-sm text-gray-600 space-y-1.5">
-                    {card.features.slice(0, 4).map((feature, i) => (
+                    {card.features?.slice(0, 4).map((feature, i) => (
                       <li key={i} className="flex items-start">
                         <span className="inline-block w-4 h-4 mr-2 text-purple mt-0.5">
                           •

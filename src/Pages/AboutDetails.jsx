@@ -1,14 +1,13 @@
 import { useParams } from "react-router-dom";
 import Hero from "../components/About/Hero";
 import UndoButton from "../components/UndoButton";
-import { teamData } from "../components/About/TeamTabs";
-
-
+import { TeamContext } from '../components/About/team';
+import React from "react";
 const heroBg="https://res.cloudinary.com/dinb6qtto/image/upload/v1747327037/fuelme/eunqurz5ywlilv9qris7.png"
 
 export default function AboutDetails() {
   const { id } = useParams();
-  const teamMember =
+  const teamData = React.useContext(TeamContext);  const teamMember =
     teamData.management.find((a) => a.id === parseInt(id)) ||
     teamData["BOD"].find((a) => a.id === parseInt(id)) ||
     teamData["shareholders"].find((a) => a.id === parseInt(id));
