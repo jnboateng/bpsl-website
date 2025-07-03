@@ -1,21 +1,49 @@
 import Hero from "../components/About/Hero";
 import { useParams } from "react-router-dom";
-import { roles } from "../components/careers/Jobs";
 import { MapPin, Clock, Briefcase, CheckCircle } from "lucide-react";
 import UndoButton from "../components/UndoButton";
 import ApplicationForm from "../components/Form";
-import React, { useRef } from "react";
+import { useRef, useEffect, useState } from "react";
+import { getCareer } from "../Api";
+import { toast } from "react-toastify";
 
-const heroBg="https://res.cloudinary.com/dinb6qtto/image/upload/v1747327037/fuelme/eunqurz5ywlilv9qris7.png"
+const heroBg = "https://res.cloudinary.com/dinb6qtto/image/upload/v1747327037/fuelme/eunqurz5ywlilv9qris7.png";
 
-function CareerDetials() {
+function CareerDetails() {
   const { id } = useParams();
-  const career = roles.find((a) => a.id === parseInt(id));
+  const [career, setCareer] = useState(null);
+  const [loading, setLoading] = useState(true);
   const applyRef = useRef(null);
+
+  const fetchCareerDetails = async () => {
+    try {
+      setLoading(true);
+      const response = await getCareer(id);
+      setCareer(response.data);
+    } catch (error) {
+      toast.error('Failed to fetch career details');
+      setCareer(null);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchCareerDetails();
+  }, [id]);
+
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center h-64">
+        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-purple"></div>
+      </div>
+    );
+  }
 
   if (!career) {
     return <div className="p-6 text-red-500">Career not found.</div>;
   }
+
   return (
     <div>
       <Hero image={heroBg} text1={"Careers"} />
@@ -29,7 +57,7 @@ function CareerDetials() {
         </>
       </div>
       <div className="pl-4 md:pl-24 pt-6 w-[90vw]">
-        <div className=" bg-white">
+        <div className="bg-white">
           {/* Header Section */}
           <div className="bg-purple-100 rounded-2xl px-6 py-6 flex flex-col lg:flex-row justify-between gap-6">
             {/* Left Side */}
@@ -48,16 +76,17 @@ function CareerDetials() {
               <div className="flex flex-wrap items-center gap-4 text-white text-sm font-medium">
                 <div className="flex items-center gap-2">
                   <MapPin size={16} />
-                  <span>{career.location}</span>
+                  <span>{career.location || "Location not specified"}</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <Clock size={16} />
-                  <span>{career.type}</span>
+                  <span>{career.type || "Type not specified"}</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <Briefcase size={16} />
                   <span>
-                    ₵{career.payStart} - ₵{career.payEnd}
+                    {career.payStart ? `₵${career.payStart}` : "Salary not"} 
+                    {career.payEnd ? ` - ₵${career.payEnd}` : " specified"}
                   </span>
                 </div>
               </div>
@@ -70,7 +99,7 @@ function CareerDetials() {
                 onClick={() =>
                   applyRef.current?.scrollIntoView({ behavior: "smooth" })
                 }
-                className="bg-white text-purple text-xl sm:text-2xl font-bold py-3 px-10 sm:py-4 sm:px-16 rounded-md transition"
+                className="bg-white text-purple text-xl sm:text-2xl font-bold py-3 px-10 sm:py-4 sm:px-16 rounded-md transition hover:bg-purple-50"
               >
                 Apply Now
               </button>
@@ -79,11 +108,11 @@ function CareerDetials() {
 
           {/* Description Section */}
           <div className="py-12">
-            <h2 className="text-gray-800  text-2xl font-bold mb-6">
+            <h2 className="text-gray-800 text-2xl font-bold mb-6">
               Description
             </h2>
             <p className="text-gray-700 font-open-sans leading-relaxed text-base">
-              {career.description}
+              {career.description || "No description available"}
             </p>
           </div>
         </div>
@@ -92,12 +121,12 @@ function CareerDetials() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 p-6 pl-4 md:pl-24">
         {/* Skills */}
         <div>
-          <h2 className="text-2xl font-bold text-gray-800  mb-4">Skills</h2>
+          <h2 className="text-2xl font-bold text-gray-800 mb-4">Skills</h2>
           <ul className="space-y-2">
-            {career.skills.map((skill, index) => (
+            {(career.skills || []).map((skill, index) => (
               <li key={index} className="flex items-center gap-2">
-                <span className=" text-purple-500">
-                  <CheckCircle />
+                <span className="text-purple-500">
+                  <CheckCircle size={16} />
                 </span>
                 <p className="text-sm font-open-sans font-extralight">
                   {skill}
@@ -109,14 +138,14 @@ function CareerDetials() {
 
         {/* Responsibilities */}
         <div>
-          <h2 className="text-2xl font-bold text-gray-800  mb-4">
+          <h2 className="text-2xl font-bold text-gray-800 mb-4">
             Responsibilities
           </h2>
           <ul className="space-y-2">
-            {career.responsibilities.map((resp, index) => (
+            {(career.responsibilities || []).map((resp, index) => (
               <li key={index} className="flex items-center gap-2">
-                <span className=" text-purple-500">
-                  <CheckCircle />
+                <span className="text-purple-500">
+                  <CheckCircle size={16} />
                 </span>
                 <p className="text-sm font-open-sans font-extralight">{resp}</p>
               </li>
@@ -126,14 +155,14 @@ function CareerDetials() {
 
         {/* Qualification */}
         <div>
-          <h2 className="text-2xl font-bold text-gray-800  mb-4">
+          <h2 className="text-2xl font-bold text-gray-800 mb-4">
             Qualification
           </h2>
           <ul className="space-y-2">
-            {career.qualifications.map((qual, index) => (
+            {(career.qualifications || []).map((qual, index) => (
               <li key={index} className="flex items-center gap-2">
-                <span className=" text-purple-500">
-                  <CheckCircle />
+                <span className="text-purple-500">
+                  <CheckCircle size={16} />
                 </span>
                 <p className="text-sm font-open-sans font-extralight">{qual}</p>
               </li>
@@ -141,35 +170,37 @@ function CareerDetials() {
           </ul>
 
           {/* Industry Certifications */}
-          <div className="mt-6">
-            <h3 className="text-lg font-semibold mb-2 text-gray-800">
-              Industry certifications such as:
-            </h3>
-            <ul className="space-y-2">
-              {career.certifications.map((cert, index) => (
-                <li key={index} className="flex items-center gap-2">
-                  <span className=" text-purple-500">
-                    <CheckCircle />
-                  </span>
-                  <p className="text-sm font-open-sans font-extralight">
-                    {cert}
-                  </p>
-                </li>
-              ))}
-            </ul>
-          </div>
+          {career.certifications?.length > 0 && (
+            <div className="mt-6">
+              <h3 className="text-lg font-semibold mb-2 text-gray-800">
+                Industry certifications such as:
+              </h3>
+              <ul className="space-y-2">
+                {career.certifications.map((cert, index) => (
+                  <li key={index} className="flex items-center gap-2">
+                    <span className="text-purple-500">
+                      <CheckCircle size={16} />
+                    </span>
+                    <p className="text-sm font-open-sans font-extralight">
+                      {cert}
+                    </p>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
         </div>
 
         {/* Salary & Benefits */}
         <div>
-          <h2 className="text-2xl font-bold text-gray-800  mb-4">
+          <h2 className="text-2xl font-bold text-gray-800 mb-4">
             Salary & Benefits
           </h2>
           <ul className="space-y-2">
-            {career.salaryBenefits.map((benefit, index) => (
+            {(career.salaryBenefits || []).map((benefit, index) => (
               <li key={index} className="flex items-center gap-2">
-                <span className=" text-purple-500">
-                  <CheckCircle />
+                <span className="text-purple-500">
+                  <CheckCircle size={16} />
                 </span>
                 <p className="text-sm font-open-sans font-extralight">
                   {benefit}
@@ -180,7 +211,7 @@ function CareerDetials() {
         </div>
       </div>
       <div className="w-full md:w-2/5 pl-4 md:pl-24">
-        <h1 className="text-xl font-semibold text-gray-800  mb-2 ">
+        <h1 className="text-xl font-semibold text-gray-800 mb-2">
           Apply Via Email
         </h1>
         <p className="text-sm my-2">
@@ -196,11 +227,11 @@ function CareerDetials() {
           Submit Application
         </h1>
       </div>
-      <div  className="w-2/3 min-h-screen mx-auto">
+      <div className="w-2/3 min-h-screen mx-auto">
         <ApplicationForm career={career.title} />
       </div>
     </div>
   );
 }
 
-export default CareerDetials;
+export default CareerDetails;

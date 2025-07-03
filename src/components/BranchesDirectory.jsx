@@ -10,7 +10,8 @@ import {
 import { MapContainer, TileLayer, Marker, Popup, useMap } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
-import { branches } from "../Pages/Locator";
+import { getBranches } from "../Api";
+import { toast } from "react-toastify";
 
 // This component handles map view updates when selected branch changes
 const MapUpdater = ({ position, zoom }) => {
@@ -26,12 +27,60 @@ const MapUpdater = ({ position, zoom }) => {
 };
 
 const BranchDirectory = () => {
-  const regions = Object.keys(branches);
-  const [selectedRegion, setSelectedRegion] = useState(regions[0]);
+  const [branches, setBranches] = useState({});
+  const [loading, setLoading] = useState(true);
+  const [regions, setRegions] = useState([]);
+  const [selectedRegion, setSelectedRegion] = useState("");
   const [expandedBranch, setExpandedBranch] = useState(null);
   const [currentPage, setCurrentPage] = useState(0);
   const [selectedBranch, setSelectedBranch] = useState(null);
   const branchesPerPage = 5;
+
+  useEffect(() => {
+    const fetchBranches = async () => {
+      try {
+        setLoading(true);
+        const response = await getBranches();
+        
+        // Transform the API response into the expected format
+        const transformedBranches = {};
+        const regionsWithBranches = [];
+        
+        // Iterate through each region in the response
+        for (const region in response.data.regions) {
+          const regionBranches = response.data.regions[region];
+          
+          // Only process regions that have branches
+          if (regionBranches.length > 0) {
+            transformedBranches[region] = regionBranches.map(branch => ({
+              location: branch.location,
+              gps: branch.gps? { 
+                lat: branch.gps.lat,
+                lng: branch.gps.lng
+              } : null,
+              area: branch.area,
+              id: branch.id,
+              name: branch.location, // Using location as name if name isn't provided
+              phone: branch.phone || "0506335358"
+            }));
+            regionsWithBranches.push(region);
+          }
+        }
+
+        setBranches(transformedBranches);
+        setRegions(regionsWithBranches);
+        setSelectedRegion(regionsWithBranches[0] || "");
+      } catch (error) {
+        toast.error('Failed to fetch branches');
+        setBranches({});
+        setRegions([]);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchBranches();
+  }, []);
 
   const regionBranches = branches[selectedRegion] || [];
   const paginatedBranches = regionBranches.slice(
@@ -74,6 +123,22 @@ const BranchDirectory = () => {
     popupAnchor: [1, -34],
   });
 
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center h-64">
+        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-purple"></div>
+      </div>
+    );
+  }
+
+  if (regions.length === 0) {
+    return (
+      <div className="text-center py-8 text-gray-500">
+        No branch data available
+      </div>
+    );
+  }
+
   return (
     <div className="flex flex-col lg:flex-row gap-4 p-4 w-full z-50">
       <div className="w-full lg:w-1/3 bg-white rounded-xl shadow-lg p-4">
@@ -86,18 +151,18 @@ const BranchDirectory = () => {
               setExpandedBranch(null);
               setCurrentPage(0);
             }}
-            className="mt-1 z-50 block p-4 w-full rounded-md border-gray-300 shadow-sm "
+            className="mt-1 z-50 block p-4 w-full rounded-md border-gray-300 shadow-sm"
           >
             {regions.map((region) => (
               <option key={region} value={region}>
-                <span className="mx-4">{region}</span>
+                {region}
               </option>
             ))}
           </select>
         </div>
 
         {paginatedBranches.map((branch, index) => (
-          <div key={index} className="border-b py-2">
+          <div key={branch.id} className="border-b py-2">
             <button
               onClick={() => toggleBranch(branch.location)}
               className={`flex justify-between items-center w-full text-left py-2 px-2 rounded-md ${
@@ -136,7 +201,7 @@ const BranchDirectory = () => {
               <div className="mt-2 ml-4 text-sm text-gray-700 space-y-1">
                 <div className="flex items-center gap-2">
                   <Phone size={16} className="text-purple-100" />
-                  <span>0506335358</span>
+                  <span>{branch.phone}</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <MapPin size={16} className="text-purple-100" />
@@ -167,7 +232,7 @@ const BranchDirectory = () => {
         </div>
       </div>
 
-<div className="w-full lg:w-2/3 h-[300px] min-h-[300px] sm:min-h-[400px] md:min-h-[500px]">
+      <div className="w-full lg:w-2/3 h-[300px] min-h-[300px] sm:min-h-[400px] md:min-h-[500px]">
         <MapContainer
           center={mapPosition}
           zoom={mapZoom}
@@ -178,7 +243,6 @@ const BranchDirectory = () => {
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           />
 
-          {/* This component updates map view when selectedBranch changes */}
           <MapUpdater position={mapPosition} zoom={mapZoom} />
 
           {selectedBranch?.gps && (

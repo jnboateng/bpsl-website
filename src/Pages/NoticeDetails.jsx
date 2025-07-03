@@ -1,20 +1,47 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import Hero from '../components/About/Hero';
-import { dummyNotices } from './Notices'; // Ensure dummyNotices is exported from Notices.jsx
 import UndoButton from '../components/UndoButton';
+import { getNotice } from "../Api"; 
+import { toast } from 'react-toastify';
 
 function NoticeDetails() {
-  const { id } = useParams(); // 🔑 Get the notice ID from URL params
+  const { id } = useParams();
+  const [notice, setNotice] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-  const selectedNotice = dummyNotices.find(
-    (notice) => String(notice.id) === id
-  );
+  useEffect(() => {
+    const fetchNotice = async () => {
+      try {
+        setLoading(true);
+        const response = await getNotice(id);
+        setNotice(response.data);
+      } catch (err) {
+        setError(err);
+        toast.error('Failed to fetch notice details');
+      } finally {
+        setLoading(false);
+      }
+    };
 
-  if (!selectedNotice) {
+    fetchNotice();
+  }, [id]);
+
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center h-64">
+        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-purple"></div>
+      </div>
+    );
+  }
+
+  if (error || !notice) {
     return (
       <div className="p-8">
-        <h1 className="text-3xl md:text-4xl text-red-500 font-semibold">Notice not found.</h1>
+        <h1 className="text-3xl md:text-4xl text-red-500 font-semibold">
+          {error ? "Error loading notice" : "Notice not found"}
+        </h1>
         <Link to="/notices" className="text-purple-100 underline mt-4 inline-block">
           Go back to Notices
         </Link>
@@ -26,27 +53,27 @@ function NoticeDetails() {
     <div>
       <Hero text1="Notices" />
 
-      <div className="flex gap-x-4 lg:gap-x-12 items-center justify-start mt-12 ">
+      <div className="flex gap-x-4 lg:gap-x-12 items-center justify-start mt-12">
         <div className="bg-purple h-8 w-12 mb-2" />
         <>
-        <UndoButton />
-        <h1 className="text-3xl md:text-3xl font-bold text-gray-800  leading-tight">
-          {selectedNotice.title}
-        </h1>
+          <UndoButton />
+          <h1 className="text-3xl md:text-3xl font-bold text-gray-800 leading-tight">
+            {notice.title}
+          </h1>
         </>
       </div>
 
       <div className="my-6 px-6 max-w-4xl">
-        <img
-          src={selectedNotice.image}
-          alt={selectedNotice.title}
-          className="rounded-xl w-full h-64 object-cover mb-6"
-        />
+        {notice.image && (
+          <img
+            src={notice.image}
+            alt={notice.title}
+            className="rounded-xl w-full h-64 object-cover mb-6"
+          />
+        )}
         <p className="text-gray-700 whitespace-pre-wrap">
-          {selectedNotice.description}
+          {notice.description}
         </p>
-
-        
       </div>
     </div>
   );
