@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { NavLink, Link } from "react-router-dom";
 import Hero from "../components/About/Hero";
-import { cards } from "../components/Home/ProductsCarousel";
 import { Helmet } from "react-helmet-async";
+import { getProducts } from "../Api";
+
 const herobg =
   "https://res.cloudinary.com/dinb6qtto/image/upload/v1747327037/fuelme/eunqurz5ywlilv9qris7.png";
 
@@ -10,61 +11,90 @@ const categoryMap = {
   loans: "Loans",
   savings: "Savings",
   digital: "Digital Channels",
-  Remmittance: "Remmittance",
+  remittance: "Remittance",
 };
 
-// Get unique categories from cards
-const uniqueCategories = [
-  ...new Set(cards.map((card) => categoryMap[card.cat] || card.cat)),
-];
-const defaultCategory = uniqueCategories[0]; // Use first category as default
-
 function ProductsMain() {
-  const [selectedCategory, setSelectedCategory] = useState(defaultCategory);
+  const [selectedCategory, setSelectedCategory] = useState("");
   const [activeTab, setActiveTab] = useState("");
+  const [cards, setCards] = useState([]);
+
+  const fetchProducts = async () => {
+    try {
+      const res = await getProducts();
+      setCards(res.data || []);
+      
+      if (res.data && res.data.length > 0) {
+        // Use the actual category field from your data ('category' not 'cat')
+        const uniqueCategories = [
+          ...new Set(res.data.map((card) => 
+            categoryMap[card.category?.toLowerCase()] || card.category
+          )),
+        ].filter(Boolean);
+        
+        if (uniqueCategories.length > 0) {
+          setSelectedCategory(uniqueCategories[0]);
+        }
+      }
+    } catch (error) {
+      console.error("Error fetching products", error);
+      setCards([]);
+    }
+  };
+
+  useEffect(() => {
+    fetchProducts();
+  }, []);
+
+  // Get unique categories from cards
+  const uniqueCategories = [
+    ...new Set(cards.map((card) => 
+      categoryMap[card.category?.toLowerCase()] || card.category
+    )),
+  ].filter(Boolean);
 
   // Filter cards by main category
-  const filteredCards = cards.filter((card) => {
-    return categoryMap[card.cat] === selectedCategory;
-  });
+  const filteredCards = selectedCategory 
+    ? cards.filter((card) => {
+        const cardCategory = categoryMap[card.category?.toLowerCase()] || card.category;
+        return cardCategory === selectedCategory;
+      })
+    : [];
 
   // Extract unique subcategories (used for tabs)
   const uniqueSubcategories = [
-    ...new Set(filteredCards.map((card) => card.subcat).filter(Boolean)),
+    ...new Set(filteredCards.map((card) => card.subcategory).filter(Boolean)),
   ];
 
   // Set default tab when category changes
-  React.useEffect(() => {
+  useEffect(() => {
     if (uniqueSubcategories.length > 0) {
       setActiveTab(uniqueSubcategories[0]);
     } else {
       setActiveTab("");
     }
-  }, [selectedCategory]);
+  }, [selectedCategory, uniqueSubcategories]);
 
   // Filter displayed cards based on active tab (subcategory)
   const displayedCards = filteredCards.filter((card) => {
     if (!activeTab) return true;
-    return card.subcat.toLowerCase === activeTab.toLowerCase;
+    return card.subcategory?.toLowerCase() === activeTab.toLowerCase();
   });
 
   return (
     <div>
       <Helmet>
-        <title>
-          {" "}
-          Our Products – Loans, Mobile Banking, Savings | Best Point Ghana
-        </title>
+        <title>Our Products – Loans, Mobile Banking, Savings | Best Point Ghana</title>
         <meta
           name="description"
-          content=" Explore Best Point’s financial services: flexible loans, mobile banking via *277#, savings and remittances tailored for Ghanaians."
+          content="Explore Best Point's financial services: flexible loans, mobile banking via *277#, savings and remittances tailored for Ghanaians."
         />
       </Helmet>
       <Hero image={herobg} text1={"Products"} />
       <div className="flex gap-x-16 items-center mt-12 mb-6">
         <div className="bg-purple h-8 w-12" />
-        <h2 className="text-3xl md:text-4xl font-bold capitalize text-gray-800 ">
-          Trusted Financial Services Built Around Your Needs in Ghana
+        <h2 className="text-3xl md:text-4xl font-bold capitalize text-gray-800">
+          Trusted Financial Services Built Around Your Needs in Ghana
         </h2>
       </div>
       <div className="mt-2 pl-2 md:pl-28">
@@ -75,7 +105,7 @@ function ProductsMain() {
       </div>
 
       <div className="p-6 md:p-12">
-        <h2 className="text-xl md:text-2xl font-bold text-gray-800  mb-4">
+        <h2 className="text-xl md:text-2xl font-bold text-gray-800 mb-4">
           Category:
         </h2>
         <div className="flex flex-col md:flex-row gap-6">
@@ -108,7 +138,7 @@ function ProductsMain() {
                     key={sub}
                     className={`px-6 py-2 rounded-full whitespace-nowrap ${
                       activeTab === sub
-                        ? "bg-gradient-to-b from-purple to-purple-100 text-gray-800 "
+                        ? "bg-gradient-to-b from-purple to-purple-100 text-gray-800"
                         : ""
                     }`}
                     onClick={() => setActiveTab(sub)}
@@ -121,35 +151,47 @@ function ProductsMain() {
 
             {/* Card List */}
             <div className="grid md:grid-cols-2 gap-12 max-h-[400px] overflow-y-auto pr-2">
-              {displayedCards.map((card, index) => (
-                <NavLink
-                  to={`/products/${card.cat}/${card.title}`}
-                  key={index}
-                  className="rounded-xl overflow-hidden shadow-md"
-                >
-                  <div className="h-64 rounded-xl overflow-hidden bg-gray-200 flex items-center justify-center text-gray-500">
-                    <img
-                      src={card.image}
-                      className="w-full h-full object-cover"
-                      alt=""
-                    />
-                  </div>
-                  <div className="p-4">
-                    <h3 className="font-bold text-gray-800  text-lg">
-                      {card.title}
-                    </h3>
-                    <p className="text-xs text-gray-600 line-clamp-2">
-                      {card.features[0]}
-                    </p>
-                    <Link
-                      to={`/products/${card.cat}/${card.title}`}
-                      className="text-purple text-xs font-light hover:underline"
-                    >
-                      Read more →
-                    </Link>
-                  </div>
-                </NavLink>
-              ))}
+              {displayedCards.length > 0 ? (
+                displayedCards.map((card, index) => (
+                  <NavLink
+                    to={`/products/${card.category}/${card.title}`}
+                    key={index}
+                    className="rounded-xl overflow-hidden shadow-md"
+                  >
+                    <div className="h-64 rounded-xl overflow-hidden bg-gray-200 flex items-center justify-center text-gray-500">
+                      {card.image ? (
+                        <img
+                          src={card.image}
+                          className="w-full h-full object-cover"
+                          alt={card.title}
+                        />
+                      ) : (
+                        <span>No Image</span>
+                      )}
+                    </div>
+                    <div className="p-4">
+                      <h3 className="font-bold text-gray-800 text-lg">
+                        {card.title}
+                      </h3>
+                      <p className="text-xs text-gray-600 line-clamp-2">
+                        {card.features?.[0] || card.description}
+                      </p>
+                      <Link
+                        to={`/products/${card.category}/${card.title}`}
+                        className="text-purple text-xs font-light hover:underline"
+                      >
+                        Read more →
+                      </Link>
+                    </div>
+                  </NavLink>
+                ))
+              ) : (
+                <div className="col-span-2 text-center py-8">
+                  {selectedCategory 
+                    ? `No products found in ${selectedCategory} category`
+                    : "Loading products..."}
+                </div>
+              )}
             </div>
           </div>
         </div>

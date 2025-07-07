@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import {
   ChevronDown,
   ChevronUp,
@@ -13,16 +13,13 @@ import L from "leaflet";
 import { getBranches } from "../Api";
 import { toast } from "react-toastify";
 
-// This component handles map view updates when selected branch changes
 const MapUpdater = ({ position, zoom }) => {
   const map = useMap();
-
   useEffect(() => {
     if (position) {
       map.setView(position, zoom);
     }
   }, [position, zoom, map]);
-
   return null;
 };
 
@@ -31,9 +28,9 @@ const BranchDirectory = () => {
   const [loading, setLoading] = useState(true);
   const [regions, setRegions] = useState([]);
   const [selectedRegion, setSelectedRegion] = useState("");
-  const [expandedBranch, setExpandedBranch] = useState(null);
+  const [expandedBranchId, setExpandedBranchId] = useState(null);
   const [currentPage, setCurrentPage] = useState(0);
-  const [selectedBranch, setSelectedBranch] = useState(null);
+  const [selectedBranchId, setSelectedBranchId] = useState(null);
   const branchesPerPage = 5;
 
   useEffect(() => {
@@ -42,27 +39,21 @@ const BranchDirectory = () => {
         setLoading(true);
         const response = await getBranches();
         
-        // Transform the API response into the expected format
         const transformedBranches = {};
         const regionsWithBranches = [];
         
-        // Iterate through each region in the response
         for (const region in response.data.regions) {
-          const regionBranches = response.data.regions[region];
+          const regionBranches = response.data.regions[region].map(branch => ({
+            ...branch,
+            gps: branch.gps ? { 
+              lat: parseFloat(branch.gps.lat),
+              lng: parseFloat(branch.gps.lng)
+            } : null,
+            id: branch.id || `${region}-${branch.location.replace(/\s+/g, '-').toLowerCase()}`
+          }));
           
-          // Only process regions that have branches
           if (regionBranches.length > 0) {
-            transformedBranches[region] = regionBranches.map(branch => ({
-              location: branch.location,
-              gps: branch.gps? { 
-                lat: branch.gps.lat,
-                lng: branch.gps.lng
-              } : null,
-              area: branch.area,
-              id: branch.id,
-              name: branch.location, // Using location as name if name isn't provided
-              phone: branch.phone || "0506335358"
-            }));
+            transformedBranches[region] = regionBranches;
             regionsWithBranches.push(region);
           }
         }
@@ -72,6 +63,7 @@ const BranchDirectory = () => {
         setSelectedRegion(regionsWithBranches[0] || "");
       } catch (error) {
         toast.error('Failed to fetch branches');
+        console.error("Error fetching branches:", error);
         setBranches({});
         setRegions([]);
       } finally {
@@ -88,32 +80,26 @@ const BranchDirectory = () => {
     (currentPage + 1) * branchesPerPage
   );
 
-  // Auto-select the first branch with GPS when region or page changes
-  useEffect(() => {
-    const firstBranchWithGPS = paginatedBranches.find((branch) => branch.gps);
-    setSelectedBranch(firstBranchWithGPS || null);
-  }, [selectedRegion, currentPage, paginatedBranches]);
+  // Find the currently selected branch object
+  const selectedBranch = regionBranches.find(b => b.id === selectedBranchId) || 
+                       (paginatedBranches[0]?.gps ? paginatedBranches[0] : null);
 
-  const toggleBranch = (branchLocation) => {
-    setExpandedBranch((prev) =>
-      prev === branchLocation ? null : branchLocation
-    );
-    const selected = regionBranches.find((b) => b.location === branchLocation);
-    if (selected?.gps) setSelectedBranch(selected);
+  const handleBranchClick = (branch) => {
+    setSelectedBranchId(branch.id);
+    setExpandedBranchId(prev => prev === branch.id ? null : branch.id);
   };
 
   const handlePageChange = (newPage) => {
     setCurrentPage(newPage);
-    setExpandedBranch(null);
+    setExpandedBranchId(null);
+    // Reset selection when changing pages
+    setSelectedBranchId(null);
   };
 
-  const defaultPosition = [5.55867, -0.20118]; // Default to Head Office position
-
-  // Determine current map position based on selected branch
+  const defaultPosition = [5.55867, -0.20118];
   const mapPosition = selectedBranch?.gps
     ? [selectedBranch.gps.lat, selectedBranch.gps.lng]
     : defaultPosition;
-
   const mapZoom = selectedBranch?.gps ? 15 : 13;
 
   const markerIcon = new L.Icon({
@@ -148,8 +134,9 @@ const BranchDirectory = () => {
             value={selectedRegion}
             onChange={(e) => {
               setSelectedRegion(e.target.value);
-              setExpandedBranch(null);
+              setExpandedBranchId(null);
               setCurrentPage(0);
+              setSelectedBranchId(null);
             }}
             className="mt-1 z-50 block p-4 w-full rounded-md border-gray-300 shadow-sm"
           >
@@ -161,73 +148,59 @@ const BranchDirectory = () => {
           </select>
         </div>
 
-        {paginatedBranches.map((branch, index) => (
-          <div key={branch.id} className="border-b py-2">
-            <button
-              onClick={() => toggleBranch(branch.location)}
-              className={`flex justify-between items-center w-full text-left py-2 px-2 rounded-md ${
-                selectedBranch?.location === branch.location ? "" : ""
-              }`}
-            >
-              <span
-                className={`font-semibold ${
-                  selectedBranch?.location === branch.location
-                    ? "text-purple-700"
-                    : "text-gray-700"
-                }`}
+        {paginatedBranches.map((branch) => {
+          const isSelected = selectedBranchId === branch.id;
+          const isExpanded = expandedBranchId === branch.id;
+          
+          return (
+            <div key={branch.id} className={`border-b ${isSelected ? 'bg-purple-50' : ''}`}>
+              <button
+                onClick={() => handleBranchClick(branch)}
+                className={`flex justify-between items-center w-full text-left py-2 px-2 rounded-md`}
               >
-                {branch.location}
-              </span>
-              {expandedBranch === branch.location ? (
-                <ChevronUp
-                  className={
-                    selectedBranch?.location === branch.location
-                      ? "text-purple-700"
-                      : "text-gray-700"
-                  }
-                />
-              ) : (
-                <ChevronDown
-                  className={
-                    selectedBranch?.location === branch.location
-                      ? "text-purple-700"
-                      : "text-gray-700"
-                  }
-                />
-              )}
-            </button>
+                <span className={`font-semibold ${isSelected ? 'text-purple-700' : 'text-gray-700'}`}>
+                  {branch.location}
+                </span>
+                {isExpanded ? (
+                  <ChevronUp className={isSelected ? 'text-purple-700' : 'text-gray-700'} />
+                ) : (
+                  <ChevronDown className={isSelected ? 'text-purple-700' : 'text-gray-700'} />
+                )}
+              </button>
 
-            {expandedBranch === branch.location && (
-              <div className="mt-2 ml-4 text-sm text-gray-700 space-y-1">
-                <div className="flex items-center gap-2">
-                  <Phone size={16} className="text-purple-100" />
-                  <span>{branch.phone}</span>
+              {isExpanded && (
+                <div className="mt-2 ml-4 text-sm text-gray-700 space-y-1">
+                  <div className="flex items-center gap-2">
+                    <Phone size={16} className="text-purple-100" />
+                    <span>{branch.phone || "0506335358"}</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <MapPin size={16} className="text-purple-100" />
+                    <span>{branch.area}</span>
+                  </div>
                 </div>
-                <div className="flex items-center gap-2">
-                  <MapPin size={16} className="text-purple-100" />
-                  <span>{branch.area}</span>
-                </div>
-              </div>
-            )}
-          </div>
-        ))}
+              )}
+            </div>
+          );
+        })}
 
         <div className="flex justify-between items-center mt-4">
           <button
             disabled={currentPage === 0}
             onClick={() => handlePageChange(currentPage - 1)}
-            className="text-purple-100 disabled:opacity-50"
+            className="p-2 rounded-full hover:bg-gray-100 disabled:opacity-50"
           >
-            <ChevronLeft />
+            <ChevronLeft className="text-purple-100" />
           </button>
+          <span className="text-sm text-gray-600">
+            Page {currentPage + 1} of {Math.ceil(regionBranches.length / branchesPerPage)}
+          </span>
           <button
-            disabled={
-              (currentPage + 1) * branchesPerPage >= regionBranches.length
-            }
+            disabled={(currentPage + 1) * branchesPerPage >= regionBranches.length}
             onClick={() => handlePageChange(currentPage + 1)}
-            className="text-purple-100 disabled:opacity-50"
+            className="p-2 rounded-full hover:bg-gray-100 disabled:opacity-50"
           >
-            <ChevronRight />
+            <ChevronRight className="text-purple-100" />
           </button>
         </div>
       </div>
@@ -242,7 +215,6 @@ const BranchDirectory = () => {
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           />
-
           <MapUpdater position={mapPosition} zoom={mapZoom} />
 
           {selectedBranch?.gps && (
@@ -253,11 +225,10 @@ const BranchDirectory = () => {
               <Popup>
                 <div className="p-2 w-[200px] rounded-lg shadow-md z-50 bg-white text-sm">
                   <div className="font-semibold text-gray-800 leading-tight">
-                    {selectedBranch.name || "Best Point Savings & Loans"}
-                    <br />
-                    <span className="text-xs text-gray-600">
-                      {selectedBranch.location}
-                    </span>
+                    {selectedBranch.name || selectedBranch.location}
+                  </div>
+                  <div className="text-xs text-gray-600 mt-1">
+                    {selectedBranch.location}
                   </div>
                   <div className="flex items-center gap-1 mt-2 text-gray-600 text-xs">
                     <MapPin className="text-blue-600 w-4 h-4" />
@@ -284,14 +255,13 @@ const BranchDirectory = () => {
 const openingHours = {
   openHour: 8,
   closeHour: 17,
-  openDays: [1, 2, 3, 4, 5],
+  openDays: [1, 2, 3, 4, 5], // Monday to Friday
 };
 
 const isBranchOpen = () => {
   const now = new Date();
   const hour = now.getHours();
   const day = now.getDay();
-
   return (
     openingHours.openDays.includes(day) &&
     hour >= openingHours.openHour &&
