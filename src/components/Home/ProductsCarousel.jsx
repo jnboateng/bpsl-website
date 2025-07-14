@@ -15,7 +15,7 @@ export default function MovingCarousel() {
     try {
       const res = await getFeaturedProducts();
       setProducts(res.data || []);
-      console.log(res.data)
+      console.log("here is console",res.data)
     } catch (error) {
       toast.error("Failed to load featured products");
       console.error("Error fetching products", error);

@@ -34,7 +34,7 @@ const handleDragEnd = () => {
 
 
   return (
-    <div className="w-full flex justify-start mt-10 sm:mt-16">
+    <div className="w-full  flex justify-start mt-10 sm:mt-16">
       <div
         ref={trackRef}
         className="relative w-full max-w-[380px] h-16 bg-purple-200 rounded-full overflow-hidden select-none"

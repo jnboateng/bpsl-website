@@ -1,47 +1,51 @@
 import React, { useState, useEffect } from "react";
+import faustina from '../../images/testimonials/faustina.png'
+import felicia from '../../images/testimonials/felicia.png'
+import anthony from '../../images/testimonials/anthony.jpg'
 
 const testimonials = [
   {
     id: 1,
-    name: "Sarah Johnson",
-    role: "Small Business Owner, Johnson Retail",
+    name: "Anthony Addai",
+    role: "Phone Dealer (Anthony Phones)",
     quote:
-      "Best Point Savings and Loans gave my business the financial boost it needed. Their loan process was quick and stress-free.",
-    avatar: "https://randomuser.me/api/portraits/women/44.jpg",
+      "Best Point helped me grow from one shop to three. Their flexible loans and support make them a partner you can trust.",
+    avatar: anthony,
   },
   {
     id: 2,
-    name: "Michael Chen",
-    role: "Freelance Consultant",
+    name: "Faustina Kwayi",
+    role: "Loyal Customer for 10 Years (Faustinet Entreprise)",
     quote:
-      "I’ve tried several banks, but Best Point stands out for their customer service and flexible savings plans.",
-    avatar: "https://randomuser.me/api/portraits/men/32.jpg",
+      "In 10 years, I expanded to four branches. Best Point’s quick overdrafts and helpful managers kept my business strong and moving forward.",
+    avatar: faustina,
   },
   {
     id: 3,
-    name: "Emma Rodriguez",
-    role: "Principal, Greenleaf School",
+    name: "Felicia Boamah",
+    role: "Car Spare Parts Dealer (F.Boamah Auto Parts)",
     quote:
-      "Their education loan package helped dozens of our students stay in school. Truly a partner in community development.",
-    avatar: "https://randomuser.me/api/portraits/women/63.jpg",
+      "Best Point helped me grow from one shop to three. Their reliability and support make them my trusted financial partner.",
+    avatar: felicia,
   },
   {
     id: 4,
-    name: "David Wilson",
-    role: "Founder, Wilson Agro Supplies",
+    name: "Theophilus Darko",
+    role: "Managing Director, Princess Ice Company Ltd",
     quote:
-      "Best Point’s SME support has been crucial to our growth. Their team understands the needs of small businesses.",
-    avatar: "https://randomuser.me/api/portraits/men/71.jpg",
+      "I’ve been with Best Point over 10 years. Their flexible loans and support show true care for customer growth. I always recommend them.",
+    avatar: "https://www.gravatar.com/avatar/?d=mp",
   },
   {
     id: 5,
-    name: "Priya Patel",
-    role: "Accountant, Global Textiles Ltd.",
+    name: "Nana Franklin Afoah Nyame-Yenam II",
+    role: "Odikro of Nyamedam Community",
     quote:
-      "Managing our corporate accounts has never been easier. Best Point offers great tools and a personal touch.",
-    avatar: "https://randomuser.me/api/portraits/women/50.jpg",
+      "Best Point gave us a borehole, ending years of water struggles. Our community now enjoys clean, safe water. This support truly changed lives.",
+    avatar: "https://www.gravatar.com/avatar/?d=mp",
   },
 ];
+
 
 const TestimonialCard = ({ testimonial, isMobile }) => {
   return (

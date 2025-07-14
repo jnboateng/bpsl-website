@@ -20,6 +20,7 @@ function CareerDetails() {
       setLoading(true);
       const response = await getCareer(id);
       setCareer(response.data);
+      console.log(response.data)
     } catch (error) {
       toast.error('Failed to fetch career details');
       setCareer(null);
@@ -85,8 +86,8 @@ function CareerDetails() {
                 <div className="flex items-center gap-2">
                   <Briefcase size={16} />
                   <span>
-                    {career.payStart ? `₵${career.payStart}` : "Salary not"} 
-                    {career.payEnd ? ` - ₵${career.payEnd}` : " specified"}
+                    {career.pay_start ? `₵${career.pay_start}` : "Salary not"} 
+                    {career.pay_end ? ` - ₵${career.pay_end}` : " specified"}
                   </span>
                 </div>
               </div>
@@ -197,7 +198,7 @@ function CareerDetails() {
             Salary & Benefits
           </h2>
           <ul className="space-y-2">
-            {(career.salaryBenefits || []).map((benefit, index) => (
+            {(career.salary_benefits || []).map((benefit, index) => (
               <li key={index} className="flex items-center gap-2">
                 <span className="text-purple-500">
                   <CheckCircle size={16} />
