@@ -36,6 +36,7 @@ function ProductsMain() {
           setSelectedCategory(uniqueCategories[0]);
         }
       }
+      console.log(res.data)
     } catch (error) {
       console.error("Error fetching products", error);
       setCards([]);
@@ -66,14 +67,16 @@ function ProductsMain() {
     ...new Set(filteredCards.map((card) => card.subcategory).filter(Boolean)),
   ];
 
-  // Set default tab when category changes
-  useEffect(() => {
-    if (uniqueSubcategories.length > 0) {
-      setActiveTab(uniqueSubcategories[0]);
-    } else {
-      setActiveTab("");
+useEffect(() => {
+  setActiveTab((prevTab) => {
+    // If the current tab still exists in the new subcategories, keep it
+    if (uniqueSubcategories.includes(prevTab)) {
+      return prevTab;
     }
-  }, [selectedCategory, uniqueSubcategories]);
+    // Otherwise, fall back to the first subcategory
+    return uniqueSubcategories[0] || "";
+  });
+}, [selectedCategory]);
 
   // Filter displayed cards based on active tab (subcategory)
   const displayedCards = filteredCards.filter((card) => {

@@ -20,6 +20,7 @@ function Notices() {
         setLoading(true);
         const response = await getNotices();
         setNotices(response.data || []);
+        console.log(response.data)
       } catch (error) {
         toast.error('Failed to fetch notices');
         setNotices([]);
@@ -137,7 +138,7 @@ function Notices() {
                 <img
                   src={notice.image}
                   alt={notice.title}
-                  className="w-full h-80 object-cover border border-purple rounded-xl border-opacity-20"
+                  className="w-full h-80 object-fit border border-purple rounded-xl border-opacity-20"
                 />
               )}
               <div className="p-4">

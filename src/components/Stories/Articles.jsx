@@ -53,6 +53,7 @@ export default function Articles() {
 
     fetchData();
   }, []);
+        console.log(articles)
 
   const filteredArticles = selectedCategory === "Gallery"
     ? articles.filter(article => article.category === "Gallery")
@@ -163,7 +164,7 @@ export default function Articles() {
                               onClick={() => openGalleryModal(article, idx)}
                             >
                               <img
-                                src={img}
+                                src={img.image_url}
                                 alt={`${article.title} ${idx + 1}`}
                                 className="w-full h-24 object-cover rounded-md"
                               />
@@ -186,7 +187,7 @@ export default function Articles() {
                       </>
                     ) : (
                       <img
-                        src={article.images[0]}
+                        src={article.images[0].image_url}
                         alt={article.title}
                         className="w-full h-48 object-cover rounded-md mb-3"
                       />
@@ -267,7 +268,7 @@ export default function Articles() {
                             onClick={() => openGalleryModal(article, idx)}
                           >
                             <img
-                              src={img}
+                              src={img.image_url}
                               alt={`${article.title} ${idx + 1}`}
                               className="w-full h-32 object-cover rounded-md transition-transform duration-300 group-hover:scale-105"
                             />
@@ -303,7 +304,7 @@ export default function Articles() {
                   >
                     <div className="relative group">
                       <img
-                        src={article.images[0]}
+                        src={article.images[0].image_url}
                         alt={article.title}
                         className="w-full h-64 object-cover shadow-md rounded-t-3xl transition-transform duration-300 transform group-hover:scale-105"
                       />
@@ -366,7 +367,7 @@ export default function Articles() {
 
             <div className="relative h-[40vh] md:h-[80vh]">
               <img
-                src={selectedGallery.images[selectedImageIndex]}
+                src={selectedGallery.images[selectedImageIndex].image_url}
                 alt={`${selectedGallery.title} ${selectedImageIndex + 1}`}
                 className="w-full h-full object-contain"
               />
@@ -422,7 +423,7 @@ export default function Articles() {
                 {selectedGallery.images.map((img, idx) => (
                   <img
                     key={idx}
-                    src={img}
+                    src={img.image_url}
                     alt={`Thumbnail ${idx + 1}`}
                     className={`w-20 h-20 object-cover rounded-md cursor-pointer ${
                       selectedImageIndex === idx ? "ring-2 ring-purple-100" : ""

@@ -15,7 +15,6 @@ export default function MovingCarousel() {
     try {
       const res = await getFeaturedProducts();
       setProducts(res.data || []);
-      console.log("here is console",res.data)
     } catch (error) {
       toast.error("Failed to load featured products");
       console.error("Error fetching products", error);
@@ -178,7 +177,7 @@ export default function MovingCarousel() {
                       {product.title || product.name}
                     </h3>
                     <ul className="text-sm text-gray-600 space-y-1.5">
-                      {features.slice(0, 4).map((feature, i) => (
+                      {features.slice(0, 3).map((feature, i) => (
                         <li key={i} className="flex items-start">
                           <span className="inline-block w-4 h-4 mr-2 text-purple mt-0.5">
                             •
