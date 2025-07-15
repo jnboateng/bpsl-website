@@ -153,7 +153,7 @@ useEffect(() => {
             )}
 
             {/* Card List */}
-            <div className="grid md:grid-cols-2 gap-12 max-h-[400px] overflow-y-auto pr-2">
+            <div className="grid md:grid-cols-2 gap-12 max-h-[450px] max-w-4xl mx-auto overflow-y-auto pr-2">
               {displayedCards.length > 0 ? (
                 displayedCards.map((card, index) => (
                   <NavLink
@@ -161,7 +161,7 @@ useEffect(() => {
                     key={index}
                     className="rounded-xl overflow-hidden shadow-md"
                   >
-                    <div className="h-64 rounded-xl overflow-hidden bg-gray-200 flex items-center justify-center text-gray-500">
+                    <div className="h-72 rounded-xl overflow-hidden bg-gray-200 flex items-center justify-center text-gray-500">
                       {card.image ? (
                         <img
                           src={card.image}

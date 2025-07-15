@@ -95,7 +95,7 @@ function UssdBannerDesktop() {
 
   return (
     <div className="hidden md:flex items-center mx-2 h-[85vh]">
-      <div className="relative w-[100vw] min-w-[700px] mx-auto h-[320px] text-white p-8 rounded-3xl flex justify-between">
+      <div className="relative w-[100vw] min-w-[700px] mx-auto h-[50vh]  text-white p-8 rounded-3xl flex justify-between">
         <div
           className="absolute inset-0 w-[76vw] left-24 h-full bg-cover overflow-hidden bg-no-repeat rounded-3xl"
           style={{ backgroundImage: `url(${bgPhone})` }}
@@ -112,7 +112,7 @@ function UssdBannerDesktop() {
             to essential financial services anywhere, anytime.
           </p>
           <button class="bg-white text-purple hover:bg-purple opacity-85 hover:text-white font-medium py-2 px-6 rounded-3xl transition-colors duration-200 shadow-sm">
-            <NavLink to={"/products/digital/ussd service (*277#)"}>
+            <NavLink to={"/products/digital/best mobile banking"}>
 
             Learn More
             </NavLink>
@@ -124,7 +124,7 @@ function UssdBannerDesktop() {
           <motion.img
             src={phone}
             alt="USSD App on Phone"
-            className="w-[600px] absolute h-auto object-cover right-0 bottom-0"
+            className="w-auto absolute h-[90vh] object-cover right-0 bottom-0"
             initial="hidden"
             animate={controls}
             variants={phoneVariants}

@@ -57,10 +57,10 @@ useEffect(() => {
   };
 
   return (
-    <div className="min-h-screen w-full pt-16 md:pt-12 flex flex-col sm:flex-row items-center justify-center gap-4 px-6">
+    <div className="min-h-screen w-full max-w-[120rem] mx-auto pt-16 md:pt-12 flex flex-col sm:flex-row items-center justify-center gap-4 lg:gap-12 px-6">
       {/* Left Box - Text Content */}
       <div className="w-full sm:w-1/2 h-auto sm:h-full flex items-center justify-center">
-        <div className="w-full sm:w-[46vw] max-w-[700px] h-[50vh] sm:h-[85vh] bg-[#f5f5f5] rounded-3xl  overflow-hidden relative">
+        <div className="w-full sm:w-[46vw]  h-[50vh] sm:h-[85vh] bg-[#f5f5f5] rounded-3xl  overflow-hidden relative">
           <AnimatePresence mode="wait">
             <div
               key={currentIndex}
@@ -102,7 +102,7 @@ useEffect(() => {
 
       {/* Right Box - Image Content */}
       <div className="w-full sm:w-1/2 h-auto sm:h-full flex items-center justify-center">
-        <div className="w-full sm:w-[46vw] max-w-[700px] h-[50vh] sm:h-[85vh] rounded-3xl overflow-hidden relative">
+        <div className="w-full sm:w-[46vw] h-[50vh] sm:h-[85vh] rounded-3xl overflow-hidden relative">
           <AnimatePresence mode="sync">
             <motion.img
               key={currentIndex}

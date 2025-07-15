@@ -137,9 +137,9 @@ export default function MovingCarousel() {
   }
 
   return (
-    <div className="w-full m-2 md:ml-16 mt-16 py-12 px-4">
-      <div className="w-[92vw] md:w-[48vw] mx-auto">
-        <div className="relative h-[27rem] mt-12 flex items-center justify-center overflow-hidden">
+    <div className="w-full max-w-[120rem] m-2 md:ml-16 mt-16 py-12 px-4">
+      <div className="w-[92vw] md:w-[52vw] lg:w-[60vw] mx-auto">
+        <div className="relative h-[29rem] max-h-[32rem] mt-12 flex items-center justify-center overflow-hidden">
           {/* Card container */}
           <div className="w-72 h-full relative">
             {visibleProducts.map((product) => {
@@ -148,7 +148,7 @@ export default function MovingCarousel() {
               return (
                 <motion.div
                   key={`${product.id}-${product.index}`}
-                  className="absolute top-0 left-0 w-72 bg-white rounded-lg shadow-lg overflow-hidden"
+                  className="absolute top-0 left-0 w-72 md:w-80 bg-white rounded-lg shadow-lg overflow-hidden"
                   initial={getCardStyles(product.position.toString())}
                   animate={getCardStyles(product.position.toString())}
                   transition={{
@@ -199,7 +199,7 @@ export default function MovingCarousel() {
         </div>
 
         {/* Progress bar */}
-        <div className="w-full flex items-center max-w-md bg-gray-200 rounded-full h-3">
+        <div className="w-full flex items-center max-w-md md:max-w-xl lg:max-w-3xl bg-gray-200 rounded-full h-3">
           <motion.div
             className="bg-purple h-2 rounded-full"
             initial={{ width: 0 }}
