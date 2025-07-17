@@ -4,7 +4,6 @@ import Footer from "../components/Footer";
 import BuildingCarousel from "../components/Home/BuildingCarousel";
 import SocialBar from "../components/SocialBar";
 import CookieConsent from "./CookieConsent";
-import { Link } from "react-router-dom";
 
 function Homepage() {
   return (
@@ -17,7 +16,6 @@ function Homepage() {
       <SocialBar />
       <CookieConsent />
       <Footer />
-      {/* Cookie Consent */}
     </div>
   );
 }
