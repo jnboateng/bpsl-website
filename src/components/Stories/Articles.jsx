@@ -187,7 +187,7 @@ export default function Articles() {
                       </>
                     ) : (
                       <img
-                        src={article.images[0]}
+                        src={article.image}
                         alt={article.title}
                         className="w-full h-48 object-cover rounded-md mb-3"
                       />
@@ -304,7 +304,7 @@ export default function Articles() {
                   >
                     <div className="relative group">
                       <img
-                        src={article.images[0]}
+                        src={article.image}
                         alt={article.title}
                         className="w-full h-64 object-cover shadow-md rounded-t-3xl transition-transform duration-300 transform group-hover:scale-105"
                       />
