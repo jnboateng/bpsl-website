@@ -284,8 +284,7 @@ const Footer = () => {
             <img src={dpc} alt="DPC LOGO" className="w-8 h-8 rounded-full" />
           </div>
           <p>
-            Copyright © 2025 – All Rights Reserved Best Point Savings and Loans
-            Limited
+            Copyright © 2025 – All Rights Reserved 
           </p>
           <div className="flex gap-4 z-10">
             <Link className="cursor-pointer" to="/faqs">
