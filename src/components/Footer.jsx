@@ -138,9 +138,9 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Legal */}
+          {/* Resource */}
           <div className="z-10">
-            <h4 className="font-bold mb-3">Legal</h4>
+            <h4 className="font-bold mb-3">Resource</h4>
             <ul className="space-y-2">
               <li>
                 <Link
