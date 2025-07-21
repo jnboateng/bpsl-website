@@ -35,10 +35,10 @@ const BankingMenu = () => {
             </li>
             <li>
               <Link
-                to={"/products/business/nkosuo loans"}
+                to={"/products/business/Susu and Nkosuo Loans"}
                 className="block text-sm px-2 hover:bg-white/90 rounded-lg transition-transform duration-300 hover:scale-[1.03]"
               >
-                Nkosuo Loans
+                Susu and Nkosuo Loans
               </Link>
             </li>
             <li>
@@ -113,7 +113,7 @@ const BankingMenu = () => {
             </li>
             <li>
               <Link
-                to={"/products/digital/mobile money services"}
+                to={"/products/digital/MTN Mobile Money"}
                 className="block text-sm px-2 hover:bg-white/90 rounded-lg transition-transform duration-300 hover:scale-[1.03]"
               >
                 Mobile Money Services
