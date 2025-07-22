@@ -12,7 +12,7 @@ function Notices() {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [searchQuery, setSearchQuery] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
-  const noticesPerPage = 4;
+  const noticesPerPage = 2;
 
   useEffect(() => {
     const fetchNotices = async () => {

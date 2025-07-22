@@ -5,13 +5,15 @@ const api = axios.create({
   baseURL: "https://bpsl-admin-backend.onrender.com/api",
   headers: {
     "Content-Type": "application/json",
-      'ngrok-skip-browser-warning': 'true'
+          'ngrok-skip-browser-warning': 'true'
+
   },
   withCredentials: false, 
 });
 
 // ===================== Products =====================
 export const getProducts = () => api.get("/products");
+export const getFeaturedProducts = () => api.get("/products/featured");
 export const createProduct = (data) => api.post("/products", data);
 export const updateProduct = (id, data) => api.put(`/products/${id}`, data);
 export const updateProductFeaturedStatus = (id, data) =>
@@ -45,8 +47,6 @@ export const createAward = (data) => api.post("/awards", data);
 export const updateAward = (id, data) => api.put(`/awards/${id}`, data);
 export const deleteAward = (id) => api.delete(`/awards/${id}`);
 
-// ===================== Dashboard =====================
-export const getDashboardStats = () => api.get("/dashboard/stats");
 // ===================== Teams =====================
 export const getTeamMembers = () => api.get("/team");
 export const getTeamMember = (id) => api.get(`/team/${id}`);
@@ -76,13 +76,6 @@ export const createNotice = (data) => api.post("/notices", data);
 export const updateNotice = (id, data) => api.put(`/notices/${id}`, data);
 export const deleteNotice = (id) => api.delete(`/notices/${id}`);
 
-// ===================== Articles =====================
-export const getArticles = () => api.get("/content/articles");
-export const getArticle = (id) => api.get(`/content/articles/${id}`);
-export const createArticle = (data) => api.post("/content/articles", data);
-export const updateArticle = (id, data) =>
-  api.put(`/content/articles/${id}`, data);
-export const deleteArticle = (id) => api.delete(`/content/articles/${id}`);
 
 // ===================== Reports =====================
 export const getReports = () => api.get("/report");
@@ -90,6 +83,14 @@ export const createReport = (data) => api.post("/report", data);
 export const updateReport = (id, data) =>
   api.put(`/report/${id}`, data);
 export const deleteReport = (id) => api.delete(`/report/${id}`);
+
+// ===================== Articles =====================
+export const getArticles = () => api.get("/content/articles");
+export const getArticle = (id) => api.get(`/content/articles/${id}`);
+export const createArticle = (data) => api.post("/content/articles", data);
+export const updateArticle = (id, data) =>
+  api.put(`/content/articles/${id}`, data);
+export const deleteArticle = (id) => api.delete(`/content/articles/${id}`);
 
 // ===================== Blogs =====================
 export const getBlogs = () => api.get("/content/blogs");
@@ -114,11 +115,9 @@ export const createGalleryImage = (data) => api.post("/gallery_images", data);
 export const deleteGalleryImage = (id) => api.delete(`/gallery_images/${id}`);
 
 export default {
-    // Dashboard
-  getDashboardStats,
-  
   // Products
   getProducts,
+  getFeaturedProducts,
   createProduct,
   updateProduct,
   updateProductFeaturedStatus,
@@ -149,12 +148,6 @@ export default {
   updateAward,
   deleteAward,
 
-  // Reprots
-  getReports,
-  createReport,
-  updateReport,
-  deleteReport,
-
   // Teams
   getTeamMembers,
   getTeamMember,
@@ -168,6 +161,12 @@ export default {
   createNotice,
   updateNotice,
   deleteNotice,
+
+  // Reprots
+  getReports,
+  createReport,
+  updateReport,
+  deleteReport,
 
   // Articles
   getArticles,

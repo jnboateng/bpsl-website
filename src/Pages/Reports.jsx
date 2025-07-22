@@ -1,86 +1,50 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Hero from "../components/About/Hero";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import wire from "../images/footer vectors/wire.png";
-
-export const annualReports = [
-  {
-    id: "2017",
-    title: "Annual Report 2017",
-    excerpt: "A foundational year focusing on stability and groundwork.",
-    link: "/pdfs/aas.pdf",
-  },
-  {
-    id: "2018",
-    title: "Annual Report 2018",
-    excerpt: "Highlights include improved internal processes and training.",
-    link: "/pdfs/ANNUAL_REPORT_2023.pdf",
-  },
-  {
-    id: "2019",
-    title: "Annual Report 2019",
-    excerpt: "Marked by innovation and sustained growth.",
-    link: "/pdfs/annual-report-2019.pdf",
-  },
-  {
-    id: "2020",
-    title: "Annual Report 2020",
-    excerpt: "Navigating uncertainty during a global pandemic.",
-    link: "/pdfs/annual-report-2020.pdf",
-  },
-  {
-    id: "2021",
-    title: "Annual Report 2021",
-    excerpt: "Resilience and strategic milestones throughout 2021.",
-    link: "/pdfs/annual-report-2021.pdf",
-  },
-  {
-    id: "2022",
-    title: "Annual Report 2022",
-    excerpt: "Digital transformation and stakeholder engagement.",
-    link: "/pdfs/annual-report-2022.pdf",
-  },
-  {
-    id: "2023",
-    title: "Annual Report 2023",
-    excerpt: "Sustainable growth and record-breaking revenue.",
-    link: "/pdfs/annual-report-2023.pdf",
-  },
-  {
-    id: "2024",
-    title: "Annual Report 2024",
-    excerpt: "Strategic pivots and market expansion.",
-    link: "/pdfs/annual-report-2024.pdf",
-  },
-  {
-    id: "2025",
-    title: "Annual Report 2025",
-    excerpt: "Digital excellence and customer satisfaction.",
-    link: "/pdfs/annual-report-2025.pdf",
-  },
-];
+import { getReports } from "../Api"; // Make sure this import path is correct
 
 function Reports() {
   const [showFileModal, setShowFileModal] = useState(false);
   const [currentFileUrl, setCurrentFileUrl] = useState("");
   const [viewerError, setViewerError] = useState(false);
-  const [currentViewer, setCurrentViewer] = useState("google"); // google, office, pdfjs, direct
- 
-  const sortedReports = [...annualReports].sort(
-    (a, b) => parseInt(b.id) - parseInt(a.id)
+  const [currentViewer, setCurrentViewer] = useState("google");
+  const [reports, setReports] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  // Fetch reports from API
+  useEffect(() => {
+    const fetchReports = async () => {
+      try {
+        setLoading(true);
+        const response = await getReports();
+        setReports(response.data);
+      } catch (err) {
+        setError(err);
+        console.log("Failed to fetch annual reports");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchReports();
+  }, []);
+
+  const sortedReports = [...reports].sort(
+    (a, b) => parseInt(b.year) - parseInt(a.year)
   );
 
   const [searchTerm, setSearchTerm] = useState("");
+  const [currentPage, setCurrentPage] = useState(1);
+  const reportsPerPage = 4;
 
   const filteredReports = sortedReports.filter(
     (report) =>
       report.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
       report.excerpt.toLowerCase().includes(searchTerm.toLowerCase())
   );
-  
-  const [currentPage, setCurrentPage] = useState(1);
-  const reportsPerPage = 4;
 
   const indexOfLastReport = currentPage * reportsPerPage;
   const indexOfFirstReport = indexOfLastReport - reportsPerPage;
@@ -95,11 +59,12 @@ function Reports() {
 
   // Function to get file extension
   const getFileExtension = (url) => {
-    return url.split(".").pop().toLowerCase();
+    return url?.split(".").pop().toLowerCase();
   };
 
   // Function to determine if file can be previewed
   const canPreview = (url) => {
+    if (!url) return false;
     const ext = getFileExtension(url);
     return ["pdf", "doc", "docx", "xls", "xlsx", "ppt", "pptx", "txt"].includes(ext);
   };
@@ -137,6 +102,30 @@ function Reports() {
     setCurrentViewer("google"); // Reset to default viewer
   };
 
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center h-screen">
+        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-purple"></div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="p-8">
+        <h1 className="text-3xl md:text-4xl text-red-500 font-semibold">
+          Error loading annual reports
+        </h1>
+        <button
+          onClick={() => window.location.reload()}
+          className="text-purple-600 underline mt-4 inline-block"
+        >
+          Try again
+        </button>
+      </div>
+    );
+  }
+
   return (
     <div>
       <Hero text1={"Annual Reports"} />
@@ -144,7 +133,7 @@ function Reports() {
       {/* Header */}
       <div className="flex gap-x-4 lg:gap-x-12 items-center justify-start mt-12 ">
         <div className="bg-purple h-8 w-12 mb-2" />
-        <h1 className="text-3xl md:text-4xl font-bold text-gray-800  leading-tight">
+        <h1 className="text-3xl md:text-4xl font-bold text-gray-800 leading-tight">
           Annual Reports
         </h1>
       </div>
@@ -179,12 +168,12 @@ function Reports() {
               {filteredReports.length ? (
                 currentReports.map((report) => (
                   <li
-                    key={report.id}
+                    key={report._id || report.id}
                     className="w-full bg-white shadow-md rounded-xl p-5 my-3 transition hover:shadow-lg flex items-center justify-between"
                   >
                     {/* Left: Title & Link */}
                     <Link
-                      to={`/reports/${report.id}`}
+                      to={`/reports/${report._id || report.id}`}
                       className="flex items-center gap-3 text-purple-700 hover:text-purple-900 font-semibold text-base transition-transform duration-300 hover:translate-x-1"
                     >
                       <ArrowRight className="w-5 h-5" />
@@ -196,15 +185,17 @@ function Reports() {
                       <button
                         onClick={() => openFileViewer(report.link)}
                         className="ml-4 px-4 py-2 cursor-pointer hover:bg-gradient-to-t bg-gradient-to-b from-purple to-purple-200 text-white text-sm font-medium rounded-md transition duration-300"
+                        disabled={!report.link}
                       >
                         View
                       </button>
-                      
                     </div>
                   </li>
                 ))
               ) : (
-                <li className="text-gray-500 mt-4">No reports found.</li>
+                <li className="text-gray-500 mt-4">
+                  {searchTerm ? "No matching reports found" : "No reports available"}
+                </li>
               )}
             </ul>
             {filteredReports.length > reportsPerPage && (
@@ -226,7 +217,7 @@ function Reports() {
             )}
           </div>
           <div className="col-span-1">
-            <div className=" relative w-[300px] md:w-[350px] h-[550px] md:h-[500px] p-4 rounded-xl md:mx-auto bg-gradient-to-tr from-purple-200 to-purple-300">
+            <div className="relative w-[300px] md:w-[350px] h-[550px] md:h-[500px] p-4 rounded-xl md:mx-auto bg-gradient-to-tr from-purple-200 to-purple-300">
               <div
                 className="absolute w-[70%] h-[40vh] bottom-0 right-0 bg-no-repeat z-0 object-contain opacity-75"
                 style={{
@@ -238,8 +229,8 @@ function Reports() {
                 }}
               />
               <div className="bg-white w-28 z-10 rounded-lg text-center flex items-center justify-center p-1">
-                <span className="font-light  text-xs text-center">
-                  Advertisment
+                <span className="font-light text-xs text-center">
+                  Advertisement
                 </span>
               </div>
               <p className="font-extralight text-white mt-12 text-lg text-left">
@@ -257,7 +248,7 @@ function Reports() {
                 <div className="bg-white rounded-full w-16 h-16 flex flex-row items-center justify-center">
                   <span className="font-semibold">BP</span>
                 </div>
-                <span className="text-white font-semibold  capitalize">
+                <span className="text-white font-semibold capitalize">
                   best point savings and loans
                 </span>
               </div>
@@ -332,7 +323,6 @@ function Reports() {
                     >
                       Open in New Tab
                     </a>
-                    
                   </div>
                 </div>
               ) : (
@@ -343,18 +333,25 @@ function Reports() {
                         Preview not available for this file type
                       </div>
                       <div className="text-gray-600 mb-6">
-                        File type: .{getFileExtension(currentFileUrl).toUpperCase()}
+                        {currentFileUrl ? (
+                          <>
+                            File type: .{getFileExtension(currentFileUrl).toUpperCase()}
+                          </>
+                        ) : (
+                          "No file available"
+                        )}
                       </div>
                       <div className="flex gap-2">
-                        <a
-                          href={currentFileUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="px-4 py-2 bg-purple-700 text-white rounded hover:bg-purple-800"
-                        >
-                          Open in New Tab
-                        </a>
-                        
+                        {currentFileUrl && (
+                          <a
+                            href={currentFileUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="px-4 py-2 bg-purple-700 text-white rounded hover:bg-purple-800"
+                          >
+                            Open in New Tab
+                          </a>
+                        )}
                       </div>
                     </div>
                   ) : (
@@ -365,7 +362,6 @@ function Reports() {
                       frameBorder="0"
                       onError={handleViewerError}
                       onLoad={(e) => {
-                        // Check if iframe loaded successfully
                         try {
                           const iframeDoc =
                             e.target.contentDocument ||
@@ -379,7 +375,6 @@ function Reports() {
                             handleViewerError();
                           }
                         } catch (err) {
-                          // Cross-origin restrictions prevent access, assume it's working
                           console.log(
                             "Cannot access iframe content due to CORS, assuming success"
                           );
