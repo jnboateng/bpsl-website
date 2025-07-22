@@ -62,8 +62,12 @@ export const annualReports = [
 ];
 
 function Reports() {
+  const [showFileModal, setShowFileModal] = useState(false);
+  const [currentFileUrl, setCurrentFileUrl] = useState("");
+  const [viewerError, setViewerError] = useState(false);
+  const [currentViewer, setCurrentViewer] = useState("google"); // google, office, pdfjs, direct
  
-const sortedReports = [...annualReports].sort(
+  const sortedReports = [...annualReports].sort(
     (a, b) => parseInt(b.id) - parseInt(a.id)
   );
 
@@ -74,7 +78,8 @@ const sortedReports = [...annualReports].sort(
       report.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
       report.excerpt.toLowerCase().includes(searchTerm.toLowerCase())
   );
- const [currentPage, setCurrentPage] = useState(1);
+  
+  const [currentPage, setCurrentPage] = useState(1);
   const reportsPerPage = 4;
 
   const indexOfLastReport = currentPage * reportsPerPage;
@@ -87,6 +92,51 @@ const sortedReports = [...annualReports].sort(
   const totalPages = Math.ceil(filteredReports.length / reportsPerPage);
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
+  // Function to get file extension
+  const getFileExtension = (url) => {
+    return url.split(".").pop().toLowerCase();
+  };
+
+  // Function to determine if file can be previewed
+  const canPreview = (url) => {
+    const ext = getFileExtension(url);
+    return ["pdf", "doc", "docx", "xls", "xlsx", "ppt", "pptx", "txt"].includes(ext);
+  };
+
+  // Function to get appropriate viewer URL
+  const getViewerUrl = (fileUrl, viewer) => {
+    const encodedUrl = encodeURIComponent(fileUrl);
+
+    switch (viewer) {
+      case "google":
+        return `https://docs.google.com/gview?embedded=true&url=${encodedUrl}`;
+      case "office":
+        return `https://view.officeapps.live.com/op/embed.aspx?src=${encodedUrl}`;
+      default:
+        return `https://docs.google.com/gview?embedded=true&url=${encodedUrl}`;
+    }
+  };
+
+  // Handle viewer error
+  const handleViewerError = () => {
+    setViewerError(true);
+  };
+
+  // Switch to next viewer
+  const switchViewer = (viewer) => {
+    setCurrentViewer(viewer);
+    setViewerError(false);
+  };
+
+  // Open file in viewer modal
+  const openFileViewer = (fileUrl) => {
+    setCurrentFileUrl(fileUrl);
+    setShowFileModal(true);
+    setViewerError(false);
+    setCurrentViewer("google"); // Reset to default viewer
+  };
+
   return (
     <div>
       <Hero text1={"Annual Reports"} />
@@ -141,16 +191,16 @@ const sortedReports = [...annualReports].sort(
                       <span>{report.title}</span>
                     </Link>
 
-                    {/* Right: Download Button */}
-                    <a
-                      href={report.downloadUrl}
-                      download
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="ml-4 px-4 py-2 cursor-pointer hover:bg-gradient-to-t bg-gradient-to-b from-purple to-purple-200  text-white text-sm font-medium rounded-md transition duration-300"
-                    >
-                      Download
-                    </a>
+                    {/* Right: View Buttons */}
+                    <div className="flex gap-2">
+                      <button
+                        onClick={() => openFileViewer(report.link)}
+                        className="ml-4 px-4 py-2 cursor-pointer hover:bg-gradient-to-t bg-gradient-to-b from-purple to-purple-200 text-white text-sm font-medium rounded-md transition duration-300"
+                      >
+                        View
+                      </button>
+                      
+                    </div>
                   </li>
                 ))
               ) : (
@@ -215,6 +265,134 @@ const sortedReports = [...annualReports].sort(
           </div>
         </div>
       </div>
+
+      {/* Enhanced Document Preview Modal */}
+      {showFileModal && (
+        <div className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50">
+          <div className="bg-white w-[95%] h-[95%] rounded-lg shadow-lg relative overflow-hidden">
+            {/* Header with viewer options and close button */}
+            <div className="flex justify-between items-center p-3 bg-gray-100 border-b">
+              <div className="flex gap-2">
+                <button
+                  onClick={() => switchViewer("google")}
+                  className={`px-3 py-1 rounded text-sm ${
+                    currentViewer === "google"
+                      ? "bg-purple-700 text-white"
+                      : "bg-gray-300 text-gray-700 hover:bg-gray-400"
+                  }`}
+                >
+                  Google Viewer
+                </button>
+                <button
+                  onClick={() => switchViewer("office")}
+                  className={`px-3 py-1 rounded text-sm ${
+                    currentViewer === "office"
+                      ? "bg-purple-700 text-white"
+                      : "bg-gray-300 text-gray-700 hover:bg-gray-400"
+                  }`}
+                >
+                  Office Viewer
+                </button>
+              </div>
+              <button
+                onClick={() => {
+                  setShowFileModal(false);
+                  setViewerError(false);
+                  setCurrentViewer("google");
+                }}
+                className="text-white bg-red-600 hover:bg-red-700 px-3 py-1 rounded"
+              >
+                Close
+              </button>
+            </div>
+
+            {/* Document viewer content */}
+            <div className="relative w-full h-[calc(100%-60px)]">
+              {viewerError ? (
+                <div className="flex flex-col items-center justify-center h-full text-center p-8">
+                  <div className="text-red-500 text-lg mb-4">
+                    Unable to preview this document
+                  </div>
+                  <div className="text-gray-600 mb-6">
+                    The document viewer encountered an error. This might happen
+                    if:
+                    <ul className="mt-2 text-left list-disc list-inside">
+                      <li>The file is not publicly accessible</li>
+                      <li>The file format is not supported</li>
+                      <li>The file is too large</li>
+                      <li>There are CORS restrictions</li>
+                    </ul>
+                  </div>
+                  <div className="flex gap-2">
+                    <a
+                      href={currentFileUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="px-4 py-2 bg-purple-700 text-white rounded hover:bg-purple-800"
+                    >
+                      Open in New Tab
+                    </a>
+                    
+                  </div>
+                </div>
+              ) : (
+                <>
+                  {!canPreview(currentFileUrl) ? (
+                    <div className="flex flex-col items-center justify-center h-full text-center p-8">
+                      <div className="text-orange-500 text-lg mb-4">
+                        Preview not available for this file type
+                      </div>
+                      <div className="text-gray-600 mb-6">
+                        File type: .{getFileExtension(currentFileUrl).toUpperCase()}
+                      </div>
+                      <div className="flex gap-2">
+                        <a
+                          href={currentFileUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="px-4 py-2 bg-purple-700 text-white rounded hover:bg-purple-800"
+                        >
+                          Open in New Tab
+                        </a>
+                        
+                      </div>
+                    </div>
+                  ) : (
+                    <iframe
+                      src={getViewerUrl(currentFileUrl, currentViewer)}
+                      title="Document Preview"
+                      className="w-full h-full"
+                      frameBorder="0"
+                      onError={handleViewerError}
+                      onLoad={(e) => {
+                        // Check if iframe loaded successfully
+                        try {
+                          const iframeDoc =
+                            e.target.contentDocument ||
+                            e.target.contentWindow.document;
+                          if (
+                            iframeDoc.title.includes("error") ||
+                            iframeDoc.body.innerText.includes(
+                              "preview is not available"
+                            )
+                          ) {
+                            handleViewerError();
+                          }
+                        } catch (err) {
+                          // Cross-origin restrictions prevent access, assume it's working
+                          console.log(
+                            "Cannot access iframe content due to CORS, assuming success"
+                          );
+                        }
+                      }}
+                    />
+                  )}
+                </>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
