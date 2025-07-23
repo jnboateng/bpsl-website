@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import users from "../../images/general icons/users.png";
 import map from "../../images/general icons/map.png";
 import world from "../../images/general icons/world.png";
 import { NavLink } from "react-router-dom";
+import { getCustomer } from "../../Api";
 
 function Stats() {
   // Animation variants
@@ -17,6 +18,7 @@ function Stats() {
       },
     },
   };
+  const [count, setCount] = useState(0);
 
   const titleAnim = {
     hidden: { y: -100, scale: 2, opacity: 0 },
@@ -70,6 +72,23 @@ function Stats() {
     },
   };
 
+  useEffect(() => {
+    const fetchCustomerCount = async () => {
+      try {
+        const response = await getCustomer();
+        console.log(response.data);
+        if (response.status === 200) {
+          setCount(response.data);
+        } else {
+          console.log("Unable to get total counts");
+        }
+      } catch (error) {
+        console.error("Error fetching customer count:", error);
+      }
+    };
+
+    fetchCustomerCount();
+  }, []);
   return (
     <div className="h-screen md:h-[60vh] flex flex-col justify-center items-center overflow-hidden px-4">
       <motion.h1
@@ -90,7 +109,7 @@ function Stats() {
         viewport={{ once: true, margin: "-100px" }}
       >
         {/* Happy Clients */}
-        <motion.div 
+        <motion.div
           className="flex flex-col md:flex-row items-center space-y-4 md:space-y-0 group"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.98 }}
@@ -107,7 +126,7 @@ function Stats() {
               variants={statTopAnim}
               className="text-2xl md:text-3xl font-bold text-gray-800 group-hover:text-purple transition-colors"
             >
-              292,887
+              {count.number?.toLocaleString()}
             </motion.span>
             <motion.span
               variants={statBottomAnim}
@@ -144,14 +163,13 @@ function Stats() {
                 className="text-sm md:text-xl font-open-sans font-normal text-gray-700 group-hover:text-purple transition-colors flex items-center"
               >
                 Branches
-               
               </motion.span>
             </div>
           </motion.div>
         </NavLink>
 
         {/* USSD Service */}
-        <motion.div 
+        <motion.div
           className="flex flex-col md:flex-row items-center space-y-4 md:space-y-0 group"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.98 }}
