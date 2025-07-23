@@ -76,6 +76,12 @@ export const createNotice = (data) => api.post("/notices", data);
 export const updateNotice = (id, data) => api.put(`/notices/${id}`, data);
 export const deleteNotice = (id) => api.delete(`/notices/${id}`);
 
+// ===================== Customers =====================
+export const getCustomers = () => api.get("/customer-counts");
+export const getCustomer = (id) => api.get("/customer-counts/latest");
+export const createCustomer = (data) => api.post("/customer-counts", data);
+export const updateCustomer = (id, data) => api.put(`/customer-counts/${id}`, data);
+export const deleteCustomer = (id) => api.delete(`/customer-counts/${id}`);
 
 // ===================== Reports =====================
 export const getReports = () => api.get("/report");
@@ -147,6 +153,14 @@ export default {
   createAward,
   updateAward,
   deleteAward,
+
+  // customers
+getCustomers,
+getCustomer,
+createCustomer,
+updateCustomer,
+deleteCustomer,
+
 
   // Teams
   getTeamMembers,
