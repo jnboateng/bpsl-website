@@ -66,7 +66,9 @@ function Reports() {
   const canPreview = (url) => {
     if (!url) return false;
     const ext = getFileExtension(url);
-    return ["pdf", "doc", "docx", "xls", "xlsx", "ppt", "pptx", "txt"].includes(ext);
+    return ["pdf", "doc", "docx", "xls", "xlsx", "ppt", "pptx", "txt"].includes(
+      ext
+    );
   };
 
   // Function to get appropriate viewer URL
@@ -172,10 +174,7 @@ function Reports() {
                     className="w-full bg-white shadow-md rounded-xl p-5 my-3 transition hover:shadow-lg flex items-center justify-between"
                   >
                     {/* Left: Title & Link */}
-                    <Link
-                      to={`/reports/${report._id || report.id}`}
-                      className="flex items-center gap-3 text-purple-700 hover:text-purple-900 font-semibold text-base transition-transform duration-300 hover:translate-x-1"
-                    >
+                    <Link className="flex items-center gap-3 text-purple-700 hover:text-purple-900 font-semibold text-base transition-transform duration-300 hover:translate-x-1">
                       <ArrowRight className="w-5 h-5" />
                       <span>{report.title}</span>
                     </Link>
@@ -189,12 +188,21 @@ function Reports() {
                       >
                         View
                       </button>
+                      <a
+                        href={report.link}
+                        download
+                        className="ml-4 px-4 py-2 inline-block hover:bg-gradient-to-t bg-gradient-to-b from-purple to-purple-200 text-white text-sm font-medium rounded-md transition duration-300"
+                      >
+                        Download
+                      </a>
                     </div>
                   </li>
                 ))
               ) : (
                 <li className="text-gray-500 mt-4">
-                  {searchTerm ? "No matching reports found" : "No reports available"}
+                  {searchTerm
+                    ? "No matching reports found"
+                    : "No reports available"}
                 </li>
               )}
             </ul>
@@ -335,7 +343,8 @@ function Reports() {
                       <div className="text-gray-600 mb-6">
                         {currentFileUrl ? (
                           <>
-                            File type: .{getFileExtension(currentFileUrl).toUpperCase()}
+                            File type: .
+                            {getFileExtension(currentFileUrl).toUpperCase()}
                           </>
                         ) : (
                           "No file available"

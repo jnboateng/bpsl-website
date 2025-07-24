@@ -113,7 +113,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link
-                  to="/products/transfers/ria"
+                  to="/products/transfers/ria money transfer"
                   className="font-thin text-xs hover:font-light"
                 >
                   Ria
@@ -129,7 +129,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link
-                  to="/products/transfers/mobile money services"
+                  to="/products/transfers/MTN Mobile Money"
                   className="font-thin text-xs hover:font-light"
                 >
                   Mobile Money
