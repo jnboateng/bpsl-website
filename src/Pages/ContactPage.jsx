@@ -157,27 +157,27 @@ console.log(response.data)
             <div>
               <NavLink
                 to={"/locator"}
-                className="hover:text-purple font-semibold"
+                className="hover:text-purple font-semibold text-lg"
               >
                 Locate Our Branches
               </NavLink>
             </div>
           </div>
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-3 text-lg">
             <MapPin />
             <div>
               <p>Mile 7 – Achimota</p>
               <p>Old Peace Fm Building</p>
             </div>
           </div>
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-3 text-lg">
             <Phone />
             <div>
               <p className="font-medium">030 393 2990-4</p>
               <p className="font-semibold">Toll Free: 0800 505 050</p>
             </div>
           </div>
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-3 text-lg">
             <Mail />
             <div>
               <p>info@bestpointgh.com</p>
