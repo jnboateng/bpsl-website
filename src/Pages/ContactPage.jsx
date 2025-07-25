@@ -17,10 +17,10 @@ import { NavLink } from "react-router-dom";
 import { useSearchParams } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import Api from "../Api";
-
+import { Loader2 } from "lucide-react";
 const ContactPage = () => {
   const [activeTab, setActiveTab] = useState("enquiry");
-    const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
   const [formData, setFormData] = useState({
     name: "",
@@ -39,47 +39,79 @@ const ContactPage = () => {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
- const handleSubmit = async (e) => {
-  e.preventDefault();
-  setIsSubmitting(true);
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus(null);
 
-  try {
-    const response = await Api.mail( {
-     formData, formType: activeTab 
-    });
+    try {
+      const response = await Api.mail({
+        formData,
+        formType: activeTab,
+      });
+console.log(response.data)
+      // Check if response exists and has json() method
+      if (!response.data ) {
+        throw new Error("Invalid API response");
+      }
 
-    const result = await response.json();
-    if (result.success) {
-      setSubmitStatus('success');
-      // Reset form
-    } else {
-      setSubmitStatus('error');
+      const result = await response.data;
+
+      // Check the success flag from backend
+      if (result?.success) {
+        setSubmitStatus({
+          type: "success",
+          message: result.message || "Message sent successfully!",
+        });
+        // Reset form
+        setFormData({
+          name: "",
+          phone: "",
+          address: "",
+          email: "",
+          dob: "",
+          location: "",
+          description: "",
+          accountType: "",
+          loanPurpose: "",
+        });
+      } else {
+        setSubmitStatus({
+          type: "error",
+          message: result?.message || "Submission failed",
+        });
+      }
+    } catch (error) {
+      console.error("Submission error:", error);
+      setSubmitStatus({
+        type: "error",
+        message: "Message was received but we encountered a response issue",
+      });
+    } finally {
+      setIsSubmitting(false);
     }
-  } catch (error) {
-    setSubmitStatus('error');
-  } finally {
-    setIsSubmitting(false);
-  }
-};
+  };
   const [searchParams] = useSearchParams();
- useEffect(() => {
-  const tabParam = searchParams.get("tab");
-  setActiveTab(tabParam || "enquiry"); 
-}, [searchParams]);
+  useEffect(() => {
+    const tabParam = searchParams.get("tab");
+    setActiveTab(tabParam || "enquiry");
+  }, [searchParams]);
 
   return (
     <div className="">
       <Helmet>
-        <title> Contact Best Point – Branch Locations & Support Numbers
-</title>
-<meta name="description"
-content="Reach Best Point Savings & Loans via phone, email, or visit any of our branches in Accra, Kumasi, and other regions."
-/>
+        <title> Contact Best Point – Branch Locations & Support Numbers</title>
+        <meta
+          name="description"
+          content="Reach Best Point Savings & Loans via phone, email, or visit any of our branches in Accra, Kumasi, and other regions."
+        />
       </Helmet>
       <Hero text1={"Contact Us"} />
-      <div className="w-full text-center mt-6 mb-2"><h2 className="text-3xl md:text-4xl font-bold text-center capitalize text-gray-800 ">
+      <div className="w-full text-center mt-6 mb-2">
+        <h2 className="text-3xl md:text-4xl font-bold text-center capitalize text-gray-800 ">
           Contact Best Point Savings and Loans
-        </h2></div>
+        </h2>
+      </div>
       {/* Tabs */}
       <div className="flex flex-wrap justify-center gap-4 mt-6 mb-10">
         <button
@@ -123,7 +155,10 @@ content="Reach Best Point Savings & Loans via phone, email, or visit any of our 
           <div className="flex items-center gap-3">
             <LocateFixed />
             <div>
-              <NavLink to={"/locator"} className="hover:text-purple font-semibold">
+              <NavLink
+                to={"/locator"}
+                className="hover:text-purple font-semibold"
+              >
                 Locate Our Branches
               </NavLink>
             </div>
@@ -285,14 +320,34 @@ content="Reach Best Point Savings & Loans via phone, email, or visit any of our 
                 </select>
               </div>
             )}
-
+            {submitStatus && (
+              <div
+                className={`mb-4 text-center md:text-left ${
+                  submitStatus.type === "success"
+                    ? "text-green-600"
+                    : "text-red-600"
+                }`}
+              >
+                {submitStatus.message}
+              </div>
+            )}
             {/* Submit */}
             <div className="pt-4 w-full flex justify-center md:justify-start">
               <button
                 type="submit"
-                className="bg-transparent text-gray-700 border border-gray-300 transition-all hover:bg-purple hover:text-white font-medium px-10 py-2 rounded-full"
+                disabled={isSubmitting}
+                className={`bg-transparent text-gray-700 border border-gray-300 transition-all hover:bg-purple hover:text-white font-medium px-10 py-2 rounded-full flex items-center justify-center gap-2 ${
+                  isSubmitting ? "opacity-70 cursor-not-allowed" : ""
+                }`}
               >
-                Send
+                {isSubmitting ? (
+                  <>
+                    <Loader2 className="animate-spin h-5 w-5" />
+                    Sending...
+                  </>
+                ) : (
+                  "Send"
+                )}
               </button>
             </div>
           </form>
