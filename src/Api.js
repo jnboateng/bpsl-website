@@ -1,14 +1,12 @@
 import axios from "axios";
 
-
 const api = axios.create({
   baseURL: "https://bpsl-admin-backend.onrender.com/api",
   headers: {
     "Content-Type": "application/json",
-          'ngrok-skip-browser-warning': 'true'
-
+    "ngrok-skip-browser-warning": "true",
   },
-  withCredentials: false, 
+  withCredentials: false,
 });
 
 // ===================== Products =====================
@@ -60,7 +58,6 @@ export const createCareer = (data) => api.post("/roles", data);
 export const updateCareers = (id, data) => api.put(`/roles/${id}`, data);
 export const deleteCareers = (id) => api.delete(`/roles/${id}`);
 
-
 // ===================== Branches =====================
 export const getBranches = () => api.get("/branches");
 export const getRegions = () => api.get("/branches/regions");
@@ -76,18 +73,20 @@ export const createNotice = (data) => api.post("/notices", data);
 export const updateNotice = (id, data) => api.put(`/notices/${id}`, data);
 export const deleteNotice = (id) => api.delete(`/notices/${id}`);
 
+export const mail = (data) => api.post("/mail", data);
+
 // ===================== Customers =====================
 export const getCustomers = () => api.get("/customer-counts");
 export const getCustomer = (id) => api.get("/customer-counts/latest");
 export const createCustomer = (data) => api.post("/customer-counts", data);
-export const updateCustomer = (id, data) => api.put(`/customer-counts/${id}`, data);
+export const updateCustomer = (id, data) =>
+  api.put(`/customer-counts/${id}`, data);
 export const deleteCustomer = (id) => api.delete(`/customer-counts/${id}`);
 
 // ===================== Reports =====================
 export const getReports = () => api.get("/report");
 export const createReport = (data) => api.post("/report", data);
-export const updateReport = (id, data) =>
-  api.put(`/report/${id}`, data);
+export const updateReport = (id, data) => api.put(`/report/${id}`, data);
 export const deleteReport = (id) => api.delete(`/report/${id}`);
 
 // ===================== Articles =====================
@@ -153,14 +152,13 @@ export default {
   createAward,
   updateAward,
   deleteAward,
-
+  mail,
   // customers
-getCustomers,
-getCustomer,
-createCustomer,
-updateCustomer,
-deleteCustomer,
-
+  getCustomers,
+  getCustomer,
+  createCustomer,
+  updateCustomer,
+  deleteCustomer,
 
   // Teams
   getTeamMembers,
@@ -196,22 +194,20 @@ deleteCustomer,
   updateBlog,
   deleteBlog,
 
-  
   // Careers
   getCareers,
   getCareer,
   createCareer,
   updateCareers,
   deleteCareers,
-  
 
   //branches
   getBranches,
-getRegions,
-getBranch,
-createBranch,
-updateBranches,
-deleteBranches,
+  getRegions,
+  getBranch,
+  createBranch,
+  updateBranches,
+  deleteBranches,
 
   // Gallery
   getGalleryItems,

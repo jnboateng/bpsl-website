@@ -16,9 +16,12 @@ import ChatIcon from "../components/ChatIcon";
 import { NavLink } from "react-router-dom";
 import { useSearchParams } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
+import Api from "../Api";
 
 const ContactPage = () => {
   const [activeTab, setActiveTab] = useState("enquiry");
+    const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState(null);
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
@@ -36,11 +39,28 @@ const ContactPage = () => {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(formData);
-    alert("Form submitted successfully!");
-  };
+ const handleSubmit = async (e) => {
+  e.preventDefault();
+  setIsSubmitting(true);
+
+  try {
+    const response = await Api.mail( {
+     formData, formType: activeTab 
+    });
+
+    const result = await response.json();
+    if (result.success) {
+      setSubmitStatus('success');
+      // Reset form
+    } else {
+      setSubmitStatus('error');
+    }
+  } catch (error) {
+    setSubmitStatus('error');
+  } finally {
+    setIsSubmitting(false);
+  }
+};
   const [searchParams] = useSearchParams();
  useEffect(() => {
   const tabParam = searchParams.get("tab");
