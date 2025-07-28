@@ -18,18 +18,28 @@ const SocialBar = () => {
     // Load Tawk.to script
     const s1 = document.createElement("script");
     const s0 = document.getElementsByTagName("script")[0];
-    
+   
     s1.async = true;
     s1.src = 'https://embed.tawk.to/65536ce7cec6a912820fc0f9/1hf6u2q2e';
     s1.charset = 'UTF-8';
     s1.setAttribute('crossorigin', '*');
     s0.parentNode.insertBefore(s1, s0);
 
+    // Hide the default Tawk.to widget when it loads
+    const checkTawkLoaded = setInterval(() => {
+      if (window.Tawk_API) {
+        // Hide the default widget
+        window.Tawk_API.hideWidget();
+        clearInterval(checkTawkLoaded);
+      }
+    }, 100);
+
     return () => {
       // Cleanup
       if (s1.parentNode) {
         s1.parentNode.removeChild(s1);
       }
+      clearInterval(checkTawkLoaded);
     };
   }, []);
 
@@ -83,8 +93,8 @@ const SocialBar = () => {
         >
           <FaTwitter className="text-white" />
         </Link>
-        {/* Tawk.to Chat Button */}
-       <button
+        {/* Custom Tawk.to Chat Button */}
+        <button
           onClick={openChat}
           className="bg-yellow-500 p-2 rounded-full hover:scale-110 transition-transform duration-200"
           aria-label="Live Chat"
