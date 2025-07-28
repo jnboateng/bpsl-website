@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Draggable from "react-draggable";
 import {
   FaPhone,
@@ -8,12 +8,40 @@ import {
   FaLinkedinIn,
   FaInfo,
   FaTwitter,
+  FaComment
 } from "react-icons/fa";
 import { Link } from "react-router-dom";
+
 const SocialBar = () => {
+  // Load Tawk.to script
+  useEffect(() => {
+    // Load Tawk.to script
+    const s1 = document.createElement("script");
+    const s0 = document.getElementsByTagName("script")[0];
+    
+    s1.async = true;
+    s1.src = 'https://embed.tawk.to/65536ce7cec6a912820fc0f9/1hf6u2q2e';
+    s1.charset = 'UTF-8';
+    s1.setAttribute('crossorigin', '*');
+    s0.parentNode.insertBefore(s1, s0);
+
+    return () => {
+      // Cleanup
+      if (s1.parentNode) {
+        s1.parentNode.removeChild(s1);
+      }
+    };
+  }, []);
+
+  const openChat = () => {
+    if (window.Tawk_API) {
+      window.Tawk_API.toggle();
+    }
+  };
+
   return (
     <Draggable>
-      <div className="hidden md:flex fixed top-1/2 right-6 transform -translate-y-1/2 z-50 flex-col space-y-1 bg-white py-2 px-1 rounded-3xl">
+      <div className="hidden md:flex fixed top-1/2 right-6 transform -translate-y-1/2 z-50 flex-col space-y-1 bg-white py-2 px-1 rounded-3xl shadow-lg">
         <Link
           to="tel:0800505050"
           className="bg-pink-400 p-2 rounded-full hover:scale-110 transition-transform duration-200"
@@ -55,6 +83,14 @@ const SocialBar = () => {
         >
           <FaTwitter className="text-white" />
         </Link>
+        {/* Tawk.to Chat Button */}
+       <button
+          onClick={openChat}
+          className="bg-yellow-500 p-2 rounded-full hover:scale-110 transition-transform duration-200"
+          aria-label="Live Chat"
+        >
+          <FaComment className="text-white text-lg" />
+        </button>
       </div>
     </Draggable>
   );
