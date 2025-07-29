@@ -242,10 +242,8 @@ function Reports() {
                 </span>
               </div>
               <p className="font-extralight text-white mt-12 text-lg text-left">
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                Distinctio cupiditate quos assumenda molestias minus corporis
-                odit inventore explicabo eligendi beatae ab, dolorum
-                perspiciatis ea officiis itaque nobis modi saepe delectus.
+               Start your investment journey today—every big dream begins with a small step. Try investing with Best Point Savings and Loans. Visit our website and take that step now!
+
               </p>
 
               <button className="flex z-10 items-center bg-purple-300 py-1 text-sm mt-6 text-white px-8 rounded-lg">

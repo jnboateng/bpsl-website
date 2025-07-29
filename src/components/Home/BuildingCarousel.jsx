@@ -5,17 +5,17 @@ import image2 from "../../images/footer vectors/mg.png";
 import building from "../../images/logo/footer-banner.svg"
 const slides = [
   {
-    title: "Open an Account Today",
-    description: "Open account with Best Point at an amount as low as",
-    amount: "GHS 30.00",
-    buttonText: "Click to open",
+    title: "Grow your business with flexible loans from Best Point!",
+    description: "Open to traders, artisans, and small business owners saving with us for at least",
+    amount: "2 months",
+    buttonText: "Read More",
     image: image1,
   },
   {
-    title: "Open an Account Today",
-    description: "Open account with Best Point at an amount as low as",
-    amount: "GHS 40.00",
-    buttonText: "Click to open",
+    title: "Open your child’s account today – it’s simple!",
+    description: "Build a brighter future for your child, Starting with just",
+    amount: "GHS 5.00",
+    buttonText: "Click to Apply",
     image: image2,
   },
 ];
@@ -67,7 +67,7 @@ export default function BuildingCarousel() {
 
           {/* Text Content */}
           <div className="flex-1 text-center md:text-right">
-            <h2 className="text-3xl font-bold text-gray-800">{title}</h2>
+            <h2 className="text-xl font-bold text-gray-800">{title}</h2>
             <p className="text-gray-700">{description}</p>
             <p className="font-bold text-gray-700">{amount}</p>
             <button className="mt-3 bg-purple-200 hover:bg-purple-100 text-white px-4 py-2 rounded-lg">
