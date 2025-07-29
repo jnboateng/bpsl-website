@@ -21,6 +21,7 @@ import PageWrapper from "../components/PageWrapper";
 import ProductsMain from "./ProductsMain";
 import ContactPage from "./ContactPage";
 import FAQ from "./FAQ";
+import Disclaimer from "./Disclaimer";
 const Pages = () => {
   const location = useLocation();
 
@@ -49,6 +50,7 @@ const Pages = () => {
         <Route path="/reports/" element={<PageWrapper><Report /></PageWrapper>} />
         <Route path="/contact/" element={<PageWrapper><ContactPage /></PageWrapper>} />
         <Route path="/faqs" element={<PageWrapper><FAQ /></PageWrapper>} />
+        <Route path="/disclaimer" element={<PageWrapper><Disclaimer /></PageWrapper>} />
       </Routes>
     </AnimatePresence>
   );

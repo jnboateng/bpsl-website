@@ -167,6 +167,14 @@ const Footer = () => {
                   BoG Notices
                 </Link>
               </li>
+              <li>
+                <Link
+                  to="/disclaimer"
+                  className="font-thin text-xs hover:font-light"
+                >
+                  Disclaimer
+                </Link>
+              </li>
             </ul>
           </div>
 
