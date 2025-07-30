@@ -8,7 +8,7 @@ import {
   FaLinkedinIn,
   FaInfo,
   FaTwitter,
-  FaComment
+  FaComment,
 } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
@@ -18,11 +18,11 @@ const SocialBar = () => {
     // Load Tawk.to script
     const s1 = document.createElement("script");
     const s0 = document.getElementsByTagName("script")[0];
-   
+
     s1.async = true;
-    s1.src = 'https://embed.tawk.to/65536ce7cec6a912820fc0f9/1hf6u2q2e';
-    s1.charset = 'UTF-8';
-    s1.setAttribute('crossorigin', '*');
+    s1.src = "https://embed.tawk.to/65536ce7cec6a912820fc0f9/1hf6u2q2e";
+    s1.charset = "UTF-8";
+    s1.setAttribute("crossorigin", "*");
     s0.parentNode.insertBefore(s1, s0);
 
     // Hide the default Tawk.to widget when it loads
@@ -59,7 +59,7 @@ const SocialBar = () => {
           <FaPhone className="text-white" />
         </Link>
         <Link
-          to={'https://wa.me/233509823348'}
+          to={"https://wa.me/233509823348"}
           target="_blank"
           className="bg-green-500 p-2 rounded-full hover:scale-110 transition-transform duration-200"
         >
@@ -71,6 +71,13 @@ const SocialBar = () => {
           className="bg-blue-600 p-2 rounded-full hover:scale-110 transition-transform duration-200"
         >
           <FaFacebookF className="text-white" />
+        </Link>
+        <Link
+          to={"https://x.com/bestpointsl"}
+          target="_blank"
+          className="bg-purple-100 p-2 rounded-full hover:scale-110 transition-transform duration-200"
+        >
+          <FaTwitter className="text-white" />
         </Link>
         <Link
           to={"https://www.instagram.com/bestpointsl/"}
@@ -86,17 +93,11 @@ const SocialBar = () => {
         >
           <FaLinkedinIn className="text-white" />
         </Link>
-        <Link
-          to={"https://x.com/bestpointsl"}
-          target="_blank"
-          className="bg-purple-100 p-2 rounded-full hover:scale-110 transition-transform duration-200"
-        >
-          <FaTwitter className="text-white" />
-        </Link>
+
         {/* Custom Tawk.to Chat Button */}
         <button
           onClick={openChat}
-          className="bg-yellow-500 p-2 rounded-full hover:scale-110 transition-transform duration-200"
+          className="bg-purple-100 p-2 rounded-full hover:scale-110 transition-transform duration-200"
           aria-label="Live Chat"
         >
           <FaComment className="text-white text-lg" />
