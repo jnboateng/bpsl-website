@@ -112,7 +112,7 @@ useEffect(() => {
               animate={{ x: 0, opacity: 1 }}
               exit={{ x: -1000, opacity: 0 }}
               transition={{ duration: 0.5, ease: "linear" }}
-              className="w-full h-full object-cover rounded-xl"
+              className="w-full h-full object-fit rounded-xl"
             />
           </AnimatePresence>
           <div className="absolute bottom-4 left-0 right-0 flex justify-center">
