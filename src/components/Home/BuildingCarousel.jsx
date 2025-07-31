@@ -77,7 +77,7 @@ export default function BuildingCarousel() {
           <div className="flex-1 text-center md:text-right">
             <h2 className="text-xl font-bold text-gray-800">{title}</h2>
             <p className="text-gray-700">{description}</p>
-            <p className="font-bold text-gray-700">{amount}</p>
+            <p className="font-medium text-gray-700">{amount}</p>
             <Link to={linkedPage} className="mt-3 bg-purple-200 hover:bg-purple-100 text-white px-4 py-2 rounded-lg">
               {buttonText}
             </Link>
