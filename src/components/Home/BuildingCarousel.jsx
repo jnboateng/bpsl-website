@@ -5,19 +5,25 @@ import image2 from "../../images/footer vectors/mg.png";
 import building from "../../images/logo/footer-banner.svg"
 const slides = [
   {
-    title: "Grow your business with flexible loans from Best Point!",
-    description: "Open to traders, artisans, and small business owners saving with us for at least",
-    amount: "2 months",
+    title: "Susu & Nkosuo Loans",
+    description: "Grow your business with flexible loans from Best Point!",
+    amount: "Open to traders, artisans, and small business owners saving with us for at least 2 months.",
     buttonText: "Read More",
     image: image1,
+    linkedPage:'/products/business/Susu and Nkosuo Loans',
   },
   {
-    title: "Open your child’s account today – it’s simple!",
-    description: "Build a brighter future for your child, Starting with just",
-    amount: "GHS 5.00",
+    title: "Mmofra Daakye Account (Kids Account)",
+    description: "Start with just GHS 5 and build a brighter future for your child.",
+    amount: "Open your child’s account today – it’s simple!",
     buttonText: "Click to Apply",
     image: image2,
+    linkedPage:'/products/accounts/Mmofra Daakye Account',
   },
+ 
+
+
+
 ];
 
 export default function BuildingCarousel() {
@@ -70,9 +76,9 @@ export default function BuildingCarousel() {
             <h2 className="text-xl font-bold text-gray-800">{title}</h2>
             <p className="text-gray-700">{description}</p>
             <p className="font-bold text-gray-700">{amount}</p>
-            <button className="mt-3 bg-purple-200 hover:bg-purple-100 text-white px-4 py-2 rounded-lg">
+            <Link to={linkedPage} className="mt-3 bg-purple-200 hover:bg-purple-100 text-white px-4 py-2 rounded-lg">
               {buttonText}
-            </button>
+            </Link>
           </div>
         </div>
         {/* Image */}
