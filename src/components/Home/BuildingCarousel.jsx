@@ -3,6 +3,8 @@ import { useState } from "react";
 import image1 from "../../images/footer vectors/ph.png";
 import image2 from "../../images/footer vectors/mg.png";
 import building from "../../images/logo/footer-banner.svg"
+import { Link } from "react-router-dom";
+
 const slides = [
   {
     title: "Susu & Nkosuo Loans",
@@ -37,7 +39,7 @@ export default function BuildingCarousel() {
     setCurrent((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
   };
 
-  const { title, description, amount, buttonText, image } = slides[current];
+  const { title, description, amount, buttonText, image,linkedPage } = slides[current];
 
   return (
     <div className="flex items-center py-12 justify-center  min-h-[400px] relative overflow-hidden">
