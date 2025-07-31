@@ -10,7 +10,6 @@ files
 /coverage
 /BPSL
 # production
-/build
 /public.zip
 /build.zip
 

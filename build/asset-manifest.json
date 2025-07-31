@@ -1,0 +1,35 @@
+{
+  "files": {
+    "main.css": "/static/css/main.0ac33aa2.css",
+    "main.js": "/static/js/main.1010a219.js",
+    "static/media/2.jpg": "/static/media/2.fe48091edd5a8fd38f30.jpg",
+    "static/media/3.jpg": "/static/media/3.77e93618210db57151c1.jpg",
+    "static/media/smile.jpg": "/static/media/smile.248cb90a517f39fa46c0.jpg",
+    "static/media/Group 11.png": "/static/media/Group 11.b52b8deb27219cdd150e.png",
+    "static/media/footer-banner.svg": "/static/media/footer-banner.1ac51ac49ead5a1880ee09caef334762.svg",
+    "static/media/faustina.png": "/static/media/faustina.90d23efb6e7522dabcd1.png",
+    "static/media/felicia.png": "/static/media/felicia.7dc7eba4a16b10454f8c.png",
+    "static/media/1.jpg": "/static/media/1.9ff096540320b2d208ab.jpg",
+    "static/media/group.jpg": "/static/media/group.30487a3f2bb60bdfc70e.jpg",
+    "static/media/bus.jpg": "/static/media/bus.a9632c0ce9509db9de78.jpg",
+    "static/media/anthony.jpg": "/static/media/anthony.7f5f063f7b84d0b9fd9f.jpg",
+    "static/media/ph.png": "/static/media/ph.e2e866c44ed7d9fb9747.png",
+    "static/media/mg.png": "/static/media/mg.518b574f6371315cca07.png",
+    "static/media/bog.png": "/static/media/bog.f634726cabf1c1bd0337.png",
+    "static/media/wire.png": "/static/media/wire.91c9ab1af6c822bafd12.png",
+    "static/media/map-bg.png": "/static/media/map-bg.ae4179cba1bb12d010f2.png",
+    "static/media/Frame.jpg": "/static/media/Frame.b8f72e4f2b19bf51d1d3.jpg",
+    "static/media/logo-p.png": "/static/media/logo-p.52698a181ad19476691d.png",
+    "static/media/map.png": "/static/media/map.554bcf66baa282208906.png",
+    "static/media/world.png": "/static/media/world.a5ca28defcc497f1e4d8.png",
+    "static/media/dpc.jpg": "/static/media/dpc.d0077f1d459a7a3dc862.jpg",
+    "static/media/hero-banner.svg": "/static/media/hero-banner.7629a79b3f2777245913852d9acd4fdc.svg",
+    "index.html": "/index.html",
+    "main.0ac33aa2.css.map": "/static/css/main.0ac33aa2.css.map",
+    "main.1010a219.js.map": "/static/js/main.1010a219.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.0ac33aa2.css",
+    "static/js/main.1010a219.js"
+  ]
+}
