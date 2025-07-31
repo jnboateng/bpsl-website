@@ -9,7 +9,7 @@ const slides = [
   {
     title: "Susu & Nkosuo Loans",
     description: "Grow your business with flexible loans from Best Point!",
-    amount: "Open to traders, artisans, and small business owners saving with us for at least 2 months.",
+    amount: "Open to traders, artisans, and small business owners saving with us.",
     buttonText: "Read More",
     image: image1,
     linkedPage:'/products/business/Susu and Nkosuo Loans',
