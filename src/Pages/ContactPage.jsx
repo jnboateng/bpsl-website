@@ -125,7 +125,7 @@ const ContactPage = () => {
       </div>
       <SocialBar />
       {/* Tabs */}
-      <div id="contact-form" ref={formRef} className="flex flex-wrap-reverse justify-center gap-4 mt-6 mb-10">
+      <div id="contact-form" ref={formRef} className="flex flex-wrap justify-center gap-4 mt-6 mb-10">
         <button
           onClick={() => handleTabClick("enquiry")}
           className={`px-6 py-2 rounded-full text-xs md:text-sm font-medium transition-colors flex items-center gap-2 border ${
