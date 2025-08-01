@@ -171,7 +171,7 @@ function Reports() {
                 currentReports.map((report) => (
                   <li
                     key={report._id || report.id}
-                    className="w-full bg-white shadow-md rounded-xl p-5 my-3 transition hover:shadow-lg flex items-center justify-between"
+                    className="w-full mx-4 bg-white shadow-md rounded-xl p-5 my-3 transition hover:shadow-lg flex items-center justify-between"
                   >
                     {/* Left: Title & Link */}
                     <Link className="flex items-center gap-3 text-purple-700 hover:text-purple-900 font-semibold text-base transition-transform duration-300 hover:translate-x-1">
