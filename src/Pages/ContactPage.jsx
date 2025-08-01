@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import {
   Mail,
   Phone,
@@ -18,6 +18,7 @@ import { useSearchParams } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import Api from "../Api";
 import { Loader2 } from "lucide-react";
+
 const ContactPage = () => {
   const [activeTab, setActiveTab] = useState("enquiry");
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -33,6 +34,7 @@ const ContactPage = () => {
     accountType: "",
     loanPurpose: "",
   });
+  const formRef = useRef(null);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -49,9 +51,9 @@ const ContactPage = () => {
         formData,
         formType: activeTab,
       });
-console.log(response.data)
+      console.log(response.data);
       // Check if response exists and has json() method
-      if (!response.data ) {
+      if (!response.data) {
         throw new Error("Invalid API response");
       }
 
@@ -96,6 +98,14 @@ console.log(response.data)
     const tabParam = searchParams.get("tab");
     setActiveTab(tabParam || "enquiry");
   }, [searchParams]);
+  const handleTabClick = (tab) => {
+    setActiveTab(tab);
+    if (window.innerWidth <= 768 && formRef.current) {
+      setTimeout(() => {
+        formRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
+      }, 100); // slight delay to allow form rendering
+    }
+  };
 
   return (
     <div className="">
@@ -115,7 +125,7 @@ console.log(response.data)
       {/* Tabs */}
       <div className="flex flex-wrap justify-center gap-4 mt-6 mb-10">
         <button
-          onClick={() => setActiveTab("enquiry")}
+          onClick={() => handleTabClick("enquiry")}
           className={`px-6 py-2 rounded-full text-xs md:text-sm font-medium transition-colors flex items-center gap-2 border ${
             activeTab === "enquiry"
               ? "bg-purple text-white"
@@ -126,7 +136,7 @@ console.log(response.data)
           Make Enquiry
         </button>
         <button
-          onClick={() => setActiveTab("loan")}
+          onClick={() => handleTabClick("loan")}
           className={`px-6 py-2 rounded-full text-xs md:text-sm font-medium transition-colors flex items-center gap-2 border ${
             activeTab === "loan"
               ? "bg-purple text-white"
@@ -137,7 +147,7 @@ console.log(response.data)
           Request Loan
         </button>
         <button
-          onClick={() => setActiveTab("account")}
+          onClick={() => handleTabClick("account")}
           className={`px-6 py-2 rounded-full text-xs md:text-sm font-medium transition-colors flex items-center gap-2 border ${
             activeTab === "account"
               ? "bg-purple text-white"
@@ -187,7 +197,7 @@ console.log(response.data)
         </div>
 
         {/* Right: Form & Tabs */}
-        <div className="w-full md:w-2/3">
+        <div id="contact-form" ref={formRef} className="w-full md:w-2/3">
           {/* Form */}
           <form onSubmit={handleSubmit} className="space-y-6 text-sm">
             {/* Top Row: Name */}
