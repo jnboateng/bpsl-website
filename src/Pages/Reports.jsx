@@ -227,13 +227,13 @@ function Reports() {
           <div className="col-span-1 mx-2">
             <div className="relative w-full md:w-[350px] h-[450px] p-4 rounded-xl md:mx-auto bg-gradient-to-tr from-purple-200 to-purple-300">
               <div
-                className="absolute w-full h-[40vh] bottom-0 right-0 bg-no-repeat z-0 object-contain opacity-75"
+                className="absolute w-[300px] h-[300px] bottom-0 right-0 bg-no-repeat z-0 object-contain opacity-75"
                 style={{
                   backgroundImage: `url(${wire})`,
-                  backgroundSize: "cover",
+                  backgroundSize: "contain",
                   backgroundRepeat: "no-repeat",
-                  backgroundPosition: "bottom",
                   zIndex: 0,
+                  transform: "rotate(90deg)",
                 }}
               />
               <div className="bg-white md:w-28 z-10 rounded-lg text-center flex items-center justify-center p-1">
@@ -246,8 +246,11 @@ function Reports() {
                 a small step. Try investing with Best Point Savings and Loans.
                 Visit our website and take that step now!
               </p>
-              <div className="flex justify-center bg-purple-300 hover:bg-gray-100 mt-6  rounded-lg">
-                <Link to={'/products/savings/Fixed Deposit'} className="text-center py-1 text-sm text-white px-8">
+              <div className="flex justify-center bg-purple-300 cursor-pointer  hover:bg-gray-700 mt-6 rounded-lg">
+                <Link
+                  to={"/products/savings/Fixed Deposit"}
+                  className="text-center z-50 py-1 w-full text-sm text-white px-8"
+                >
                   Apply now
                 </Link>
               </div>
