@@ -123,7 +123,7 @@ const ContactPage = () => {
         </h2>
       </div>
       {/* Tabs */}
-      <div className="flex flex-wrap justify-center gap-4 mt-6 mb-10">
+      <div id="contact-form" ref={formRef} className="flex flex-wrap justify-center gap-4 mt-6 mb-10">
         <button
           onClick={() => handleTabClick("enquiry")}
           className={`px-6 py-2 rounded-full text-xs md:text-sm font-medium transition-colors flex items-center gap-2 border ${
@@ -197,7 +197,7 @@ const ContactPage = () => {
         </div>
 
         {/* Right: Form & Tabs */}
-        <div id="contact-form" ref={formRef} className="w-full md:w-2/3">
+        <div  className="w-full md:w-2/3">
           {/* Form */}
           <form onSubmit={handleSubmit} className="space-y-6 text-sm">
             {/* Top Row: Name */}
