@@ -115,7 +115,7 @@ const TeamSection = () => {
             <img
               src={member.image_url}
               alt={member.name}
-              className="w-full h-full object-fit md:object-cover"
+              className="w-full h-full object-cover"
             />
           )}
         </div>
@@ -222,7 +222,7 @@ const TeamSection = () => {
                   <img
                     src={member.image_url}
                     alt={member.name}
-                    className="w-full h-48 object-fit md:object-cover rounded-md mb-3"
+                    className="w-full h-48 object-cover rounded-md mb-3"
                   />
                 )}
                 <h3 className="text-base text-gray-800 font-semibold mb-1">
