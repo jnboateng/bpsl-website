@@ -92,7 +92,7 @@ function Products() {
                 <img
                   src={product.image || "https://res.cloudinary.com/dinb6qtto/image/upload/v1747331399/om9zpjrtrgfvw0wtbueo.png"}
                   alt={product.title}
-                  className="w-full h-full object-fit absolute inset-0 transition-transform duration-500"
+                  className="w-full h-full object-cover absolute inset-0 transition-transform duration-500"
                 />
               </motion.div>
 
