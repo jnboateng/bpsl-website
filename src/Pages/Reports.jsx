@@ -171,7 +171,7 @@ function Reports() {
                 currentReports.map((report) => (
                   <li
                     key={report._id || report.id}
-                    className="w-full mx-4 bg-white shadow-md rounded-xl p-5 my-3 transition hover:shadow-lg flex items-center justify-between"
+                    className="w-full bg-white shadow-md rounded-xl p-5 my-3 transition hover:shadow-lg flex items-center justify-between"
                   >
                     {/* Left: Title & Link */}
                     <Link className="flex items-center gap-3 text-purple-700 hover:text-purple-900 font-semibold text-base transition-transform duration-300 hover:translate-x-1">
@@ -224,8 +224,8 @@ function Reports() {
               </div>
             )}
           </div>
-          <div className="col-span-1">
-            <div className="relative w-[300px] md:w-[350px] h-[550px] md:h-[500px] p-4 rounded-xl md:mx-auto bg-gradient-to-tr from-purple-200 to-purple-300">
+          <div className="col-span-1 mx-2">
+            <div className="relative w-full md:w-[350px] h-[550px] md:h-[500px] p-4 rounded-xl md:mx-auto bg-gradient-to-tr from-purple-200 to-purple-300">
               <div
                 className="absolute w-[70%] h-[40vh] bottom-0 right-0 bg-no-repeat z-0 object-contain opacity-75"
                 style={{
