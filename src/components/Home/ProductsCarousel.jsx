@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { getFeaturedProducts } from "../../Api";
 import { toast } from "react-toastify";
+import { Link } from "react-router-dom";
 
 export default function MovingCarousel() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -108,25 +109,26 @@ export default function MovingCarousel() {
   // Safely get features array from product
   const getProductFeatures = (product) => {
     if (!product) return [];
-    
+
     // If features is an array, use it
     if (Array.isArray(product.features)) {
       return product.features;
     }
-    
+
     // If description exists, split it into features
     if (product.description) {
       return product.description
-        .split('.')
-        .map(f => f.trim())
-        .filter(f => f.length > 0);
+        .split(".")
+        .map((f) => f.trim())
+        .filter((f) => f.length > 0);
     }
-    
+
     // Default empty array
     return [];
   };
 
-  const progress = products.length > 0 ? ((currentIndex + 1) / products.length) * 100 : 0;
+  const progress =
+    products.length > 0 ? ((currentIndex + 1) / products.length) * 100 : 0;
 
   if (products.length === 0) {
     return (
@@ -144,7 +146,7 @@ export default function MovingCarousel() {
           <div className="w-72 h-full relative">
             {visibleProducts.map((product) => {
               const features = getProductFeatures(product);
-              
+
               return (
                 <motion.div
                   key={`${product.id}-${product.index}`}
@@ -187,9 +189,14 @@ export default function MovingCarousel() {
                       ))}
                     </ul>
                     {product.position === 0 && (
-                      <button className="mt-4 w-full bg-purple text-white py-2.5 px-4 rounded-md transition-colors font-medium">
-                        Learn More
-                      </button>
+                      <div className="mt-4 w-full bg-purple text-center text-white py-2.5 px-4 rounded-md transition-colors font-medium">
+                        <Link
+                          to={"/products"}
+                          className=""
+                        >
+                          Learn More
+                        </Link>
+                      </div>
                     )}
                   </div>
                 </motion.div>
