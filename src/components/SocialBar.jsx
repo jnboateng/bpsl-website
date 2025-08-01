@@ -59,7 +59,7 @@ const SocialBar = () => {
           <FaPhone className="text-white" />
         </Link>
         <Link
-          to={"https://wa.me/233509823348"}
+          to={"https://wa.me/233509823349"}
           target="_blank"
           className="bg-green-500 p-2 rounded-full hover:scale-110 transition-transform duration-200"
         >

@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 
 const ChatIcon = () => {
 
-  const phoneNumber = "233509823348";
+  const phoneNumber = "233509823349";
   const defaultMessage = "Hello! I'm interested in learning more about your services.";
 
   return (
