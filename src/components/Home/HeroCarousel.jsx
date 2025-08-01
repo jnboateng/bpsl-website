@@ -1,32 +1,29 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect,useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import slide1 from "../../images/logo/1.jpg";
-import slide2 from "../../images/logo/smile.jpg";
-import slide3 from "../../images/logo/3.jpg";
-import slide4 from "../../images/logo/Frame.jpg";
-import slide5 from "../../images/logo/2.jpg";
+
 import SwipeButton from "./Swiper";
 import { getCarouselItems } from "../../Api";
 
 const HeroCarousel = () => {
-  // Add this inside the component
- 
-
+  const intervalRef = useRef(null);
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [carouselData, setCarouselData] = useState([]);
   const [loading, setLoading] = useState(false);
-useEffect(() => {
-  if (carouselData.length === 0) return;
 
-  const interval = setInterval(() => {
-    nextSlide();
-  }, 10000); 
+  useEffect(() => {
+    if (carouselData.length === 0) return;
+    startInterval();
 
-  return () => clearInterval(interval);
-}, [carouselData]); 
+    return () => clearInterval(intervalRef.current);
+  }, [carouselData]);
 
-
+  const startInterval = () => {
+    if (intervalRef.current) clearInterval(intervalRef.current);
+    intervalRef.current = setInterval(() => {
+      nextSlide();
+    }, 10000);
+  };
 
   useEffect(() => {
     loadItems();
@@ -51,9 +48,9 @@ useEffect(() => {
     );
   };
 
-  
   const goToSlide = (index) => {
     setCurrentIndex(index);
+    startInterval(); 
   };
 
   return (
