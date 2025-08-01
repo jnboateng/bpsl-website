@@ -247,7 +247,7 @@ function Reports() {
                 Visit our website and take that step now!
               </p>
               <div className="flex justify-center bg-purple-300 hover:bg-gray-100 mt-6  rounded-lg">
-                <Link className="text-center py-1 text-sm text-white px-8">
+                <Link to={'/products/savings/Fixed Deposit'} className="text-center py-1 text-sm text-white px-8">
                   Apply now
                 </Link>
               </div>
