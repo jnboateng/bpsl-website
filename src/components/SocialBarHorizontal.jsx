@@ -86,6 +86,13 @@ const SocialBar = () => {
       >
         <FaLinkedinIn className="text-white" />
       </Link>
+      <button
+        onClick={openChat}
+        className="bg-purple-100 p-2 rounded-full hover:scale-110 transition-transform duration-200"
+        aria-label="Live Chat"
+      >
+        <FaComment className="text-white text-lg" />
+      </button>
     </div>
   );
 };
