@@ -1,7 +1,7 @@
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useState } from "react";
-import image1 from "../../images/footer vectors/ph.png";
-import image2 from "../../images/footer vectors/mg.png";
+import image1 from "../../images/logo/susu.jpeg";
+import image2 from "../../images/logo/kids.jpg";
 import building from "../../images/logo/footer-banner.svg"
 import { Link } from "react-router-dom";
 
@@ -69,7 +69,7 @@ export default function BuildingCarousel() {
             <img
               src={image}
               alt="carousel"
-              className="rounded-lg object-cover w-full h-full"
+              className="rounded-lg object-fit w-full h-full"
             />
           </div>
 
