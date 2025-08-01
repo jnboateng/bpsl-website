@@ -225,9 +225,9 @@ function Reports() {
             )}
           </div>
           <div className="col-span-1 mx-2">
-            <div className="relative w-full md:w-[350px] h-[500px] md:h-[450px] p-4 rounded-xl md:mx-auto bg-gradient-to-tr from-purple-200 to-purple-300">
+            <div className="relative w-full md:w-[350px] h-[450px] p-4 rounded-xl md:mx-auto bg-gradient-to-tr from-purple-200 to-purple-300">
               <div
-                className="absolute w-[70%] h-[40vh] bottom-0 right-0 bg-no-repeat z-0 object-contain opacity-75"
+                className="absolute w-full h-[40vh] bottom-0 right-0 bg-no-repeat z-0 object-contain opacity-75"
                 style={{
                   backgroundImage: `url(${wire})`,
                   backgroundSize: "cover",
@@ -236,19 +236,21 @@ function Reports() {
                   zIndex: 0,
                 }}
               />
-              <div className="bg-white w-full md:w-28 z-10 rounded-lg text-center flex items-center justify-center p-1">
+              <div className="bg-white md:w-28 z-10 rounded-lg text-center flex items-center justify-center p-1">
                 <span className="font-light text-xs text-center">
                   Advertisement
                 </span>
               </div>
               <p className="font-extralight text-white mt-12 text-lg text-left">
-               Start your investment journey today—every big dream begins with a small step. Try investing with Best Point Savings and Loans. Visit our website and take that step now!
-
+                Start your investment journey today—every big dream begins with
+                a small step. Try investing with Best Point Savings and Loans.
+                Visit our website and take that step now!
               </p>
-
-              <button className="flex z-10 items-center bg-purple-300 py-1 text-sm mt-6 text-white px-8 rounded-lg">
-                Apply now
-              </button>
+              <div className="flex justify-center bg-purple-300 hover:bg-gray-100 mt-6  rounded-lg">
+                <Link className="text-center py-1 text-sm text-white px-8">
+                  Apply now
+                </Link>
+              </div>
 
               <div className="flex flex-row items-center justify-start mt-20 gap-3">
                 <div className="bg-white rounded-full w-16 h-16 flex flex-row items-center justify-center">
