@@ -39,18 +39,7 @@ export default function TeamCarousel() {
         />
       </AnimatePresence>
 
-      <button
-        onClick={prevSlide}
-        className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/70 p-2 rounded-full shadow-lg hover:bg-white"
-      >
-        ◀
-      </button>
-      <button
-        onClick={nextSlide}
-        className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/70 p-2 rounded-full shadow-lg hover:bg-white"
-      >
-        ▶
-      </button>
+     
       <div className="absolute bottom-24 flex justify-center w-full gap-2">
         {images.map((_, i) => (
           <div
