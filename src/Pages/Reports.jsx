@@ -147,7 +147,7 @@ function Reports() {
       </div>
 
       {/* Search Bar */}
-      <div className="mt-12 mx-auto">
+      <div className="mt-12 w-[90vw] md:w-92 mx-auto">
         <div className="flex justify-center items-center gap-2 bg-white border border-purple-300 rounded-full px-4 py-2 shadow-sm max-w-md mx-auto">
           <input
             type="text"
@@ -164,7 +164,7 @@ function Reports() {
 
       {/* Report List */}
       <div className="pl-2 md:pl-24 w-7/8 mt-12 h-auto md:h-screen">
-        <div className="grid grid-cols-1 md:grid-cols-2 justify-between px-2 md:px-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-2 justify-between px-2 md:px-12">
           <div className="col-span-1">
             <ul>
               {filteredReports.length ? (
@@ -236,7 +236,7 @@ function Reports() {
                   zIndex: 0,
                 }}
               />
-              <div className="bg-white w-28 z-10 rounded-lg text-center flex items-center justify-center p-1">
+              <div className="bg-white w-full md:w-28 z-10 rounded-lg text-center flex items-center justify-center p-1">
                 <span className="font-light text-xs text-center">
                   Advertisement
                 </span>
