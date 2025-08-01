@@ -54,7 +54,7 @@ const HeroCarousel = () => {
   };
 
   return (
-    <div className="h-[90vh] w-full max-w-[120rem] mx-auto pt-50 md:pt-12 flex flex-col sm:flex-row items-center justify-center gap-4 lg:gap-12 px-6 overflow-hidden">
+    <div className="h-[95vh] w-full max-w-[120rem] mx-auto pt-16 md:pt-12 flex flex-col sm:flex-row items-center justify-center gap-4 lg:gap-12 px-6 overflow-hidden">
       {/* Left Box - Text Content */}
       <div className="w-full sm:w-1/2 h-full flex items-center justify-center">
         <div className="w-full sm:w-[46vw] h-[40vh] sm:h-[85vh] bg-[#f5f5f5] rounded-3xl  overflow-hidden relative">
