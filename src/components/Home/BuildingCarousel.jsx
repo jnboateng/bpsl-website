@@ -74,7 +74,7 @@ export default function BuildingCarousel() {
           </div>
 
           {/* Text Content */}
-          <div className="flex-1 text-center md:text-right">
+          <div className="flex-1 text-center gap-y-2 md:text-right">
             <h2 className="text-xl font-bold text-gray-800">{title}</h2>
             <p className="text-gray-700">{description}</p>
             <p className="font-medium text-gray-700">{amount}</p>
