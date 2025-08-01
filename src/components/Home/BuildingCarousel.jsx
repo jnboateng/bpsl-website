@@ -61,7 +61,7 @@ export default function BuildingCarousel() {
           <ChevronLeft size={20} />
         </button>
         <div className="flex md:flex-row md:justify-between w-full flex-col gap-4">
-          <div className="w-full md:w-1/3 h-48 min-w-[100px]">
+          <div className="w-full md:w-1/3 h-55 min-w-[100px]">
             <img
               src={image}
               alt="carousel"
