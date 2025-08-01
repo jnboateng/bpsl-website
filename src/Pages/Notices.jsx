@@ -31,6 +31,12 @@ function Notices() {
 
     fetchNotices();
   }, []);
+useEffect(() => {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth", 
+  });
+}, [currentPage]);
 
   const filteredNotices = notices
     .filter((n) =>
