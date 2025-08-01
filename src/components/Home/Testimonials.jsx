@@ -60,7 +60,7 @@ const TestimonialCard = ({ testimonial, isMobile }) => {
         <img
           src={testimonial.avatar}
           alt={testimonial.name}
-          className="w-12 h-12 rounded-full object-cover mr-4"
+          className="w-12 h-12 rounded-full object-fit md:object-cover mr-4"
         />
         <div>
           <h3 className="font-semibold text-gray-800">{testimonial.name}</h3>

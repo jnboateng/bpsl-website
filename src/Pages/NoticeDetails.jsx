@@ -114,7 +114,7 @@ function NoticeDetails() {
           <img
             src={notice.image}
             alt={notice.title}
-            className="rounded-xl w-full h-64 object-cover mb-6"
+            className="rounded-xl w-full h-64 object-fit md:object-cover mb-6"
           />
         )}
         <p className="text-gray-700 whitespace-pre-wrap mb-6">

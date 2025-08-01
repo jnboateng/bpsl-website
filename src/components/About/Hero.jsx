@@ -7,7 +7,7 @@ const Hero = ({image,text1}) => {
       <img
         src={banner}
         alt={`${text1}`}
-        className="absolute mt-14 inset-0 w-full h-full object-cover"
+        className="absolute mt-14 inset-0 w-full h-full object-fit md:object-cover"
       />
 
       {/* Dark Overlay */}

@@ -152,7 +152,7 @@ export default function ArticleDetail() {
                 {(article.img || article.images?.[0]) && (
                   <img
                     src={article.img || article.images[0]}
-                    className="col-span-3 h-full m-2 rounded-lg w-full object-cover"
+                    className="col-span-3 h-full m-2 rounded-lg w-full object-fit md:object-cover"
                     alt="Article illustration"
                   />
                 )}

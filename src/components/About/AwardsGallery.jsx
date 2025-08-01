@@ -103,7 +103,7 @@ export default function AwardsGallery() {
                   <img
                     src={award.image}
                     alt={award.title}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-fit md:object-cover"
                   />
                 </motion.div>
 

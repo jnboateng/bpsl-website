@@ -64,7 +64,7 @@ function UssdBannerMobile() {
             <motion.img
               src={phone}
               alt="USSD App on Phone"
-              className=" object-cover"
+              className=" object-fit md:object-cover"
               initial="hidden"
               animate={controls}
               variants={phoneVariants}
@@ -124,7 +124,7 @@ function UssdBannerDesktop() {
           <motion.img
             src={phone}
             alt="USSD App on Phone"
-            className="w-auto absolute h-[90vh] object-cover right-0 bottom-0"
+            className="w-auto absolute h-[90vh] object-fit md:object-cover right-0 bottom-0"
             initial="hidden"
             animate={controls}
             variants={phoneVariants}

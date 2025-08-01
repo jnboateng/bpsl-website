@@ -165,7 +165,7 @@ useEffect(() => {
                       {card.image ? (
                         <img
                           src={card.image}
-                          className="w-full h-full object-cover"
+                          className="w-full h-full object-fit md:object-cover"
                           alt={card.title}
                         />
                       ) : (

@@ -166,7 +166,7 @@ export default function Articles() {
                               <img
                                 src={img.image_url}
                                 alt={`${article.title} ${idx + 1}`}
-                                className="w-full h-24 object-cover rounded-md"
+                                className="w-full h-24 object-fit md:object-cover rounded-md"
                               />
                               {idx === 3 && article.images.length > 4 && (
                                 <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center rounded-md">
@@ -189,7 +189,7 @@ export default function Articles() {
                       <img
                         src={article.image}
                         alt={article.title}
-                        className="w-full h-48 object-cover rounded-md mb-3"
+                        className="w-full h-48 object-fit md:object-cover rounded-md mb-3"
                       />
                     )}
                     
@@ -270,7 +270,7 @@ export default function Articles() {
                             <img
                               src={img.image_url}
                               alt={`${article.title} ${idx + 1}`}
-                              className="w-full h-32 object-cover rounded-md transition-transform duration-300 group-hover:scale-105"
+                              className="w-full h-32 object-fit md:object-cover rounded-md transition-transform duration-300 group-hover:scale-105"
                             />
                             {idx === 3 && article.images.length > 4 && (
                               <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center rounded-md">
@@ -306,7 +306,7 @@ export default function Articles() {
                       <img
                         src={article.image}
                         alt={article.title}
-                        className="w-full h-64 object-cover shadow-md rounded-t-3xl transition-transform duration-300 transform group-hover:scale-105"
+                        className="w-full h-64 object-fit md:object-cover shadow-md rounded-t-3xl transition-transform duration-300 transform group-hover:scale-105"
                       />
                       <span className="absolute top-2 left-2 bg-purple-100 text-white text-xs font-semibold px-2 py-1 rounded">
                         {article.category}
@@ -425,7 +425,7 @@ export default function Articles() {
                     key={idx}
                     src={img.image_url}
                     alt={`Thumbnail ${idx + 1}`}
-                    className={`w-20 h-20 object-cover rounded-md cursor-pointer ${
+                    className={`w-20 h-20 object-fit md:object-cover rounded-md cursor-pointer ${
                       selectedImageIndex === idx ? "ring-2 ring-purple-100" : ""
                     }`}
                     onClick={() => setSelectedImageIndex(idx)}

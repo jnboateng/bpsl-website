@@ -88,7 +88,7 @@ export default function AboutDetails() {
               {teamMember.image_url && (
                 <img
                   src={teamMember.image_url}
-                  className="w-full h-full object-cover rounded-3xl"
+                  className="w-full h-full object-fit md:object-cover rounded-3xl"
                   alt={teamMember.name}
                 />
               )}

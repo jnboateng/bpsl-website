@@ -87,7 +87,7 @@ function Locator() {
       </div>
       <div className="bg-gradient-to-r from-purple-200 to-purple-300 h-[420px] md:h-48 w-80 md:w-3/4 mx-auto mt-32 md:mt-2 rounded-3xl relative p-6">
         <div
-          className="absolute top-0 right-2 w-full md:w-1/3 h-screen object-cover md:bg-contain opacity-60 bg-no-repeat"
+          className="absolute top-0 right-2 w-full md:w-1/3 h-screen object-fit md:object-cover md:bg-contain opacity-60 bg-no-repeat"
           style={{ backgroundImage: `url(${wire})` }}
         />
         <div className="z-10 text-white">
