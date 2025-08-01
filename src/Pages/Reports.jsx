@@ -225,7 +225,7 @@ function Reports() {
             )}
           </div>
           <div className="col-span-1 mx-2">
-            <div className="relative w-full md:w-[350px] h-[550px] md:h-[500px] p-4 rounded-xl md:mx-auto bg-gradient-to-tr from-purple-200 to-purple-300">
+            <div className="relative w-full md:w-[350px] h-[500px] md:h-[450px] p-4 rounded-xl md:mx-auto bg-gradient-to-tr from-purple-200 to-purple-300">
               <div
                 className="absolute w-[70%] h-[40vh] bottom-0 right-0 bg-no-repeat z-0 object-contain opacity-75"
                 style={{
