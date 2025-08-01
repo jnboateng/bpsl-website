@@ -2,30 +2,28 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useState } from "react";
 import image1 from "../../images/logo/susu.jpeg";
 import image2 from "../../images/logo/kids.jpg";
-import building from "../../images/logo/footer-banner.svg"
+import building from "../../images/logo/footer-banner.svg";
 import { Link } from "react-router-dom";
 
 const slides = [
   {
     title: "Susu & Nkosuo Loans",
     description: "Grow your business with flexible loans from Best Point!",
-    amount: "Open to traders, artisans, and small business owners saving with us.",
+    amount:
+      "Open to traders, artisans, and small business owners saving with us.",
     buttonText: "Read More",
     image: image1,
-    linkedPage:'/products/business/Susu and Nkosuo Loans',
+    linkedPage: "/products/business/Susu and Nkosuo Loans",
   },
   {
     title: "Mmofra Daakye Account (Kids Account)",
-    description: "Start with just GHS 5 and build a brighter future for your child.",
+    description:
+      "Start with just GHS 5 and build a brighter future for your child.",
     amount: "Open your child’s account today – it’s simple!",
     buttonText: "Click to Apply",
     image: image2,
-    linkedPage:'/products/accounts/Mmofra Daakye Account',
+    linkedPage: "/products/accounts/Mmofra Daakye Account",
   },
- 
-
-
-
 ];
 
 export default function BuildingCarousel() {
@@ -39,7 +37,8 @@ export default function BuildingCarousel() {
     setCurrent((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
   };
 
-  const { title, description, amount, buttonText, image,linkedPage } = slides[current];
+  const { title, description, amount, buttonText, image, linkedPage } =
+    slides[current];
 
   return (
     <div className="flex items-center py-12 justify-center  min-h-[450px] relative overflow-hidden">
@@ -50,10 +49,7 @@ export default function BuildingCarousel() {
           style={{ backgroundImage: `url(${building})` }}
         ></div>
         {/* Gradient overlay - fades top and bottom */}
-        <div
-          className="absolute inset-0 w-full h-full"
-          
-        ></div>
+        <div className="absolute inset-0 w-full h-full"></div>
       </div>
 
       <div className="bg-white z-10 rounded-xl shadow-md flex items-center w-[90%] max-w-5xl p-4 md:p-6 space-x-4">
@@ -78,9 +74,14 @@ export default function BuildingCarousel() {
             <h2 className="text-xl font-bold text-gray-800">{title}</h2>
             <p className="text-gray-700">{description}</p>
             <p className="font-medium text-gray-700">{amount}</p>
-            <Link to={linkedPage} className="mt-6 bg-purple-200 hover:bg-purple-100 text-white px-4 py-2 rounded-lg">
-              {buttonText}
-            </Link>
+            <div className="mt-6">
+              <Link
+                to={linkedPage}
+                className=" bg-purple-200 hover:bg-purple-100 text-white px-4 py-2 rounded-lg"
+              >
+                {buttonText}
+              </Link>
+            </div>
           </div>
         </div>
         {/* Image */}
