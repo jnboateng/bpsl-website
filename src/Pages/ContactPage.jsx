@@ -18,6 +18,7 @@ import { useSearchParams } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import Api from "../Api";
 import { Loader2 } from "lucide-react";
+import SocialBar from "../components/SocialBarHorizontal";
 
 const ContactPage = () => {
   const [activeTab, setActiveTab] = useState("enquiry");
@@ -122,6 +123,7 @@ const ContactPage = () => {
           Contact Best Point Savings and Loans
         </h2>
       </div>
+      <SocialBar />
       {/* Tabs */}
       <div id="contact-form" ref={formRef} className="flex flex-wrap-reverse justify-center gap-4 mt-6 mb-10">
         <button
