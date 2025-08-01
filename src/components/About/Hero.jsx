@@ -2,7 +2,7 @@ import banner from "../../images/logo/hero-banner.svg"
 
 const Hero = ({image,text1}) => {
   return (
-    <div className="relative h-[300px] md:h-[250px] overflow-hidden w-full  ">
+    <div className="relative h-[250px] overflow-hidden w-full  ">
       {/* Background Image */}
       <img
         src={banner}
