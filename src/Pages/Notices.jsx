@@ -125,7 +125,7 @@ useEffect(() => {
           />
 
           {/* Selected Label */}
-          <span className="ml-2 mr-4 font-semibold text-sm text-purple-100">
+          <span className="hidden md:block ml-2 mr-4 font-semibold text-sm text-purple-100">
             {selectedCategory === "All" ? "Public Notices" : selectedCategory}
           </span>
         </div>
