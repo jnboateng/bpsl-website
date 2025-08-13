@@ -12,7 +12,7 @@ function Describe() {
               Career
             </h2>
             <h2 className="text-3xl sm:text-5xl font-bold text-gray-800 mb-4">
-              Opportunities at <span className="text-purple">Best point</span>
+              Opportunities at <span className="text-purple">Best Point</span>
             </h2>
             <span className="text-base sm:text-2xl text-justify md:text-center font-extralight">
               We're looking for young and energetic teams to join us in shaping
