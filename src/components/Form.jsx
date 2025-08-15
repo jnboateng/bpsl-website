@@ -1,6 +1,7 @@
 import { useState } from "react";
 import FileUpload from "./FileUpload";
 import { applicationMail } from "../Api";
+import { toast } from "react-toastify";
 
 export default function ApplicationForm({ career }) {
   const [file, setFile] = useState(null);
@@ -29,7 +30,7 @@ export default function ApplicationForm({ career }) {
     try {
       const response = await applicationMail(formData);
       console.log(response.data);
-      alert("Application submitted successfully!");
+      toast.success("Application submitted successfully!");
 
       // Reset form
       setName("");
