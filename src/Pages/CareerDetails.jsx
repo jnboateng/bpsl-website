@@ -4,7 +4,7 @@ import { MapPin, Clock, Briefcase, CheckCircle } from "lucide-react";
 import UndoButton from "../components/UndoButton";
 import ApplicationForm from "../components/Form";
 import { useRef, useEffect, useState } from "react";
-import { getCareer } from "../Api";
+import { getCareer,applicationMail } from "../Api";
 import { toast } from "react-toastify";
 
 const heroBg = "https://res.cloudinary.com/dinb6qtto/image/upload/v1747327037/fuelme/eunqurz5ywlilv9qris7.png";
@@ -218,7 +218,7 @@ function CareerDetails() {
         <p className="text-sm my-2">
           If you need to send us a mail regarding job opportunities, please
           write to us at{" "}
-          <span className="text-gray-800 underline">info@bestpointgh.com</span>
+          <span className="text-gray-800 underline">hr@bestpointgh.com</span>
           for more information.
         </p>
       </div>

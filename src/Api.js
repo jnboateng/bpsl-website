@@ -74,6 +74,7 @@ export const updateNotice = (id, data) => api.put(`/notices/${id}`, data);
 export const deleteNotice = (id) => api.delete(`/notices/${id}`);
 
 export const mail = (data) => api.post("/mail", data);
+export const applicationMail = (data) => api.post("/submit-application", data);
 
 // ===================== Customers =====================
 export const getCustomers = () => api.get("/customer-counts");
@@ -153,6 +154,7 @@ export default {
   updateAward,
   deleteAward,
   mail,
+  applicationMail,
   // customers
   getCustomers,
   getCustomer,

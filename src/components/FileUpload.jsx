@@ -1,10 +1,51 @@
-import { CheckCircle } from "lucide-react"; 
+import { useState } from "react";
+import { CheckCircle, Loader2 } from "lucide-react";
 
-export default function FileUpload({file,setFile}) {
+const CLOUDINARY_URL = "https://api.cloudinary.com/v1_1/dinb6qtto/image/upload";
+const UPLOAD_PRESET = "fuelme";
+
+export default function FileUpload({ file, setFile, setFileUrl }) {
+  const [uploading, setUploading] = useState(false);
+
+  const handleFileChange = async (e) => {
+    const selectedFile = e.target.files[0];
+    if (!selectedFile) return;
+
+    // ✅ Check file size (5MB max)
+    const maxSizeMB = 5;
+    if (selectedFile.size > maxSizeMB * 1024 * 1024) {
+      alert(`File size exceeds ${maxSizeMB}MB. Please upload a smaller file.`);
+      return;
+    }
+
+    setFile(selectedFile);
+    setUploading(true);
+
+    try {
+      const formData = new FormData();
+      formData.append("file", selectedFile);
+      formData.append("upload_preset", UPLOAD_PRESET);
+
+      const res = await fetch(CLOUDINARY_URL, {
+        method: "POST",
+        body: formData,
+      });
+
+      if (!res.ok) throw new Error("Upload failed");
+
+      const data = await res.json();
+      setFileUrl(data.secure_url); // ✅ Send Cloudinary URL to parent
+    } catch (err) {
+      console.error("Cloudinary upload error:", err);
+      alert("Upload failed. Please try again.");
+    } finally {
+      setUploading(false);
+    }
+  };
 
   return (
     <div>
-      <label className="block text-sm font-medium text-gray-800  mb-1">
+      <label className="block text-sm font-medium text-gray-800 mb-1">
         Attach documents *
       </label>
       <div className="mt-1 flex justify-center px-6 pt-5 pb-6 border border-dashed border-purple-100 rounded-md bg-purple-50">
@@ -27,12 +68,20 @@ export default function FileUpload({file,setFile}) {
           <div className="flex flex-col items-center text-sm text-purple-100">
             <label
               htmlFor="file-upload"
-              className="relative cursor-pointer bg-white rounded-md font-medium text-gray-800  hover:text-purple-200 focus-within:outline-none px-4 py-2"
+              className="relative cursor-pointer bg-white rounded-md font-medium text-gray-800 hover:text-purple-200 focus-within:outline-none px-4 py-2"
             >
               {file ? (
                 <div className="flex items-center gap-2">
-                  <CheckCircle className="text-green-500" size={20} />
-                  <span className="text-green-600 font-semibold">
+                  {uploading ? (
+                    <Loader2 className="animate-spin text-purple-500" size={20} />
+                  ) : (
+                    <CheckCircle className="text-green-500" size={20} />
+                  )}
+                  <span
+                    className={`font-semibold ${
+                      uploading ? "text-purple-500" : "text-green-600"
+                    }`}
+                  >
                     {file.name}
                   </span>
                 </div>
@@ -44,7 +93,7 @@ export default function FileUpload({file,setFile}) {
                 name="file-upload"
                 type="file"
                 className="sr-only"
-                onChange={(e) => setFile(e.target.files[0])}
+                onChange={handleFileChange}
               />
             </label>
           </div>
