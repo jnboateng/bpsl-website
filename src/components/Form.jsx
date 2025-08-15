@@ -1,36 +1,46 @@
 import { useState } from "react";
 import FileUpload from "./FileUpload";
+import { applicationMail } from "../Api";
 
 export default function ApplicationForm({ career }) {
   const [file, setFile] = useState(null);
+  const [fileUrl, setFileUrl] = useState("");
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     // Basic validation
-    if (!name || !phone || !email) {
-      alert("Please fill all fields");
+    if (!name || !phone || !email || !fileUrl) {
+      alert("Please fill all fields and upload your file");
       return;
     }
 
-    // You can now send this data to your server
-    console.log({
+    const formData = {
       name,
       phone,
       email,
-      file,
+      fileUrl,
       career,
-    });
+    };
 
-    alert("Application submitted successfully!");
-    // Optionally clear the form
-    setName("");
-    setPhone("");
-    setEmail("");
-    setFile(null);
+    try {
+      const response = await applicationMail(formData);
+      console.log(response.data);
+      alert("Application submitted successfully!");
+
+      // Reset form
+      setName("");
+      setPhone("");
+      setEmail("");
+      setFile(null);
+      setFileUrl("");
+    } catch (error) {
+      console.error("Error submitting application:", error);
+      alert("Something went wrong, please try again.");
+    }
   };
 
   return (
@@ -76,7 +86,7 @@ export default function ApplicationForm({ career }) {
           />
         </div>
 
-        <FileUpload file={file} setFile={setFile} />
+        <FileUpload file={file} setFile={setFile} setFileUrl={setFileUrl} />
 
         <div>
           <button
