@@ -5,7 +5,7 @@ import UndoButton from "../components/UndoButton";
 import ApplicationForm from "../components/Form";
 import { useRef, useEffect, useState } from "react";
 import { getCareer} from "../Api";
-import { toast, ToastContainer } from "react-toastify";
+import { toast } from "react-toastify";
 
 const heroBg = "https://res.cloudinary.com/dinb6qtto/image/upload/v1747327037/fuelme/eunqurz5ywlilv9qris7.png";
 
@@ -47,7 +47,6 @@ function CareerDetails() {
 
   return (
     <div>
-      <ToastContainer />
       <Hero image={heroBg} text1={"Careers"} />
       <div className="flex gap-x-4 lg:gap-x-12 items-center justify-start mt-12 ">
         <div className="bg-purple h-8 w-12 mb-2" />

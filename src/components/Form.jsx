@@ -1,7 +1,7 @@
 import { useState } from "react";
 import FileUpload from "./FileUpload";
 import { applicationMail } from "../Api";
-import { toast, ToastContainer } from "react-toastify";
+import { toast} from "react-toastify";
 
 export default function ApplicationForm({ career }) {
   const [file, setFile] = useState(null);
@@ -46,7 +46,6 @@ export default function ApplicationForm({ career }) {
 
   return (
     <div className="flex items-center justify-center bg-white px-4">
-      <ToastContainer />
       <form onSubmit={handleSubmit} className="w-full max-w-xl space-y-6">
         <div className="flex flex-col sm:flex-row sm:space-x-4 space-y-4 sm:space-y-0">
           <div className="w-full sm:w-1/2">
