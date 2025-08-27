@@ -49,6 +49,9 @@ const TeamSection = () => {
   useEffect(() => {
     fetchTeams();
   }, []);
+const sortByDisplayOrder = (members = []) => {
+  return [...members].sort((a, b) => (a.display_order || 0) - (b.display_order || 0));
+};
 
   const categories = ["Management", "Shareholders", "Board of Directors"];
 
@@ -66,8 +69,8 @@ const TeamSection = () => {
   };
 
   const renderManagementTeam = () => {
-    const management = teams.management || [];
-    const row1 = management.slice(0, 3);
+  const management = sortByDisplayOrder(teams.management || []);
+      const row1 = management.slice(0, 3);
     const row2 = management.slice(3, 6);
     const row3 = management.slice(6, 9);
 
@@ -87,8 +90,8 @@ const TeamSection = () => {
   };
 
   const renderOtherTeam = () => {
-    const members = teams[activeTab] || [];
-    const rowLength = 3;
+  const members = sortByDisplayOrder(teams[activeTab] || []);
+      const rowLength = 3;
     const rowCount = Math.ceil(members.length / rowLength);
 
     return Array.from({ length: rowCount }).map((_, rowIdx) => {

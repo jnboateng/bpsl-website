@@ -26,8 +26,7 @@ const ContactPage = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [branchesData, setBranchesData] = useState({});
-
+  const [branchesData, setBranchesData] = useState([]);
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
