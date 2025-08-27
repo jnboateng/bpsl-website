@@ -155,7 +155,7 @@ const AboutSection = () => {
           />
           <h3 className="text-purple-100 font-bold mb-2">Creativity</h3>
           <p className="text-sm text-gray-700 font-open-sans font-extralight">
-            We strive to provide tailored solutions to our customers.
+            We strive to provide tailored solutions to our customers through technology.
           </p>
           <span className="absolute bottom-4 right-4 bg-gradient-to-b from-purple to-purple-200 text-white w-6 h-6 flex items-center justify-center rounded-full text-sm font-bold">
             3

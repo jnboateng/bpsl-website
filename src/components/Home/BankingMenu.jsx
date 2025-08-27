@@ -74,10 +74,10 @@ const BankingMenu = () => {
             </li>
             <li>
               <Link
-                to={"/products/accounts/Fixed Deposit"}
+                to={"products/savings/Current Account"}
                 className="block text-sm px-2 hover:bg-white/90 rounded-lg transition-transform duration-300 hover:scale-[1.03]"
               >
-                Fixed Deposit
+                Current Account
               </Link>
             </li>
             <li>

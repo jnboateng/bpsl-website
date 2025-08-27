@@ -169,6 +169,8 @@ function Stats() {
         </NavLink>
 
         {/* USSD Service */}
+                <NavLink to="/products/digital/best mobile banking">
+
         <motion.div
           className="flex flex-col md:flex-row items-center space-y-4 md:space-y-0 group"
           whileHover={{ scale: 1.05 }}
@@ -196,6 +198,7 @@ function Stats() {
             </motion.span>
           </div>
         </motion.div>
+        </NavLink>
       </motion.div>
     </div>
   );

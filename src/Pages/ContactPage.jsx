@@ -19,12 +19,15 @@ import { Helmet } from "react-helmet-async";
 import Api from "../Api";
 import { Loader2 } from "lucide-react";
 import SocialBar from "../components/SocialBarHorizontal";
+import { toast } from "react-toastify";
 
 const ContactPage = () => {
   const [activeTab, setActiveTab] = useState("enquiry");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
-    const [branchTotal, setBranchTotal] = useState("");
+  const [loading, setLoading] = useState(true);
+  const [branchesData, setBranchesData] = useState({});
+
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
@@ -43,13 +46,16 @@ const ContactPage = () => {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-// Fetch all branches
   const fetchBranches = async () => {
     try {
       setLoading(true);
       const response = await Api.getBranches();
-      setBranchesData(response.data.regions);
-     
+
+      // flatten all branches from all regions into one array
+      const branches = Object.values(response.data.regions).flat();
+
+      setBranchesData(branches); // now it's a flat array of branches
+      console.log("Accumulated branches:", branches);
     } catch (error) {
       toast.error("Failed to fetch branches");
     } finally {
@@ -60,7 +66,6 @@ const ContactPage = () => {
   useEffect(() => {
     fetchBranches();
   }, []);
-
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -145,7 +150,11 @@ const ContactPage = () => {
       </div>
       <SocialBar />
       {/* Tabs */}
-      <div id="contact-form" ref={formRef} className="flex flex-wrap justify-center gap-4 mt-6 mb-10">
+      <div
+        id="contact-form"
+        ref={formRef}
+        className="flex flex-wrap justify-center gap-4 mt-6 mb-10"
+      >
         <button
           onClick={() => handleTabClick("enquiry")}
           className={`px-6 py-2 rounded-full text-xs md:text-sm font-medium transition-colors flex items-center gap-2 border ${
@@ -219,7 +228,7 @@ const ContactPage = () => {
         </div>
 
         {/* Right: Form & Tabs */}
-        <div  className="w-full md:w-2/3">
+        <div className="w-full md:w-2/3">
           {/* Form */}
           <form onSubmit={handleSubmit} className="space-y-6 text-sm">
             {/* Top Row: Name */}
@@ -290,14 +299,20 @@ const ContactPage = () => {
             {/* Location */}
             <div>
               <label className="text-gray-400">Location (Nearest Branch)</label>
-              <input
-                type="text"
+              <select
                 name="location"
                 value={formData.location}
                 onChange={handleChange}
                 className="w-full bg-purple-50 border-b border-gray-400 focus:outline-none focus:border-black text-black py-1"
                 required
-              />
+              >
+                <option value="">-- Select Nearest Branch --</option>
+                {branchesData.map((branch, idx) => (
+                  <option key={idx} value={branch.location || branch.name}>
+                    {branch.location || branch.name}
+                  </option>
+                ))}
+              </select>
             </div>
 
             {/* Conditional Fields */}
