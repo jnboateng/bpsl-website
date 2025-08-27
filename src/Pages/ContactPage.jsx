@@ -24,6 +24,7 @@ const ContactPage = () => {
   const [activeTab, setActiveTab] = useState("enquiry");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
+    const [branchTotal, setBranchTotal] = useState("");
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
@@ -41,6 +42,25 @@ const ContactPage = () => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
+
+// Fetch all branches
+  const fetchBranches = async () => {
+    try {
+      setLoading(true);
+      const response = await Api.getBranches();
+      setBranchesData(response.data.regions);
+     
+    } catch (error) {
+      toast.error("Failed to fetch branches");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchBranches();
+  }, []);
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -255,7 +275,7 @@ const ContactPage = () => {
                 />
               </div>
               <div className="w-full">
-                <label className="text-gray-400">Address</label>
+                <label className="text-gray-400">Business Location</label>
                 <input
                   type="text"
                   name="address"
