@@ -263,8 +263,13 @@ const Footer = () => {
             </div>
             <div>
               <p className="font-semibold">Visit</p>
-              <p className="font-bold">Mile 7 – Achimota</p>
-              <p className="font-bold">Old Peace FM Building</p>
+              <Link
+                to="/contact"
+                className="font-thin text-xs hover:font-light"
+              >
+                <p className="font-bold">Find The</p>
+                <p className="font-bold">Nearest Branch</p>
+              </Link>
             </div>
           </div>
 
@@ -291,9 +296,7 @@ const Footer = () => {
 
             <img src={dpc} alt="DPC LOGO" className="w-8 h-8 rounded-full" />
           </div>
-          <p>
-            Copyright © 2025 – All Rights Reserved 
-          </p>
+          <p>Copyright © 2025 – All Rights Reserved</p>
           <div className="flex gap-4 z-10">
             <Link className="cursor-pointer" to="/faqs">
               FAQs
